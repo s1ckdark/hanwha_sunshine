@@ -1,0 +1,95 @@
+//
+// Top
+//
+
+#top {
+  overflow: hidden;
+  position: relative;
+  background-color:$hero-bg-color;
+  width:100vw;
+  height:calc(100vw * 9 / 16);
+  @extend %full-screen;
+  > .wrapper {
+    z-index: 1;
+    position: relative;
+    height: 100%;
+  }
+  .hero {
+      // bottom: rem(50px);
+      // position:absolute;
+      #canvas {
+        left:calc(50% - 600px) !important;
+        top:calc(50% - 360px) !important;;
+        position:absolute;
+      }
+
+      // &--map {
+      // background-size: contain !important;
+      // width:1181px;
+      // height:709px;
+      // display:block;
+      // &.greydot {
+      //   z-index: 1;
+      //   background: url('../img/hero/map_greydot.png') 50% 50%/cover no-repeat;
+      // }
+      // &.orangedot {
+      //   opacity: 0;
+      //   background: url('../img/hero/map_orangedot.png') 50% 50%/cover no-repeat;
+      //   z-index:9;
+      // }
+    // }
+    &--obj {
+      position:absolute;
+      background-size: cover;
+      &.title {
+        width: rem(503px);
+        height: rem(324px);
+        background: url('../img/hero/hero_title.png') 0 0/cover no-repeat;
+        left: calc(50% - 250px);
+        top: calc(50% - 162px);
+        z-index:30;
+      }
+      &.kanarb {
+        width: rem(497px);
+        height: rem(423px);
+        background: url('../img/hero/kanarb.png') 0 0/cover no-repeat;
+        left: calc(50% - 249px);
+        top: calc(50% - 211px);
+        z-index:10;
+        opacity:0;
+        visibility:hidden;
+      }
+    }
+}
+
+  .top-intro  {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right:0;
+    padding-bottom: rem(128px);
+    .text-intro {
+      left: 0px;
+      font-weight: 400;
+      font-size: rem(18px);
+      line-height: rem(32px);
+      text-align: left;
+      color: $br-gray-color;
+    }
+  }
+
+  .top-indicator {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right:0;
+    padding-bottom: rem(60px);
+    .link {
+        display: block;
+        width: 24px;
+        height: 16px;
+        margin: rem(15px) auto 0;
+        background: url('../img/hero/icon-arrow-down.svg') 50% 50% no-repeat;
+    }
+  }
+}
