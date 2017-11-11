@@ -1,12 +1,8 @@
 // web font loader
 if (typeof WebFont === 'object') {
   WebFont.load({
-    custom: {
-      families: ['Spoqa Han Sans'],
-      urls: ['https://cdnjs.cloudflare.com/ajax/libs/spoqa-han-sans/2.1.1/css/SpoqaHanSans-kr.min.css']
-    },
     google: {
-      families: ['Montserrat']
+      families: ['Noto Sans KR:300,400,500,600']
     },
   });
 }

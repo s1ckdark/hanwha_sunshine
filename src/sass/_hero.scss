@@ -1,11 +1,11 @@
 //
-// Top
+// Hero
 //
 
-#top {
+#hero {
   overflow: hidden;
   position: relative;
-  background-color:$hero-bg-color;
+  background: url('../img/hero/bg-hero.jpg') 50% 50%/cover;
   width:100vw;
   height:calc(100vw * 9 / 16);
   @extend %full-screen;
@@ -15,81 +15,53 @@
     height: 100%;
   }
   .hero {
-      // bottom: rem(50px);
-      // position:absolute;
-      #canvas {
-        left:calc(50% - 600px) !important;
-        top:calc(50% - 360px) !important;;
-        position:absolute;
-      }
-
-      // &--map {
-      // background-size: contain !important;
-      // width:1181px;
-      // height:709px;
-      // display:block;
-      // &.greydot {
-      //   z-index: 1;
-      //   background: url('../img/hero/map_greydot.png') 50% 50%/cover no-repeat;
-      // }
-      // &.orangedot {
-      //   opacity: 0;
-      //   background: url('../img/hero/map_orangedot.png') 50% 50%/cover no-repeat;
-      //   z-index:9;
-      // }
-    // }
-    &--obj {
-      position:absolute;
-      background-size: cover;
-      &.title {
-        width: rem(503px);
-        height: rem(324px);
-        background: url('../img/hero/hero_title.png') 0 0/cover no-repeat;
-        left: calc(50% - 250px);
-        top: calc(50% - 162px);
-        z-index:30;
-      }
-      &.kanarb {
-        width: rem(497px);
-        height: rem(423px);
-        background: url('../img/hero/kanarb.png') 0 0/cover no-repeat;
-        left: calc(50% - 249px);
-        top: calc(50% - 211px);
-        z-index:10;
-        opacity:0;
-        visibility:hidden;
-      }
-    }
+      
 }
 
-  .top-intro  {
+  .hero-intro  {
     position: absolute;
-    bottom: 0px;
+    top:0;
+    bottom:0;
     left: 0;
     right:0;
     padding-bottom: rem(128px);
+    text-align: center;
+    .heading {
+      font-size: rem(72px);
+      line-height : rem(95px);
+      font-weight:600;
+    }
     .text-intro {
       left: 0px;
       font-weight: 400;
       font-size: rem(18px);
       line-height: rem(32px);
       text-align: left;
-      color: $br-gray-color;
+      color: $text-color-light;
     }
   }
 
-  .top-indicator {
+  .hero-indicator {
     position: absolute;
     bottom: 0px;
     left: 0;
     right:0;
     padding-bottom: rem(60px);
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-radius: 15px;
+    position: absolute;
+    width: rem(28px);
+    height: rem(41px);
+    z-index: 19;
     .link {
         display: block;
-        width: 24px;
-        height: 16px;
+        width: 12px;
+        height: 8px;
         margin: rem(15px) auto 0;
-        background: url('../img/hero/icon-arrow-down.svg') 50% 50% no-repeat;
+        background: url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAQAAABn7dZ6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhCwsRBim4ESI6AAAATElEQVQI103LQRHAMAgF0Z/BTBSESsZK3eBge2CggRP7BiE2hq41NhIPSVxkBIkLJ2HICCA54qbJqN6bKjtqaJr8Q9FktNDM0dLbxwdjBXEgc8MxSAAAAABJRU5ErkJggg==') 50% 50% no-repeat;
     }
   }
 }
+
