@@ -34,7 +34,7 @@
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="./css/style.css?v=1510280259453">
+  <link rel="stylesheet" href="./css/style.css?v=1510393671401">
   <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico">
   <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -159,14 +159,16 @@
     <!-- //상단공통 -->
     <section id="hero" class="ja_section_wrap" ja-section-title="한화 해피선샤인 인트로">
       <div class="wrapper">
-        <div class="top-intro">
-          <div class="heading-1">사랑빛 쏟아지다</div>
+        <div class="hero-intro">
+          <div class="heading">사랑빛 쏟아지다</div>
           <p class="text-intro">
             산봉우리 사이로 태양이 떠오릅니다. 빛이 쏟아집니다. 여러 줄기 빛이 모여 전기가 됩니다. 빛은 아이들 공부방을 밝히는 등불이 됩니다. 빛은 할머니의 시린 몸을 녹이는 따뜻한 쉼터가 됩니다. 빛은 장애인이 일자리를 찾는 희망이 됩니다. 사랑빛입니다.
           </p>
         </div>
-        <div class="top-indicator">
-          <a href="#interview" class="link">
+        <div class="hero-indicator">
+          <a href="#interview">
+        <span class="link"></span>
+        <span class="link"></span>
         <span class="sr-only">이어보기</span>
       </a>
         </div>
@@ -261,31 +263,8 @@
     <section id="wecan" class="ja_section_wrap" ja-section-title="고양 위캔센터">
       <div class="wrapper">
         <header class='section-header'>
-          <h4 class="overline">interview</h4>
+          <h2>고양 <span class="text-color-orange">위캔센터</span></h2>
         </header>
-        <div class="col">
-          <p class="text">
-            김승호 보령제약그룹 회장과 유명 MC 이홍렬씨가 만났다. 기업인으로, 방송인으로 각각 걸어온 이력은 달라도 두 사람은 닮은꼴이다. 김 회장은 약국 경영으로 출발해 세계 시장에서 인정받는 신약 개발을 이뤄냈다. 1979년 동양방송 개그맨으로 데뷔한 이홍렬씨는 40년 가까이 ‘방송 한길’을 걷고 있다. 그러면서도 두 사람은 사회공헌, 특히 어린이 후원에 적극적이다. 김 회장은 보령 창립 50주년 때 사재 30억원을 출연해 보령중보(中甫)재단을 만들었다.
-            이씨도 98년 초록우산 어린이재단 홍보대사를 맡은 이래 20년째 활동 중이다. 기부 강의 ‘이홍렬의 펀펀 도네이션’은 100회를 넘었다.
-          </p>
-        </div>
-        <div id="video1" class="video-play">
-          <a href="javascript:void(0)" class="play" style="background-image: url('./img/video/poster1.jpg');"></a>
-          <video></video>
-        </div>
-      </div>
-    </section>
-    <section id="share" class="ja_section_wrap" ja-section-title="7년간 나눠온 773만5405kWh의 에너지">
-      <div class="wrapper">
-        <header class='section-header'>
-          <h4 class="overline">interview</h4>
-        </header>
-        <div class="col">
-          <p class="text">
-            김승호 보령제약그룹 회장과 유명 MC 이홍렬씨가 만났다. 기업인으로, 방송인으로 각각 걸어온 이력은 달라도 두 사람은 닮은꼴이다. 김 회장은 약국 경영으로 출발해 세계 시장에서 인정받는 신약 개발을 이뤄냈다. 1979년 동양방송 개그맨으로 데뷔한 이홍렬씨는 40년 가까이 ‘방송 한길’을 걷고 있다. 그러면서도 두 사람은 사회공헌, 특히 어린이 후원에 적극적이다. 김 회장은 보령 창립 50주년 때 사재 30억원을 출연해 보령중보(中甫)재단을 만들었다.
-            이씨도 98년 초록우산 어린이재단 홍보대사를 맡은 이래 20년째 활동 중이다. 기부 강의 ‘이홍렬의 펀펀 도네이션’은 100회를 넘었다.
-          </p>
-        </div>
         <div id="video1" class="video-play">
           <a href="javascript:void(0)" class="play" style="background-image: url('./img/video/poster1.jpg');"></a>
           <video></video>
@@ -314,16 +293,123 @@
         </p>
       </div>
       <div class="wrapper">
-        <div class="container">
-          <header class="section-header">
-            <h4 class="heading-2">49만 그루의 사랑빛</h4>
-          </header>
-          <p class="text">
-            지금까지 조성된 태양의 숲은 여섯 곳. 이 중 2013년 중국 닝샤자치구에 조성된 2호 숲은 UNCCD (UN사막화방지협약) 의 지지에 힘입어 탄생했다. 2012년, 한화는 UNCCD와 함께 이 곳에 시간당 80kW의 전력을 생산하는 태양광 발전설비를 기증했다. 사막화에 대응하기 위해 민간 기업과 협업한 사례로는 처음이었다. 이후 이 설비에서 생산된 전기가 양묘장 운영에 쓰였고 키워진 묘목은 이듬해 닝샤자치구에 옮겨졌다. 그 후 5년이 지난 지금,
-            나무 49만 그루가 중국과 몽골, 그리고 우리나라에 뿌리를 내렸다. 햇빛은 나무가 되고, 숲이 된다. 그리고 환경을 지키는 빛이 되어 쏟아진다.
-          </p>
+        <header class="section-header">
+          <h4 class="heading-2">해피선샤인으로 거둔<br><span class="text-color-orange">Co2 배출 감소량 3313톤</span></h4>
+        </header>
+        <div class="container col2">
+          <div class="col">
+            <div class="icon icon-tree"></div>
+            <div class="sub-header">
+              <h3 class="title">소나무 120만 그루</h3>
+              <p class="text">
+                120만 508그루의 소나무가 1년동안 이 정도의 이산화탄소 배출을 줄일 수 있다.
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="icon icon-space"></div>
+            <div class="sub-header">
+              <h3 class="title">지구-달 22번 왕복</h3>
+              <p class="text">
+                휘발유 자동차로 17,239,347km를 주행할 때 배출하는 Co2를 줄인셈 이다.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+    <section id="origin" class="ja_section_wrap" ja-section-title="햇빛은 생명이다">
+      <div class="bg_background">
+        <div class="wrapper">
+          <div class="container">
+            <span class="speechBubble">
+            <p>햇빛은 생명이다</p>
+         </span>
+            <p class="text">
+              태양은 만물의 어머니다. 깨끗하고 고갈되지 않으며 누구에게나 공평하게 주어지는 자애로운 에너지다. 우리가 먹는 모든 음식의 연원을 거슬러 올라가면 태양과 만난다. 식물은 햇볕을 받아 광합성 작용을 해 탄수화물 같은 유기물을 생산하고 번성한다. 닭과 소도 풀을 먹고 자란다. 따지고 보면 우리가 먹는 밥과 반찬은 햇빛이 모이고 모여 만들어진 셈이다.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="slide-orange">
+          <div class="container col2">
+            <div class="col">
+              <div class="sub-title">밥 한 공기면<br>TV 두시간<br>켤 수 있는 에너지</div>
+              <div class="text">
+                전기 에너지의 단위인 1kWh는 열에너지 859.85kcal와 같다. 밥 한 공기는 대략 300kcal인데, 이를 전기 에너지로 바꾸면 350kWh (0.35kWh)에 해당된다. 밥 한 공기의 에너지면 150W 텔레비전을 두 시간 조금 넘게 볼 수 있다.
+              </div>
+              <div class="slide-nav"></div>
+            </div>
+            <div class="col">
+              <div class="sub-title">태양광 패널 1개가 한 시간 동안 만드는 에너지</div>
+              <div class="panel-graphic"></div>
+              <div class="indicator"></div>
+              <div class="info">
+                <div class="icon icon-food">
+                  <span class="data">258kcal</span>
+                  <span class="desc">가벼운 다이어트 식단 한끼</span>
+                </div>
+                <div class="icon icon-electronics">
+                  <span class="data">300kWh</span>
+                  <span class="desc">소비전력 150kw 인 TV  2시간 시청 가능</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-green">
+          <div class="container col2">
+            <div class="col">
+              <div class="sub-title">밥 한 공기면<br>TV 두시간<br>켤 수 있는 에너지</div>
+              <div class="text">
+                전기 에너지의 단위인 1kWh는 열에너지 859.85kcal와 같다. 밥 한 공기는 대략 300kcal인데, 이를 전기 에너지로 바꾸면 350kWh (0.35kWh)에 해당된다. 밥 한 공기의 에너지면 150W 텔레비전을 두 시간 조금 넘게 볼 수 있다.
+              </div>
+              <div class="slide-nav"></div>
+            </div>
+            <div class="col">
+              <div class="sub-title">태양광 패널 4개가 한 시간 동안 만드는 에너지</div>
+              <div class="panel-graphic"></div>
+              <div class="indicator"></div>
+              <div class="info">
+                <div class="icon icon-food">
+                  <span class="data">1032kcal</span>
+                  <span class="desc">성인을 위한 푸짐한 한끼 식사</span>
+                </div>
+                <div class="icon icon-electronics">
+                  <span class="data">1000kWh</span>
+                  <span class="desc">소비전력 500kw 인 세탁기  2시간 사용 가능</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-blue">
+          <div class="container col2">
+            <div class="col">
+              <div class="sub-title">밥 한 공기면<br>TV 두시간<br>켤 수 있는 에너지</div>
+              <div class="text">
+                전기 에너지의 단위인 1kWh는 열에너지 859.85kcal와 같다. 밥 한 공기는 대략 300kcal인데, 이를 전기 에너지로 바꾸면 350kWh (0.35kWh)에 해당된다. 밥 한 공기의 에너지면 150W 텔레비전을 두 시간 조금 넘게 볼 수 있다.
+              </div>
+              <div class="slide-nav"></div>
+            </div>
+            <div class="col">
+              <div class="sub-title">태양광 패널 10개가 한 시간 동안 만드는 에너지</div>
+              <div class="panel-graphic"></div>
+              <div class="indicator"></div>
+              <div class="info">
+                <div class="icon icon-food">
+                  <span class="data">2580kcal</span>
+                  <span class="desc">성인 두명을 위한 기분좋은 외식</span>
+                </div>
+                <div class="icon icon-electronics">
+                  <span class="data">2400kWh</span>
+                  <span class="desc">소비전력 1200kw 인 에어컨  2시간 사용 가능</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </section>
     <section id="forestofsun" class="ja_section_wrap" ja-section-title="한화 태양의 숲">
       <div class="wrapper">
@@ -375,19 +461,19 @@
     <div class="copyright">
       <p>Copyright by JoongAng Ilbo Co.,Ltd. All Rights Reserved</p>
     </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TimelineMax.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
-  <script src="./js/lib/DrawSVGPlugin.min.js"></script>
-  <script src="./js/lib/SplitText.min.js"></script>
-  <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-  <script src="./js/script.js?v=1510280259453"></script>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+    <script src="./js/lib/DrawSVGPlugin.min.js"></script>
+    <script src="./js/lib/SplitText.min.js"></script>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="./js/script.js?v=1510393671401"></script>
 </body>
 
 </html>

@@ -7,6 +7,7 @@
 //
 $orange: #f37321;
 
+$text-color-orange:   $orange;
 $text-color-white: 	  #ffffff;
 $text-color-black: 	  #000000;
 $text-color-muted: 	  #222222;
@@ -42,7 +43,7 @@ $font-size-lead:      rem(22px);
 $heading-1:           rem(48px);
 $heading-2:           rem(30px);
 $heading-font-weight: 400;
-$heading-text-color:  $text-color-dark;
+$heading-text-color:  $text-color-white;
 $heading-line-height: 1.26;
 
 $link-color:          $text-color-white;

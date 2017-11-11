@@ -16,7 +16,7 @@ html {
 //
 body {
   background: $body-bg;
-  color: $text-color;
+  color: $text-color-white;
   font-family: $font-family;
   font-weight: $font-weight;
   line-height: $line-height;
@@ -59,7 +59,7 @@ p {
   padding: rem(30px) 0 rem(20px);
    font-family:$font-family;
   &.dark {
-    color: $br-gray-color;
+    color: $text-color-white;
   }
 }
 .heading-2 {
@@ -67,10 +67,7 @@ p {
    font-family:$font-family;
   color: rgb(17, 17, 17);
   &.dark {
-    color: $br-gray-color;
-  }
-  .lipstick {
-    color: $lipstick;
+    color: $text-color-black;
   }
 }
 .text {

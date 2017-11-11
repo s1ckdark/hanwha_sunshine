@@ -68,7 +68,7 @@
         .circle-num {
           display:inline-block;
           font-size:20px;
-          border:1px solid $br-gray-color;
+          border:1px solid $orange;
           width:40px;
           height:40px;
           border-radius:50%;
@@ -80,8 +80,7 @@
           line-height:1.8;
         }
         .active .circle-num {
-          color:$br-gray-color;
-          background-color: $lipstick;
+          color:$orange;
         }
         .owl-dots {
           position:absolute;
