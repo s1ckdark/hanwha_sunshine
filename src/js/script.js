@@ -2,15 +2,15 @@
 if (typeof WebFont === 'object') {
   WebFont.load({
     google: {
-      families: ['Noto Sans KR:300,400,500,600']
+      families: ['Noto Sans KR']
     },
   });
 }
 
 $(function(){
 
-  // // lazyLoad
-  // // https://appelsiini.net/projects/lazyload
+  // lazyLoad
+  // https://appelsiini.net/projects/lazyload
   // var userAgent = navigator.userAgent.toLowerCase();
   // if (userAgent.indexOf('edge') > -1 || userAgent.indexOf('trident') > -1) { // edge & ie - lazyload 버그로 임시로 처리함.
   //   $('img.lazyload').each(function(){
@@ -23,42 +23,7 @@ $(function(){
   //   lazyload();
   // }
 
- //injoongang 
-  var current = 0;
-  $('.article_arrow').click(function(){
-   
-    if(current === 0) {
-      TweenMax.to($('.article_injoonang'),.5,{height:'100%', onComplete:function(){ current=1;}});
-      TweenMax.to($('.article_arrow'),.5,{className : '+= up'});
-    } else {
-      TweenMax.to($('.article_injoonang'),.5,{height:'480px', onComplete:function(){ current=0;}});
-      TweenMax.to($('.article_arrow'),.5,{className : '= article_arrow'});
-    }
- })
-//era
-
-var discoLen = $('#era > .wrapper > .container').height() - 155;
-$('#era > .wrapper > .container > .col').eq(1).css({'height':discoLen});
-// era boldMarketing
-TweenMax.set('.boldMarketing',{autoAlpha:0})
-$('.boldbtn').click(function(){
-  var target = $(this).siblings('.boldMarketing');
-  TweenMax.to(target[0], 1, {autoAlpha:1,ease:Power1.easeIn})
-})
-$('.close').click(function(){
-  var target = $(this).parent();
-  TweenMax.fromTo(this,.5,{y:'+5'}, {y:'-5',onComplete:function(){
-  TweenMax.to(target[0],.1, {autoAlpha:0})    
-  }})
-})
-
-// kanarb_interview scrolling bg img
-  // var width = $('#viewport').width(), //assumes your image is 1024px wide
-  // speed = 24, //pixels per second
-  // duration = width / speed,
-  // endPosition = width - (speed / 24); //adjust the end position assuming 60fps
-  // TweenMax.to($(".interview1"), duration, {scale:1.5, force3D:true,repeat:-1});
-  TweenMax.fromTo('.bg_kanarb', 8, {scale:1}, {scale:1.1, yoyo:true, repeat:-1, ease:Linear.easeNone})
+  // TweenMax.fromTo('.bg_kanarb', 8, {scale:1}, {scale:1.1, yoyo:true, repeat:-1, ease:Linear.easeNone})
   //
   // Video play
   //

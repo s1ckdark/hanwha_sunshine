@@ -1,83 +1,100 @@
 //
-// brand-era
+// forest
 //
-#era {
-	background-color: rgb(51, 51, 51);
-	width: 100%;
-	height:auto;
-	.overline {
-		@extend %eng;
-		text-transform: uppercase;
-		z-index:30;
-	}
-	.section-header {
-		padding-top: rem(120px);
-		.text16 {
-			width: rem(762px);
-			height: rem(120px);
+#forest{
+	.forestLocation {
+		position:relative;
+		width:100%;
+		height:720px;
+		background:#f2f1f1 url('../img/forest/map.png') no-repeat 0% 50%/contain;
+		.location_desc {
+			.desc {
+				position:absolute;
+				border-radius:10px;
+				background-color: $orange;	
+				width: rem(300px);
+				height: rem(90px);
+				&.map_point1 {
+					top:rem(50px);
+					left:rem(200px);
+				}
+				&.map_point2 {
+					top:rem(200px);
+					left:rem(200px);
+				}
+				&.map_point3 {
+					top:rem(300px);
+					left:rem(300px);
+				}
+				&.map_point4 {
+					top:rem(400px);
+					left:rem(500px);
+				}
+				&.map_point5 {
+					top:rem(100px);
+					left:rem(200px);
+				}
+				&.map_point6 {
+					top:rem(100px);
+					left:rem(200px);
+				}
+				.numText {
+					width:20%;
+					color:$text-color-white;
+				}
+				.text {
+					width:80%;
+					color:$text-color-gray;
+					background-color: $text-color-white;
+					border-radius: 10px;
+				}		
+				.tree {
+					position:absolute;
+					top:rem(-64px);
+					left:0;right:0;
+					background: url('data:img/png;base64,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') no-repeat 50% 50%/cover;
+					width:rem(165px);
+					height:rem(64px);
+				}
+			}
 		}
-	}
-	.slider-header {
-		margin:rem(100px) 0 rem(15px);
-	}
-	
-
-	.owl-item {
-		width:rem(900px) !important;
-	}
-    .item
-    {
-    	&.container {
-    		&.col2 {
-				.col:nth-child(1) {
-					width:rem(320px);
-					height:rem(538px);
-					margin:rem(30px) rem(20px) rem(30px) rem(30px);
-					.slider-header {
-						margin:rem(150px) 0 rem(15px);
+		.map_desc {
+			margin-left:60%;
+			.owl-carousel {
+				width: rem(392px);
+				.img {
+					width: rem(392px);
+					height: rem(290px);
+					display:block;
+				}
+				.desc {
+					color: $text-color-gray;
+					text-align: center;
+				}
+				.forest-item1 {
+					.img {
+						background: url('../img/forest/map_location-1.jpg') no-repeat 50% 50%/cover;
 					}
 				}
-				.col:nth-child(2) {
-					width:rem(470px);
-					height:rem(538px);
-					margin:rem(30px);
+				.forest-item2 {
+					.img {
+						background: url('../img/forest/map_location-2.jpg') no-repeat 50% 50%/cover;
+					}
+					
+				}
+				.forest-item3 {
+					.img {
+						background: url('../img/forest/map_location-3.jpg') no-repeat 50% 50%/cover;
+					}
 				}
 			}
 		}
 	}
-	.boldMarketing {
-		position:absolute;
-		top:0;
-		left:0;
-		right:0;
-		bottom:0;
-		width:100%;
-		height: rem(600px);
+	.forestResult {
+		width:100vw;
+		height: calc(100vw * 607 / 1600);
 		background-color: rgb(255,255,255);
 		z-index:31;
-		.slider-header {
-			margin:rem(60px) 0 rem(15px);
-			letter-spacing:rem(-2px);
-		}
-		.video {
-			width:rem(530px);
-			height:rem(397px);
-		}
-
-		.container {
-    		&.col2 {
-				.col:nth-child(1) {
-					width:rem(274px);
-					height:rem(538px);
-					margin:rem(30px) rem(0px) rem(30px) rem(30px);
-				}
-				.col:nth-child(2) {
-					width:rem(530px);
-					height:rem(538px);
-					margin:rem(30px);
-				}
-			}
-		}
+		background: url('../img/forest/bg-forest_result.jpg') 50% 50%/cover;
 	}
-
 }

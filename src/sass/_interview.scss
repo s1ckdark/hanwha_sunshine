@@ -1,3 +1,31 @@
 //
 //  interview
 //
+
+#interview {
+	overflow: hidden;
+  	position: relative;
+	@extend %full-screen;
+	.interview {
+		position: absolute;
+		top:0;right:0;bottom:0;left:0;
+		width:100%;
+		height:100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 50%;
+		&.interview1 {
+			background-image: url('../img/interview/bg-interview-1.jpg');
+		}
+		&.interview2 {
+			background-image: url('../img/interview/bg-interview-2.jpg');
+		}
+		&.interview3 {
+			background-image: url('../img/interview/bg-interview-3.jpg');
+		}
+		&.interview4 {
+			background-image: url('../img/interview/bg-interview-4.jpg');
+		}
+	}
+
+}

@@ -16,7 +16,6 @@ $(function(){
     dotsData: true,
     lazyLoad: true,
     items:1,
-    nav: true,
     margin: 20
     });
 
