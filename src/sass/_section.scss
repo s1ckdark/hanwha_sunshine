@@ -46,30 +46,11 @@ section {
 // 구조1: subtitle + heading-1
 // 구조2: heading-1 + text
 .section-header {
-  margin-bottom: rem(45px);
+  // padding: rem(75px) 0 rem(50px);
   .sub-title {
     margin-bottom: rem(15px);
     font-size: rem(16px);
     color: $text-color-muted;
     line-height: 1;
   }
-  .text16 {
-    margin-top: rem(15px);
-  }
 }
-  .overline {
-    position:relative;
-    z-index:30;
-    font-family:$font-family;
-    &:after {
-      content:'';
-      position:absolute;
-      top:-10px;
-      left:0px;
-      width:20px;
-      height:2px;
-    }
-    &.dark {
-      color:rgb(17,17,17);
-    }
-  }

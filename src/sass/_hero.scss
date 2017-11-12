@@ -15,14 +15,16 @@
   .roundround {
     text-align:center;
     position:relative;
+    width:rem(300px);
     svg {
       position:absolute;
+      width:rem(800px);
     }
   }
-  #circle1 {stroke:rgb(243,115,33);fill:none;left:49.5%;stroke-width:0.5px;}
-  #circle2 {stroke:rgb(248,155,105);fill:none;left:49%;stroke-width:0.5px;}
-  #circle3 {stroke:rgb(251,181,132);fill:none;left:50%;stroke-width:0.5px;}
-  #circle4 {stroke:rgb(0,0,0);fill:none;left:51%;stroke-width:0.5px;}
+  #circle1 circle {stroke:rgb(243,115,33);fill:none;;}
+  #circle2 circle {stroke:rgb(248,155,105);fill:none;;}
+  #circle3 circle {stroke:rgb(251,181,132);fill:none;;}
+  #circle4 circle {stroke:rgb(0,0,0);fill:none;;}
 
 
   .hero-intro  {
@@ -37,6 +39,7 @@
       font-size: rem(72px);
       line-height : rem(95px);
       font-weight:600;
+      padding:rem(220px) 0 rem(80px);
     }
     .text-intro {
       left: 0px;
