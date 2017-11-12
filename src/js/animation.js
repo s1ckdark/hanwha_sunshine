@@ -12,12 +12,10 @@
   //
 
 var $svg = $('#hero svg');
-
 $svg.each(function(i){
     var $this = $(this);
-    console.log($this);
-TweenMax.to(this, 4+1*i, {rotate:360,
-  bezier: {
+    TweenMax.to(this, 2+1*i, {rotate:360, 
+    bezier: {
     type: "quadratic",
     values:[
       /*p1*/{ x: 0, y: 0 }, { x:2, y: 0 }, { x: 2, y: 2 },
@@ -49,6 +47,4 @@ function imageTween(ele) {
     }
 }
 
-imageTween('.bg_sceneTween');
-imageTween('.rnd-imgTweem');
 

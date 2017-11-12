@@ -41,15 +41,10 @@ var controller = new ScrollMagic.Controller();
 //     .addTo(controller);
 
   // video
-   var $video2 = $('#video2');
-  var $video3 = $('#video3');
-  var $video4 = $('#video4');
-  var $video5 = $('#video5');
-  var $video6 = $('#video6');
-  var $video7 = $('#video7');
+  var $video = $('#video');
   var $twinklebtn = $('.top-indicator .link');
 
-  $video2.find('video').attr({
+  $video.find('video').attr({
     'src': 'http://cf.c.ooyala.com/15dTkyZDE6hd11k9l-gw1Af3KKt819wk/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_ ',
     'controls':true,
     'controlsList':'nodownload',
@@ -58,60 +53,14 @@ var controller = new ScrollMagic.Controller();
     'poster': ''
   });
 
-   $video3.find('video').attr({
-    'src': 'http://cf.c.ooyala.com/M4aXYwZDE6EA_PCboH7mBcI6zEpCbm_d/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_',
-    'controls':true,
-    'controlsList':'nodownload',
-    'preload':'auto',
-    'loop':false,
-    'poster': ''
-  }); //카나브 신약
-  
-   $video4.find('video').attr({
-    'src': 'http://cf.c.ooyala.com/V4anYwZDE6YQ7f3Go8QxokuUgalQKH0L/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_',
-    'controls':true,
-    'controlsList':'nodownload',
-    'preload':'auto',
-    'loop':false,
-    'poster': ''
-  }); //겔포스 수사반장 2편
-  
-   $video7.find('video').attr({
-    'src': 'http://cf.c.ooyala.com/d5aXYwZDE6Pj8CH-O-8bARx9OvW9NvXF/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_',
-    'controls':true,
-    'controlsList':'nodownload',
-    'preload':'auto',
-    'loop':false,
-    'poster': ''
-  }); //겔포스 수사반장 1편   
-
-   $video6.find('video').attr({
-    'src': 'http://cf.c.ooyala.com/5ud2oxZDE6RIyA9OeE2NrjiiqvIj8ush/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_',
-    'controls':true,
-    'controlsList':'nodownload',
-    'preload':'auto',
-    'loop':false,
-    'poster': ''
-  }); //용각산 1970년대
-
-    $video5.find('video').attr({
-    'src': 'http://cf.c.ooyala.com/k3aHYwZDE6pHASeJKdfJ7b7g6q0ugOUm/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_ ',
-    'controls':true,
-    'controlsList':'nodownload',
-    'preload':'auto',
-    'loop':false,
-    'poster': ''
-  }); //용각산 30년편
-  
-
   // scroll auto play
   new ScrollMagic.Scene(
     {
-      triggerElement: $video2[0],
-      duration: $video2.height(),
+      triggerElement: $video[0],
+      duration: $video.height(),
     })
     .on('enter leave', function(event){
-      var $video = $video2;
+      var $video = $video;
       var video = $video.find('video')[0];
       var timer;
       var isPlaying = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2;
@@ -130,35 +79,6 @@ var controller = new ScrollMagic.Controller();
         }
       }
     })
-    .addTo(controller);
-
-  new ScrollMagic.Scene(
-    {
-      triggerElement: $video3[0],
-      duration: $video2.height(),
-    })
-    .on('enter leave', function(event){
-      var $video = $video3;
-      var video = $video.find('video')[0];
-      var timer;
-      if (event.type === 'enter') {
-        timer = setTimeout(function(){ // enter -> leave 이벤트 연속 발생시 play() 방지
-          var isPlaying = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2;
-
-          if (!isPlaying) {
-            $video.find('.play').click(); // play
-          }
-        }, 300);
-      } else {
-        if (timer) {
-          clearTimeout(timer);
-        }
-        if (video.played) {
-          video.pause(); // pause
-        }
-      }
-    })
-    .addTo(controller);
 
 //twinkle arrow, hero tween on hero
   var arrowTween = new TimelineMax({paused:true});
@@ -188,6 +108,21 @@ var controller = new ScrollMagic.Controller();
     })
     .addTo(controller);
 
+var iconTween = new TimelineMax({paused:true});
+iconTween.from('.stroke', 1, {stroke:'1px', transformOrigin:"50% 50%"});
+ new ScrollMagic.Scene(
+    {
+      triggerElement: $('.icon')[0]
+    })
+     .on('enter leave', function(event){  
+      if (event.type === 'enter') {
+        iconTween.play();
+        } else {
+        iconTween.pause();
+      }
+
+    })
+    .addTo(controller);
 
 var bar3d = new TimelineMax({paused:true});
 bar3d.fromTo('.bar3d',1,{scale:0},{scale:1,ease:Back.easeOut},.5)
@@ -276,22 +211,6 @@ function scrollToSection () {
   });
 }
 
-TweenMax.set('.bg_1975',{autoAlpha:0});
-// var len = $('.article_1975').height();
-// var offset =  $('.h1975').offset().top;
-//   new ScrollMagic.Scene(
-//     {
-//       offset:offset,
-//       duration:len
-//     })
-//      .on('enter leave', function(event){  
-//       if (event.type === 'enter') {
-//           TweenMax.to('.bg_1975', 1, {autoAlpha:1}, 0.1);
-//       } else {
-//         TweenMax.to('.bg_1975', 1, {autoAlpha:0}, 0.1);
-//       }
-//     })
-//     .addTo(controller);
 
 
 function upTween(e, hook){
@@ -332,64 +251,115 @@ function tweenText(e, hook){
 }
 
 upTween('p.text','.4');
-upTween('p.text16','.4');
 tweenText('.heading-1','.5');
 tweenText('.heading-2','.5');
-upTween('.desc','.5');
-upTween('.icon','.5');
-upTween('.question','.5');
-upTween('.answer','.5');
 
+var $interview = $('#interview');
+var $slide = $interview.find('.slide');
+var length = $slide.length;
+var percent = 100 / length;
+var timeline = new TimelineMax();
+var $sliderInner = $slide;
 
-       var numofboryung = {
-        'history': [
-          {
-            'num': '1',
-            'unit': '위',
-            'desc': '위장병 치료제 ‘겔포스엠’은 1975년 출시 이래 제산제 시장에서 부동의 1위를 달리고 있다. 누적 판매량이 16억5700만 포로, 일렬로 늘려놓으면 지구 네 바퀴를 돌 수 있다.'
-          },
-          {
-            'num': '9',
-            'unit': '개',
-            'desc': '보령제약을 비롯해 보령메디앙스·보령바이오파마·보령컨슈머헬스케어 등 9개 계열사에서 임직원 1650여 명이 근무하고 있다. 올해 그룹의 예상 매출은 8000억원이다.'
-          },
-          {
-            'num': '50',
-            'unit': '년',
-            'desc': '일본 류카쿠산과 기술 제휴를 맺고 용각산을 제조, 판매한지 올해로 50년이 된다. 보령제약은 후지이 류타 류카쿠산 사장 가문과 각각 2대, 3대째 인연을 맺고 있다.'
-          },
-          {
-            'num': '337',
-            'unit': '명',
-            'desc': '보령의료봉사상을 수상한 의료인 숫자. 1985년 시작된 보령의 사회공헌 프로그램으로, 무의촌이나 지역사회에서 봉사하는 참의료인을 조명하고 있다.'
-          },
-          {
-            'num': '465',
-            'unit': '회',
-            'desc': '1979년 1월부터 올해 10월까지 열린 월례 직원 생일파티 횟수. 요즘엔 연극 관람 같은 문화행사도 겸한다. 2015년 메르스 사태 때를 빼고 매달 계속됐다.'
-          },
-          {
-            'num': '600',
-            'unit': '억',
-            'desc': '고혈압 치료제 ‘카나브’의 올해 매출 예상액. 지난해보다 30% 이상 성장했다. 카나브는 전 세계 51개국에서 글로벌 제약회사와 당당히 겨루고 있다.'
-          }
-        ]
-      };
-
-
-        new ScrollMagic.Scene(
+for (var i = 0; i < length; i++) {
+    if (i > 0) {// 두번째 슬라이드부터 이동하기
+      timeline.to({}, 1, {}); // delay
+      timeline.to($slide.eq(i), 1, {xPercent: -percent * i, delay: 0, ease: Linear.easeNone});
+    }
+    // label = 'slide' + (i+1); // ex) slide1
+    // timeline.add(label);
+    // timeline.call(playTween, [i]);
+    if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
+      timeline.to($slide.eq(i-1), .5, {className: '-=active'})
+    }
+    timeline.to($slide.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
+    if (i + 1 === length) {// 마지막 슬라이드
+      timeline.to({}, 1, {}); // delay
+    }
+  }
+new ScrollMagic.Scene(
     {
-      triggerElement: '.listofcircle',
-      triggerHook:.6
+      triggerElement: $interview[0],
+      triggerHook: 0,
+      duration: 100 * length + '%',
+      offset: $('#roof').height() * -1
     })
-     .on('enter', function(event){  
-      for (var key in numofboryung.history) {
-        if (numofboryung.history.hasOwnProperty(key)){
-          var item = "<div class='grid'><div class='round-bubble'>"+numofboryung.history[key].num+"<span class='unit'>"+numofboryung.history[key].unit+"</span></div><div class='desc'>"+numofboryung.history[key].desc+"</div></div>";
-          $('.listofcircle').append(item);
-        }
-      }
- 
-    })
-     .reverse(false)
+    .setPin($interview[0])
+    .setTween(timeline)
     .addTo(controller);
+
+// window.addEventListener('load', function(){
+//   var $area = $('#interview');
+//   var $timeline = $area.find('.interview .item');
+//   var $story = $area.find('.iplay-story .item');
+//   var $sliderInner = $('#iplay-illust-inner');
+//   var $item = $sliderInner.find('.item');
+//   var length = $item.length;
+//   var percent = 100 / length;
+//   var timeline = new TimelineMax();
+//   var label;
+//   var tweens = [];
+//   var tween;
+
+//   // splitText 인스턴스, 트윈 만들기
+//   for (var j = 0; j < length; j++) {
+//     tween = new SplitText($item.eq(j).find('.text'));
+//     tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
+//     tweens.push(tween);
+//   }
+
+//   // 트윈 시작하기
+//   function playTween(index){
+//     if (index !== null) {
+//       tweens[index].play(); // play 최초만 실행. 계속 실행하려면 restart로 변경.
+//     }
+//   }
+
+//   for (var i = 0; i < length; i++) {
+//     if (i > 0) {// 두번째 슬라이드부터 이동하기
+//       timeline.to({}, 1, {}); // delay
+//       timeline.to($sliderInner, 1, {xPercent: -percent * i, delay: 0, ease: Linear.easeNone});
+//     }
+//     label = 'slide' + (i+1); // ex) slide1
+//     timeline.add(label);
+//     timeline.call(playTween, [i]);
+//     if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
+//       timeline.to($timeline.eq(i-1), .5, {className: '-=active'}, label);
+//       timeline.to($story.eq(i-1), .5, {className: '-=active'}, label);
+//     }
+//     timeline.to($timeline.eq(i), .5, {className: '+=active'}, label); // 현재 슬라이드 보이기
+//     timeline.to($story.eq(i), .5, {className: '+=active'}, label); // 현재 슬라이드 보이기
+//     if (i + 1 === length) {// 마지막 슬라이드
+//       timeline.to({}, 1, {}); // delay
+//     }
+//   }
+
+//   new ScrollMagic.Scene(
+//     {
+//       triggerElement: $area[0],
+//       triggerHook: 0,
+//       duration: 100 * length + '%',
+//       offset: $('#roof').height() * -1
+//     })
+//     .setPin($area[0])
+//     .setTween(timeline)
+//     .addTo(controller);
+
+//   // nav
+//   $('#iplay-slider-nav a').on('click', function(e){
+//     e.preventDefault();
+
+//     var $this = $(this);
+//     var forward = $this.hasClass('next');
+//     var index = $timeline.filter('.active').index();
+//     var height = $area.parent('.scrollmagic-pin-spacer').outerHeight();
+//     var progress = [.03, .18, .36, .54, .71, .82]; // 슬라이더 나타나는 트윈이 일정하지 않아서 수동으로 작업
+//     var newpos;
+
+//     index = forward ? index + 1 : index - 1;
+//     if (0 <= index && index < length) {
+//       newpos = $area.parent('.scrollmagic-pin-spacer').offset().top - $('#roof').outerHeight() + (height * progress[index]); // header가 내용을 가리지 않게 위치 조정
+//       $('html, body').stop().animate({scrollTop: newpos}, 500);
+//     }
+//   });
+// });
