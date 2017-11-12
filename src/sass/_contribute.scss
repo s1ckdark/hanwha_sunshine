@@ -6,7 +6,7 @@
     .chart {
     	background-color: #fff;
     	.mix_chart {
-			background-color: #efefef;
+			background-color: $bg-gray;
     	}
     	.pie_chart {
     		position:relative;
@@ -20,7 +20,7 @@
     	}
     }
     .info-graphic {
-		background-color: #efefef;
+		background-color: $bg-gray;
 	    .icon {
 	    	display:inline-block;
 	    	&.icon-tree {
