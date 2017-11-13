@@ -14,17 +14,122 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 50% 50%;
+		opacity: 0;
+		transform: translate(0, 10px);
+	    transition: all .4s;
+	    .wrapper {
+	    	margin:rem(100px) auto;
+	    	.counter {
+				@extend %eng;
+	    		width: rem(400px);
+	    		color: $text-color-lgray;
+	    		text-align: center;
+	    		display:block;
+	    		margin:rem(50px) 0;
+	    		.activeNum {
+	    			color: #fff;
+	    		}
+	    	}
+		    p {
+		    	color: #ccc;
+		    	font-size: rem(16px);
+		    	margin-bottom: rem(30px);
+		    	.bold {
+		    		font-weight:500;
+		    		color: $text-color-white;
+		    	}
+		    }
+		    .nav {
+		    	display:inline-block;
+		    	font-size: rem(20px);
+		    	font-weight: 700;
+		    	a {
+		    		color: #fefefe;
+		    		margin: 0 rem(25px);
+		    		opacity: .3;
+			    	&.active {
+			    		color: $text-color-orange;
+			    		opacity: 1;
+			    		z-index: 10;
+			    	}
+			    }
+		    }
+		    .section-header {
+		    	padding: rem(20px) 0 rem(80px);
+		    	h4.heading {
+		    		font-weight: 700;
+		    		font-size: rem(40px);
+		    		line-height: rem(52px);
+		    	}
+		    }
+		    .interview-slider {
+		    	width: rem(400px);
+		    	.item {
+		    		border-radius: 50%;
+		    		width: rem(400px);
+		    		height: rem(400px);
+		    		background: #fff;
+		    	}
+		    }
+	    }
 		&.interview1 {
 			background-image: url('../img/interview/bg-interview-1.jpg');
+			.interview-slider {
+		    	.owl-item:nth-child(1) {
+		    		.item {
+			    		background: url('../img/interview/bg-interview-1-1.jpg') no-repeat 50% 50%/cover;
+		    	}	}
+		    	.owl-item:nth-child(2) {
+		    		.item {
+			    		background: url('../img/interview/bg-interview-1-2.jpg') no-repeat 50% 50%/cover;
+		    	}	}
+		    }
 		}
 		&.interview2 {
 			background-image: url('../img/interview/bg-interview-2.jpg');
+			.interview-slider {
+		    	.owl-item:nth-child(1) {
+		    		.item {
+			    		background: url('../img/interview/bg-interview-2-1.jpg') no-repeat 50% 50%/cover;
+		    	}	}
+		    	.owl-item:nth-child(2) {
+		    		.item {
+			    		background: url('../img/interview/bg-interview-2-2.jpg') no-repeat 50% 50%/cover;
+		    	}	}
+		    }
 		}
 		&.interview3 {
 			background-image: url('../img/interview/bg-interview-3.jpg');
+			.interview-slider {
+		    	.owl-item:nth-child(1) {
+		    		.item {
+			    		background: url('../img/interview/bg-interview-3-1.jpg') no-repeat 50% 50%/cover;
+		    	}	}
+		    	.owl-item:nth-child(2) {
+		    		.item {
+			    		background: url('../img/interview/bg-interview-3-2.jpg') no-repeat 50% 50%/cover;
+		    	}	}
+		    }
 		}
 		&.interview4 {
 			background-image: url('../img/interview/bg-interview-4.jpg');
+			.interview-slider {
+		    	.owl-item:nth-child(1) {
+		    		.item {
+			    		background: url('../img/interview/bg-interview-4-1.jpg') no-repeat 50% 50%/cover;
+		    		}
+		    	}	
+		    	.owl-item:nth-child(2) {
+		    		.item {
+			    		background: url('../img/interview/bg-interview-4-2.jpg') no-repeat 50% 50%/cover;
+		    		}
+		    	}	
+		    }
+		}
+		&.active {
+        	opacity: 1;
+        	transform: translate(0, 0);
+        	z-index: 10;
 		}
 	}
 

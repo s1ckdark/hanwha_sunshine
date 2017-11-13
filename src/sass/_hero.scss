@@ -12,16 +12,18 @@
     position: relative;
     height: 100%;
   }
-  .roundround {
-    text-align:center;
+  .circle {
     position:relative;
-    width:rem(300px);
+    width: rem(900px);
+    margin:0 auto;
     svg {
+      width:rem(900px);
+      height:rem(900px);
+      left:0;right:0;top:0;bottom:0;
       position:absolute;
-      width:rem(800px);
     }
   }
-  #circle1 circle {stroke:rgb(243,115,33);fill:none;;}
+  #circle1 circle {stroke:rgb(243,115,33);fill:none;}
   #circle2 circle {stroke:rgb(248,155,105);fill:none;;}
   #circle3 circle {stroke:rgb(251,181,132);fill:none;;}
   #circle4 circle {stroke:rgb(0,0,0);fill:none;;}
@@ -39,12 +41,11 @@
       font-size: rem(72px);
       line-height : rem(95px);
       font-weight:600;
-      padding:rem(220px) 0 rem(80px);
+      padding:rem(250px) 0 rem(100px);
     }
     .text-intro {
-      left: 0px;
       font-weight: 400;
-      font-size: rem(18px);
+      font-size: rem(16px);
       line-height: rem(32px);
       color: $text-color-white
     }

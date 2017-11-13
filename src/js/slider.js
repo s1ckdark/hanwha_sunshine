@@ -13,10 +13,18 @@ $(function(){
   var $articleSlider = $('.article-slider').owlCarousel({
     loop: true,
     dots:true,
-    dotsData: true,
     lazyLoad: true,
     items:1,
     margin: 20
+    });  
+
+  var $colorSlider = $('.color-slider').owlCarousel({
+    loop: false,
+    dots:true,
+    lazyLoad: true,
+    items:1,
+    animateOut: 'slideOutUp',
+    animateIn: 'slideInUp'
     });
 
 
@@ -175,19 +183,18 @@ $(function(){
 //     items:1
 //   });  
 
-
-// $('#institute-curriculum-slider').on('initialized.owl.carousel changed.owl.carousel', function(e) {
-//     if (!e.namespace)  {
-//       return;
-//     }
-//     var carousel = e.relatedTarget;
-//     $('#slider-counter').text(carousel.relative(carousel.current()) + 1 + '/' + carousel.items().length);
-//   }).owlCarousel({
-//     loop:true,
-//     nav: true,
-//     dots: false,
-//     lazyLoad: true,
-//     items:1,
-//     navText: ['<span class="prev-circle-arrow"></span>','<span class="next-circle-arrow"></span>'],
-//   });
+$('.interview-slider').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+    if (!e.namespace)  {
+      return;
+    }
+    var carousel = e.relatedTarget;
+    $('.counter .activeNum').text(carousel.relative(carousel.current()) + 1);
+    $('.counter .totalNum').text(carousel.items().length);
+  }).owlCarousel({
+    loop:false,
+    nav: false,
+    dots: false,
+    lazyLoad: true,
+    items:1,
+    });
 });

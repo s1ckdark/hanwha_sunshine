@@ -7,7 +7,7 @@
   @extend %clearfix;
   &.col2 {
     > .col {
-      width: calc(50% - 10px);
+      width: 50%;
       &:nth-child(1) {
         float: left;
         box-sizing: border-box;
@@ -17,11 +17,6 @@
         box-sizing: border-box;
       }
     }
-  &.type-more {
-    > .col {
-      width:50%;
-    }
-  }
   }
 }
 

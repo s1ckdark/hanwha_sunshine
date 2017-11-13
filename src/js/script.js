@@ -1,11 +1,11 @@
 // web font loader
-if (typeof WebFont === 'object') {
-  WebFont.load({
-    google: {
-      families: ['Noto Sans KR']
-    },
-  });
-}
+// if (typeof WebFont === 'object') {
+//   WebFont.load({
+//     google: {
+//       families: ['notosans']
+//     },
+//   });
+// }
 
 $(function(){
 
@@ -66,7 +66,7 @@ $(function(){
     });
   }
   //we set the backface 
-   TweenMax.set(".cardflip", {transformStyle:"preserve-3d"});
+  TweenMax.set(".cardflip", {transformStyle:"preserve-3d"});
   TweenMax.set($(".back"), {rotationY:-180});
   $.each($(".cardflip"), function(i,element) {
     var frontCard = $(this).children(".front"),
@@ -87,5 +87,11 @@ $(function(){
       this.animation.reverse();
   }
 
+var $pointer = $('.map_pointer');
+var $desc = $('.location_desc .desc');
+$pointer.each(function(e,i){
+  
+
+})
 
 });

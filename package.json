@@ -25,6 +25,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0",
-    "merge-stream": "^1.0.1"
+    "merge-stream": "^1.0.1",
+    "noto-sans-kr": "^0.1.1"
   }
 }
