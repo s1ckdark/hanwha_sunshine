@@ -49,6 +49,34 @@
 							font-weight:700;
 						}
 					}
+					.info {
+						> div {
+							display: inline-block;
+						} 
+					}
+					.icon {
+						width:rem(100px);
+						height:rem(100px);
+						background: #fff;
+						border-radius:50%;
+						display:block;
+						position: relative;
+						margin: 0 auto;
+						svg {
+							position: absolute;
+							top: calc(50% - 22px);
+							left: calc(50% - 22px);
+						}
+					}
+					.data {
+						font-size: rem(36px);
+						font-weight: 700;
+						text-align: center;
+					}
+					.desc {
+						font-size: rem(15px);
+						text-align: center;
+					}
 				}
 				.owl-item:nth-child(1) {
 					.item {
