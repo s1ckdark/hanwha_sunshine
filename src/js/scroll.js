@@ -257,6 +257,7 @@ tweenText('.heading-2','.5');
 //
 // interview scroll pin
 // 
+var interviewTween = function(){
 var $interview = $('#interview');
 var $slide = $interview.find('.slide');
 var length = $slide.length;
@@ -309,6 +310,8 @@ new ScrollMagic.Scene(
     .setPin($interview[0])
     .setTween(timeline)
     .addTo(controller);
+}
+interviewTween();
 
 // background parallax scrolling
 
@@ -322,3 +325,66 @@ new ScrollMagic.Scene(
     .addIndicators()
     .addTo(controller);
 
+
+
+//
+// origin
+//
+
+var slideTween = function(){
+  var $slider = $('.color-slider');
+  var $item = $slider.find('.item');  
+  var length = $item.length;
+  // var percent = 100 / length;
+  var timeline = new TimelineMax();
+  var $sliderInner = $item;
+  var label;
+  var tweens = [];
+  var tween;
+
+
+// //   for (var j = 0; j < length; j++) {
+// //     tween = new SplitText($item.eq(j).find('.text'));
+// //     tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
+// //     tweens.push(tween);
+// //   }
+
+// // function playTween(index){
+// //     if (index !== null) {
+// //       tweens[index].play(); // play 최초만 실행. 계속 실행하려면 restart로 변경.
+// //     }
+// //   }
+
+for (var i = 0; i < length; i++) {
+    if (i > 0) {// 두번째 슬라이드부터 이동하기
+      timeline.to({}, 1, {}); // delay
+      timeline.to($item.eq(i), 1, {yPercent: 100 * i, delay: 0, ease: Linear.easeNone});
+    }
+    label = 'slide' + (i+1); // ex) slide1
+    timeline.add(label);
+    // var $label = $(label).find('.nav a');
+    // timeline.call(playTween, [i]);
+    if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
+      timeline.to($item.eq(i-1), .5, {className: '-=active'})
+      // timeline.to($label.eq(i-1), .5, {className: '-=active'})
+    }
+    timeline.to($item.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
+    // timeline.to($label.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
+    if (i + 1 === length) {// 마지막 슬라이드
+      timeline.to({}, 1, {}); // delay
+    }
+  }
+
+new ScrollMagic.Scene(
+    {
+      triggerElement: '.color-slider-section',
+      triggerHook: 0,
+      duration: 100 * length + '%',
+      offset: $('#roof').height() * -1
+    })
+     .setPin('.color-slider-section')
+     .addIndicators()
+     .setTween(timeline)
+    .addTo(controller);
+}
+slideTween();

@@ -42,6 +42,7 @@
 			.color-slider {
 				.item {
 					@extend %full-screen;
+					position:relative;
 					.sub-title {
 						font-size: rem(24px);
 						.bold {
