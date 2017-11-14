@@ -257,16 +257,17 @@ tweenText('.heading-2','.5');
 //
 // interview scroll pin
 // 
-var interviewTween = function(){
-var $interview = $('#interview');
-var $slide = $interview.find('.slide');
-var length = $slide.length;
-var percent = 100 / length;
-var timeline = new TimelineMax();
-var $sliderInner = $slide;
-var label;
-var tweens = [];
-var tween;
+function interviewTween() {
+  
+  var $interview = $('#interview');
+  var $slide = $interview.find('.slide');
+  var length = $slide.length;
+  var percent = 100 / length;
+  var timeline = new TimelineMax();
+  var $sliderInner = $slide;
+  var label;
+  var tweens = [];
+  var tween;
 
 
 //   for (var j = 0; j < length; j++) {
@@ -281,10 +282,10 @@ var tween;
 //     }
 //   }
 
-for (var i = 0; i < length; i++) {
+  for (var i = 0; i < length; i++) {
     if (i > 0) {// 두번째 슬라이드부터 이동하기
       timeline.to({}, 1, {}); // delay
-      // timeline.to($slide.eq(i), 1, {yPercent: 100 * i, delay: 0, ease: Linear.easeNone});
+      timeline.to($slide.eq(i), 1, {zIndex:10, delay: 0, ease: Linear.easeNone});
     }
     label = '.interview' + (i+1); // ex) slide1
     // timeline.add(label);
@@ -300,7 +301,8 @@ for (var i = 0; i < length; i++) {
       timeline.to({}, 1, {}); // delay
     }
   }
-new ScrollMagic.Scene(
+
+  new ScrollMagic.Scene(
     {
       triggerElement: $interview[0],
       triggerHook: 0,
@@ -312,18 +314,17 @@ new ScrollMagic.Scene(
     .addTo(controller);
 }
 interviewTween();
-
 // background parallax scrolling
 
-new ScrollMagic.Scene(
-    {
-      triggerElement: ".parallax",
-      triggerHook: "onEnter", 
-      duration: "200%"
-    })
-    .setTween(".parallax > .bg_parallax", {y: "80%", ease: Linear.easeNone})
-    .addIndicators()
-    .addTo(controller);
+// new ScrollMagic.Scene(
+//     {
+//       triggerElement: ".parallax",
+//       triggerHook: "onEnter", 
+//       duration: "200%"
+//     })
+//     .setTween(".parallax > .bg_parallax", {y: "80%", ease: Linear.easeNone})
+//     .addIndicators()
+//     .addTo(controller);
 
 
 
@@ -331,7 +332,7 @@ new ScrollMagic.Scene(
 // origin
 //
 
-var slideTween = function(){
+function slideTween() {
   var $slider = $('.color-slider');
   var $item = $slider.find('.item');  
   var length = $item.length;
@@ -341,7 +342,6 @@ var slideTween = function(){
   var label;
   var tweens = [];
   var tween;
-
 
 // //   for (var j = 0; j < length; j++) {
 // //     tween = new SplitText($item.eq(j).find('.text'));
@@ -358,7 +358,7 @@ var slideTween = function(){
 for (var i = 0; i < length; i++) {
     if (i > 0) {// 두번째 슬라이드부터 이동하기
       timeline.to({}, 1, {}); // delay
-      timeline.to($item.eq(i), 1, {yPercent: 100 * i, delay: 0, ease: Linear.easeNone});
+      timeline.to($item.eq(i), 1, {zIndex:10, delay: 0, ease: Linear.easeNone});
     }
     label = 'slide' + (i+1); // ex) slide1
     timeline.add(label);
@@ -366,6 +366,7 @@ for (var i = 0; i < length; i++) {
     // timeline.call(playTween, [i]);
     if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
       timeline.to($item.eq(i-1), .5, {className: '-=active'})
+      // timeline.to('.energy', .5, {className: '-=active'})
       // timeline.to($label.eq(i-1), .5, {className: '-=active'})
     }
     timeline.to($item.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
@@ -377,14 +378,47 @@ for (var i = 0; i < length; i++) {
 
 new ScrollMagic.Scene(
     {
-      triggerElement: '.color-slider-section',
+      triggerElement: '.energy',
       triggerHook: 0,
       duration: 100 * length + '%',
       offset: $('#roof').height() * -1
     })
-     .setPin('.color-slider-section')
+     .setPin('.energy')
      .addIndicators()
      .setTween(timeline)
-    .addTo(controller);
+     .addTo(controller);
 }
 slideTween();
+
+
+
+var pinBouceTween = TweenMax.to('.map_point .pin', .5, {scale:1.2, yoyo:true, repeat:-1});
+new ScrollMagic.Scene(
+    {
+      triggerElement: '.forestLocation',
+      triggerHook: .5,
+    })
+    .addIndicators()
+    .setTween(pinBouceTween)
+    .addTo(controller);
+
+   $('.map_point .pin').each(function(index, element){
+
+        var pinSelf = $(this);
+
+        var pinDescTimeline = new TimelineMax({paused:true})
+            .to(pinSelf,.1, {scale:2})
+            .to(pinSelf.next('.desc'), .6, {zIndex: 50,autoAlpha:1, top:-120, height:90, left:-142.5})
+            // .to(pinSelf.next('.desc').find('.numText'), .2, {autoAlpha:1})
+            // .to(pinSelf.next('.desc').find('.text'), .2, {autoAlpha:1})
+            .to(pinSelf.next('.desc').find('.tree'), .2, {autoAlpha:1,top:-64});
+
+        pinSelf.hover(
+            function() {
+                pinDescTimeline.restart();
+            },
+            function() {
+                pinDescTimeline.reverse(0.2);
+            }
+        );
+    });

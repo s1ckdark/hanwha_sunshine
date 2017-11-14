@@ -57,5 +57,7 @@ module.exports = {
     "handle":true,
     "Back":true,
     "lazyload": true,
+    "slideTween":true,
+    "interviewTween":true
   }
 };

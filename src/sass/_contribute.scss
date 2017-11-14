@@ -10,9 +10,14 @@
 	    position: relative;
     	background-color: #fff;
     	.mix_chart {
+    		@extend %clearfix;
 			background-color: $bg-gray;
 			padding: rem(50px) 0;
 			width:65%;
+			svg {
+				float: right;
+				margin-right: 10%;
+			}
     	}
     	.pie_chart {
     		position:absolute;
@@ -21,10 +26,13 @@
     		width: 40%;
     		height:rem(521px);
     		background: url('../img/contribute/bg-chart-2.jpg') no-repeat 0% 50%/cover;
-    		svg { 
-    			position: absolute;
-				top:0;right:0;bottom:0;left:0;
-    		}
+    		.chartinner {
+	    		svg { 
+		    		padding: 80px;
+	    			position: absolute;
+					top:0;right:0;bottom:0;left:0;
+	    		}
+	    	}
     	}
     	p.text {
     		padding: rem(100px) 0; 

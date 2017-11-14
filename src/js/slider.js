@@ -18,18 +18,26 @@ $(function(){
     margin: 20
     });  
 
-  // var $colorSlider = $('.color-slider').on('initialized.owl.carousel changed.owl.carousel', function(e) {
-  //   if (!e.namespace)  {
-  //     return;
+ // initialized.owl.carousel changed.owl.carousel', '.owl-stage'
+  // var $colorSlider = $('.color-slider').on('mousewheel initialized.owl.carousel changed.owl.carousel','.energy', function (e){ 
+  //   // if (!e.namespace)  {
+  //   //   return;
+  //   // }
+  //   // var active = e.page.index;
+  //   // console.log(active);
+  //   if (e.deltaY>0) {
+  //      $('.color-slider').trigger('next.owl.carousel');
+  //   } else {
+  //      $('.color-slider').trigger('prev.owl.carousel');
   //   }
-  //   var active = e.page.index;
+  //   e.preventDefault();
   // }).owlCarousel({
   //   loop: false,
-  //   dots:true,
+  //   dots:false,
   //   lazyLoad: true,
   //   items:1,
-  //   animateOut: 'slideOutUp',
-  //   animateIn: 'slideInUp'
+  //   // animateOut: 'slideOutUp',
+  //   // animateIn: 'slideInUp'
   //   });
 
 
