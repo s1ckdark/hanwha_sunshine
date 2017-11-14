@@ -422,3 +422,21 @@ new ScrollMagic.Scene(
             }
         );
     });
+
+TweenMax.set(['.chart-inner svg path','.chart-inner svg text'] ,{opacity:0,y:-10});
+TweenMax.set('#chart-bar path',{height:0});
+var drawtl = new TimelineMax()
+    .to('.chart-inner #chart-bar path', 1, {drawSVG: "0% 100%", transformOrigin:'0% 0%',ease: Bounce.easeOut,opacity:1,height:150,y:'+=10' }, 0.3)
+    .to('.chart-inner #chart-point path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 0.6)
+    .to('.chart-inner #chart-lines path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 0.6)
+    .to('.chart-inner #pie path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 0.8)
+    .to('.chart-inner #pie text', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 0.8);
+
+    new ScrollMagic.Scene(
+    {
+      triggerElement: '.chart-inner',
+      triggerHook: .5,
+    })
+    .addIndicators()
+    .setTween(drawtl)
+    .addTo(controller);

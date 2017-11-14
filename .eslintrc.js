@@ -41,6 +41,7 @@ module.exports = {
     "controller": true,
     "Linear": true,
     "jatracker": true,
+    "Cubic": true,
     "Power0": true,
     "Power1": true,
     "Power3":true,
@@ -57,7 +58,6 @@ module.exports = {
     "handle":true,
     "Back":true,
     "lazyload": true,
-    "slideTween":true,
-    "interviewTween":true
+    "slideTween":true
   }
 };

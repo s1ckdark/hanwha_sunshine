@@ -90,7 +90,7 @@
 					}
 					.panel-graphic {
 						position:relative;
-						height: rem(400px);
+						height: rem(250px);
 						margin: rem(100px) 0 rem(50px);
 						svg {
 							position:absolute;
@@ -106,6 +106,7 @@
 					.info {
 						> div {
 							display: inline-block;
+							padding: 0 rem(20px);
 						} 
 					}
 					.icon {
