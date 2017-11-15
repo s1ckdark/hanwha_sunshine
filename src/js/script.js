@@ -87,10 +87,4 @@ $(function(){
       this.animation.reverse();
   }
 
-var $pointer = $('.map_pointer');
-var $desc = $('.location_desc .desc');
-$pointer.each(function(e,i){
-  
-
-})
 });

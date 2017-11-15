@@ -77,92 +77,9 @@
 	    .info- {
 	    	&graphic {
 	    		position:relative;
-	    		width:100%;
-	    		height:100%;
-	    		.bar84 {
-	    			position:relative;
-					top:0;
-					left:10%;
-	    			#bar84 {
-	    				display:inline-block;
-	    			}
-	    			.numTxt {
-	    				position:relative;
-						color: $text-color-white;
-						font-size: rem(28px);
-						left:25%;
-						font-weight: 700;
-	    			}
-    				.text {
-	    				color: $text-color-orange;
-	    				margin-left:rem(140px);
-	    			}
-	    		}
-				.bar21 {
-	    			position:relative;
-    				top:10%;
-					left:10%;
-	    			#bar21 {
-	    			}
-					.numTxt {
-						position:relative;
-	    				font-size:rem(26px);
-	    				color: $text-color-muted;
-	    				left:19%;
-	    			}
-	    			.text {
-	    				color: $text-color-gray;
-	    				margin-left:rem(80px);
-	    				font-size: rem(18px);
-	    				font-weight: 700;
-	    			}
-	    		}
-	    		.people {
-	    			position:absolute;
-	    			svg {
-	    				position:relative;
-	    			}
-	    			span {
-	    				display:block;
-	    				text-align:center;
-	    			}
-	    			&.people2013 {
-	    				color: $text-color-lgray;
-						top:11%;
-		    			left:15%;
-	    			}	
-	    			&.people2030 {
-	    				color: $text-color-gray;
-	    				top:6%;
-		    			left:33%;
-	    			}	
-	    			&.people2050 {
-	    				color: $text-color-muted;
-	    				top: -1%;
-		    			left: 55%;
-	    			}
-	    		}
 	    		svg {
 		    		position:absolute;
-		    		&#item1-pi {
-					    left: 50%;
-					    top: 5%;
-					    margin: 0 0 0 -85px;
-		    		}
-		    		&#item1-lines {
-		    			left:58%;
-		    			top:10%;
-		    		}
-		    		&#p2013 {
-			
-		    		}
-		    		&#p2030 {
-		    			
-
-		    		}
-		    		&#p2050 {
-		    			
-		    		}
+		    		opacity:1;
 	    		}	
 	    	}
 	    	&title {
@@ -183,6 +100,10 @@
 	    		text-align:center;
 	    	}
 	    }
+	    .btn {
+	    	font-size: rem(15px);
+	    	color: $text-color-gray;
+	    }
 		&.interview1 {
 			background-image: url('../img/interview/bg-interview-1.jpg');
 			.interview-slider {
@@ -197,6 +118,62 @@
 			    	}	
 			    }
 		    }
+		    .btn {
+		    	width:rem(320px);
+		    }
+    		.info-pi {
+    			position: relative;
+    			height:rem(180px);
+    			width:rem(400px);
+	    		#item1-pi {
+				    left: 50%;
+				    top: 5%;
+				    margin: 0 0 0 rem(-120px);
+				    z-index:10
+	    		}
+	    		#item1-lines {
+	    			left:49%;
+	    			top:10%;
+	    			z-index:0;
+	    		}
+	    		.textBox {
+	    			position:relative;
+	    			line-height:1;
+	    			left:70%;
+	    			top:8%;
+	    			width:rem(80px);
+		    		.textDesc {
+		    			position:absolute;
+	    				&1 {
+	    					left:rem(-10px);
+	    					top: rem(-5px);
+		    				font-size: rem(15px);
+	    					color:$text-color-orange;
+		    				.numTxt {
+		    					font-size: rem(24px);
+		    				}
+			    		}
+		    			&2 {
+		    				left:rem(0px);
+		    				top:rem(60px);
+		    				font-size: rem(13px);
+	    					color:$text-color-gray;
+		    				.numTxt {
+		    					font-size: rem(20px);
+		    				}
+			    		}
+		    			&3 {
+		    				left:rem(10px);
+		    				top:rem(120px);
+		    				font-size: rem(13px);
+	    					color:$text-color-lgray;
+		    				.numTxt {
+		    					font-size: rem(20px);
+		    				}
+			    		}
+		    		}
+		    	}
+		    }
 		}
 		&.interview2 {
 			background-image: url('../img/interview/bg-interview-2.jpg');
@@ -204,11 +181,66 @@
 		    	.owl-item:nth-child(1) {
 		    		.item {
 			    		background: url('../img/interview/bg-interview-2-1.jpg') no-repeat 50% 50%/cover;
-		    	}	}
+			    	}	
+			    }
 		    	.owl-item:nth-child(2) {
 		    		.item {
 			    		background: url('../img/interview/bg-interview-2-2.jpg') no-repeat 50% 50%/cover;
-		    	}	}
+			    	}	
+			    }
+			    .btn {
+			    	width:rem(200px);
+			    }
+	    		.info-people {
+	    			position:relative;
+	    			height:rem(184px);
+	    			width:rem(400px);
+		    		.people {
+		    			position:absolute;
+		    			svg {
+		    				position:relative;
+		    			}
+		    			.textDesc {
+		    				text-align:center;
+		    				line-height:1;
+		    			}
+		    			&.people2013 {
+							top:24%;
+			    			left:15%;
+				    		.textDesc {
+			    				color: $text-color-lgray;
+			    				font-size: rem(20px);
+				    			.numTxt {
+				    				font-size: rem(18px);
+				    			}
+				    		}
+		    			}	
+		    			&.people2030 {
+		    				top:12%;
+			    			left:33%;
+    			    		.textDesc {
+    			    			font-size: rem(20px);
+			    				color: $text-color-gray;
+				    			.numTxt {
+				    				font-size: rem(18px);
+				    			}
+				    		}
+		    			}	
+		    			&.people2050 {
+		    				color: $text-color-muted;
+		    				top: -1%;
+			    			left: 55%;
+	    					.textDesc {
+    			    			font-size: rem(20px);
+			    				color: $text-color-orange;
+				    			.numTxt {
+				    				font-size: rem(18px);
+				    				color: $text-color-gray;
+				    			}
+				    		}
+		    			}
+		    		}
+		    	}
 		    }
 		}
 		&.interview3 {
@@ -217,11 +249,58 @@
 		    	.owl-item:nth-child(1) {
 		    		.item {
 			    		background: url('../img/interview/bg-interview-3-1.jpg') no-repeat 50% 50%/cover;
-		    	}	}
+			    	}	
+			    }
 		    	.owl-item:nth-child(2) {
 		    		.item {
 			    		background: url('../img/interview/bg-interview-3-2.jpg') no-repeat 50% 50%/cover;
-		    	}	}
+			    	}	
+		    	}
+			     .btn {
+			    	width:rem(350px);
+			    }
+			    .info-bar {
+			    	position:relative;
+			    	height:rem(150px);
+			    	margin-top:rem(30px);
+		    		.bar84 {
+		    			position:relative;
+						top:0;
+						left:10%;
+		    			#bar84 {
+		    				display:inline-block;
+		    			}
+	    				.textDesc {
+		    				color: $text-color-orange;
+		    				margin-left:rem(100px);
+		    				font-size: rem(28px);
+		    				font-weight:700;
+			    			.numTxt {
+								color: $text-color-white;
+								font-size: rem(28px);
+								font-weight: 700;
+								padding-right: rem(30px);
+			    			}
+		    			}
+		    		}
+					.bar21 {
+		    			position:relative;
+	    				top:10%;
+						left:10%;
+		    			#bar21 {
+		    			}
+		    			.textDesc {
+		    				color: $text-color-gray;
+		    				margin-left:rem(80px);
+		    				font-size: rem(18px);
+		    				font-weight: 700;
+							.numTxt {
+			    				font-size:rem(26px);
+			    				color: $text-color-muted;
+			    			}
+		    			}
+		    		}
+		    	}
 		    }
 		}
 		&.interview4 {
@@ -236,13 +315,50 @@
 		    		.item {
 			    		background: url('../img/interview/bg-interview-4-2.jpg') no-repeat 50% 50%/cover;
 		    		}
-		    	}	
+		    	}
+		        .btn {
+			    	width:rem(250px);
+			    }
+			    .info-circle {
+			    	position: relative;
+			    	height: rem(180px);
+				    .circle-1 {
+				    	position: absolute;
+				    	left: rem(40px);
+				    	top: rem(60px);
+				    	z-index:3;
+				    }
+		    	    .circle-2 {
+				    	position: absolute;
+				    	left: rem(130px);
+				    	top: rem(50px);
+				    	z-index:2;
+				    }
+		    	    .circle-3 {
+				    	position: absolute;
+				    	left: rem(180px);
+				    	top:rem(100px);
+				    	z-index:1;
+				    }
+				    .factory {
+				    	position: absolute;
+				    	left:rem(230px);
+				    	top: rem(30px);
+				    	z-index:0;
+				    }
+				}
 		    }
 		}
 		&.active {
         	opacity: 1;
         	transform: translate(0, 0);
         	z-index: 10;
+		&#fixed {
+		    top: 0;left:0;bottom:0;right:0;
+		    width: 100%;
+		    height: 100%;
+		    position:fixed;
+		}
 		}
 	}
 

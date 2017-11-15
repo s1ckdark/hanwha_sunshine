@@ -257,7 +257,7 @@ tweenText('.heading-2','.5');
 //
 // interview scroll pin
 // 
-function interviewTween() {
+function interviewTween(e) {
   
   var $interview = $('#interview');
   var $slide = $interview.find('.slide');
@@ -268,8 +268,6 @@ function interviewTween() {
   var label;
   var tweens = [];
   var tween;
-
-
 //   for (var j = 0; j < length; j++) {
 //     tween = new SplitText($slide.eq(j).find('.text'));
 //     tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
@@ -306,11 +304,32 @@ function interviewTween() {
     {
       triggerElement: $interview[0],
       triggerHook: 0,
-      duration: 100 * length + '%',
+      duration: 100 * length * 2 + '%',
       offset: $('#roof').height() * -1
     })
-    .setPin($interview[0])
+    .setPin($interview[0],  {pushfollowers: false})
     .setTween(timeline)
+    // .on('enter end', function(e){
+    //     if (e.type === 'enter') {
+    //       $('.interview.active').attr('id','fixed');
+    //     } else {
+    //       $('.interview.active').removeAttr('id');
+    //   }
+    //             // e = e ? e : window.event;
+    //             // if(e.stopPropagation) e.stopPropagation();
+    //             // if(e.preventDefault) e.preventDefault();
+    //             // e.cancelBubble = true;
+    //             // e.cancel = true;
+    //             // e.returnValue = false;
+    //             // return false;
+    //              console.log(e);
+    //             // $("body").scroll(function(e){ e.preventDefault()});
+    //                 $('.interview.active').attr('id','fixed');
+    //             // if(e.progress > 0 && e.scrollDirection == 'FORWARD') {
+    //             //      // TweenMax.to(window, 1, {scrollTo:jumpTo});
+    //             //         // console.log(jumpTo);
+    //             // }
+    //         })
     .addTo(controller);
 }
 interviewTween();
@@ -366,10 +385,12 @@ for (var i = 0; i < length; i++) {
     // timeline.call(playTween, [i]);
     if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
       timeline.to($item.eq(i-1), .5, {className: '-=active'})
+      timeline.to($item.eq(i-1).find('.panel-size'), .5, {className: '-=active'})
       // timeline.to('.energy', .5, {className: '-=active'})
       // timeline.to($label.eq(i-1), .5, {className: '-=active'})
     }
     timeline.to($item.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
+    timeline.to($item.eq(i).find('.panel-size'), .5, {className: '+=active'}); // 현재 슬라이드 보이기
     // timeline.to($label.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
     if (i + 1 === length) {// 마지막 슬라이드
       timeline.to({}, 1, {}); // delay
@@ -423,19 +444,23 @@ new ScrollMagic.Scene(
         );
     });
 
-TweenMax.set(['.chart-inner svg path','.chart-inner svg text'] ,{opacity:0,y:-10});
+TweenMax.set(['.chart-inner svg path','.chart-inner svg text'],{opacity:0,y:-10});
+TweenMax.set('.mix-chart', {xPercent:-65,opacity:0});
+TweenMax.set('.pie-chart', {xPercent:40,opacity:0});
 TweenMax.set('#chart-bar path',{height:0});
 var drawtl = new TimelineMax()
-    .to('.chart-inner #chart-bar path', 1, {drawSVG: "0% 100%", transformOrigin:'0% 0%',ease: Bounce.easeOut,opacity:1,height:150,y:'+=10' }, 0.3)
-    .to('.chart-inner #chart-point path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 0.6)
-    .to('.chart-inner #chart-lines path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 0.6)
-    .to('.chart-inner #pie path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 0.8)
-    .to('.chart-inner #pie text', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 0.8);
+    .to('.mix-chart', 1, {xPercent:0,transformOrigin:'0% 0%',ease: Linear.easeOut,opacity:1}, 0.3)
+    .to('.chart-inner #chart-bar path', 1, {drawSVG: "0% 100%", transformOrigin:'0% 0%',ease: Bounce.easeOut,opacity:1,height:150,y:'+=10' }, 1.3)
+    .to('.chart-inner #chart-point path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.6)
+    .to('.chart-inner #chart-lines path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.6)
+    .to('.pie-chart', 1, {xPercent:0,transformOrigin:'100% 0%',ease: Linear.easeOut,opacity:1}, 0.8)
+    .to('.chart-inner #pie path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.8)
+    .to('.chart-inner .textDesc', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.8);
 
     new ScrollMagic.Scene(
     {
       triggerElement: '.chart-inner',
-      triggerHook: .5,
+      triggerHook: .4,
     })
     .addIndicators()
     .setTween(drawtl)

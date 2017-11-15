@@ -118,6 +118,5 @@ scaleMotion();
 inMotion();
 
   }
-
 circleMotion();
 
