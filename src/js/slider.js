@@ -36,4 +36,20 @@ $('.interview-slider').on('mousewheel initialized.owl.carousel changed.owl.carou
     lazyLoad: true,
     items:1,
     });
+
+// var interviewSwiper = new Swiper('.interview-inner ', {
+//     pagination: '.swiper-pagination',
+//     direction: 'vertical',
+//     slidesPerView: 1,
+//     paginationClickable: true,
+//     spaceBetween: 30,
+//     mousewheelControl: true,
+//     parallax: true,
+//     speed: 600,
+// });
+
+
+// var interviewPix = new Swiper('.interview-slider', {
+//         speed: 400,
+//     });
 });

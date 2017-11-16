@@ -332,18 +332,20 @@ function interviewTween(e) {
     //         })
     .addTo(controller);
 }
+
+
 interviewTween();
 // background parallax scrolling
 
-// new ScrollMagic.Scene(
-//     {
-//       triggerElement: ".parallax",
-//       triggerHook: "onEnter", 
-//       duration: "200%"
-//     })
-//     .setTween(".parallax > .bg_parallax", {y: "80%", ease: Linear.easeNone})
-//     .addIndicators()
-//     .addTo(controller);
+new ScrollMagic.Scene(
+    {
+      triggerElement: ".parallax",
+      triggerHook: "onEnter", 
+      duration: "200%"
+    })
+    .setTween(".parallax > .bg_parallax", {y: "80%", ease: Linear.easeNone})
+    .addIndicators()
+    .addTo(controller);
 
 
 
@@ -460,8 +462,37 @@ var drawtl = new TimelineMax()
     new ScrollMagic.Scene(
     {
       triggerElement: '.chart-inner',
-      triggerHook: .4,
+      triggerHook: .6,
     })
     .addIndicators()
     .setTween(drawtl)
+    .addTo(controller);
+
+function drawTreeIcon(){
+var $sv=$('.line');
+for(var i=0;i<$sv.length;i++){
+TweenMax.from($sv.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2});
+}
+TweenMax.to('.arrow', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,repeatDelay:0})
+}
+
+function drawSpaceIcon(){
+var $stroke=$('#tree path');
+for(var i=0;i<$stroke.length;i++){
+TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.5});
+TweenMax.to('.earth', 3, {rotationZ:180, transformOrigin:"50% 50%",repeat:-1,transformStyle:'preserve-3d',ease:Quad.easeInOut})
+TweenMax.to('.spaceship', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,transformStyle:'preserve-3d',ease:Quad.easeInOut})
+}
+}
+
+    new ScrollMagic.Scene(
+    {
+      triggerElement:'#info-graphic',
+      triggerHook: .6,
+    })
+    .addIndicators()
+    .on('enter', function(){
+      drawTreeIcon();
+      drawSpaceIcon();
+    })
     .addTo(controller);

@@ -5,11 +5,8 @@
 * */
 
 window.addEventListener('load', function(){
-  $('#background .toggle_text').on('click', function(){
-    jatracker('event', 'clickEvent', '대한민국 약국 1번가', '내용보기 버튼 클릭', '내용 더 보기');
-  });
-  $('#injoongang .owl-prev, #injoongang .owl-next').on('click', function(){
-    jatracker('event', 'clickEvent', '중앙일보속 김승호 회장이야기', '슬라이드 클릭', '기사 더 보기');
+  $('#injoongang .article_arrow').on('click', function(){
+    jatracker('event', 'clickEvent', '중앙일보속 김승호 회장이야기', '기사 링크 클릭', '기사 더 보기');
   });
 
   $('.btn_readmore').on('click', function(){
@@ -20,8 +17,8 @@ window.addEventListener('load', function(){
     jatracker('event', 'clickEvent', '연대기', '슬라이드 좌우', '슬라이드 내용 보기');
   });
 
-  $('#kanarb .toggle_text').on('click', function(){
-    jatracker('event', 'clickEvent', '카나브', '카나브 기사 더 보기 버튼 클릭', '카나브 기사 더 보기');
+  $('.boldbtn').on('click', function(){
+    jatracker('event', 'clickEvent', '연대기', '볼드마케팅 버튼 클릭', '볼드마케팅 보기');
   });
   $('#more .btn').on('click', function(){
     jatracker('event', 'clickEvent', '더보기', '보령제약 바로가기', '보령제약 바로가기');

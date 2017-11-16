@@ -36,136 +36,21 @@
   padding-bottom: rem($vertical-margin-2);
 }
 
+section {
+  margin-left:auto;
+  margin-right:auto;
+}
 
 // Section Header
 //
 // 구조1: subtitle + heading-1
 // 구조2: heading-1 + text
 .section-header {
-  text-align:center;
-  margin-bottom: rem(20px);
+  // padding: rem(75px) 0 rem(50px);
   .sub-title {
     margin-bottom: rem(15px);
     font-size: rem(16px);
     color: $text-color-muted;
     line-height: 1;
-  }
-  .text16 {
-    margin-top: rem(15px);
-  }
-}
-  .overline {
-    position:relative;
-    z-index:30;
-    text-align:center;
-    font-size:rem(13px);
-    line-height:rem(14px);
-    &:after {
-      content:'';
-      position:absolute;
-      top:-10px;
-      margin:0 auto;
-      display:block;
-      width:rem(20px);
-      height:2px;
-      background-color: $lipstick;
-      left:50%;
-      margin-left:rem(-10px);
-    }
-    &.dark {
-      color:rgb(17,17,17);
-    }
-  }
-
-.toggle_block {
-  .toggle_text {
-    position:relative;
-    text-align:center;
-    &.btn {
-      width:rem(140px);
-      height:rem(30px);
-      margin:0 auto;
-      background-color: rgb(255,255,255);
-      border:1px solid $lipstick;
-      color: $lipstick;
-      font-size:rem(13px);
-      display:block;
-        .down-arrow {
-         }
-      }
-    }
-     p, .drugstore_front, .voucher {
-      display:none !important;
-    }
-    &.active {
-    background-color: transparent;
-    height:100% !important;
-    p,  .drugstore_front, .voucher {
-      display:block !important;
-    }
-
-    .toggle_text {
-       color: $lipstick;
-      font-size:rem(13px);
-      // padding: rem(10px) 0;
-      .down-arrow {
-        transform: rotate(180deg);
-        margin:rem(8px) rem(5px) 0;
-      }
-    }
-  }
-  &.gray {
-  width: 100vw;
-  padding:rem(14px) 0;
-  display:block;
-    .toggle_text {
-      background-color: rgb(238, 238, 238);
-      color: $lipstick;
-      font-size:rem(13px);
-      padding: rem(10px) 0;
-    }
- }
-
-  &.dark {
-    .toggle_text {
-      width:calc(100vw - 10px);
-      padding:rem(14px) 0 rem(14px) rem(10px);
-      background-color: rgb(34, 34, 34);
-      height:rem(16px);
-      color: $br-gray-color;
-      font-size:rem(16px);
-      margin-bottom:1px;  
-      text-align: left;
-      .down-arrow {
-        right:rem(40px);
-          top:rem(24px);
-          margin:0;
-          padding:0;
-      }
-      &.red {
-        color:$lipstick;
-      }
-    }
-  }
-}
-.toggle_layer_block {
- display:none;
- opacity:0;
- visibility: hidden;
-  .toggle_text {
-    position:relative;
-    text-align:center;
-    color: $lipstick;
-    font-size:rem(13px);
-  }
-  &.active {
-    width:100vw;
-    display:block;
-    opacity:1;
-    visibility:visible;
-    position:fixed !important;
-    top:50px;left:0;right:0;bottom:0;
-    background-color: rgb(255,255,255);
-    z-index:1001;
   }
 }

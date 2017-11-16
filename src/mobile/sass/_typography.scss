@@ -2,8 +2,8 @@
 //
 //
 
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); 
 
-//
 // Text hierarchy
 //
 html {
@@ -16,28 +16,12 @@ html {
 //
 body {
   background: $body-bg;
-  color: $text-color;
+  color: $text-color-white;
   font-family: $font-family;
   font-weight: $font-weight;
   line-height: $line-height;
   letter-spacing: $letter-spacing;
 }
-
-.p-lead {
-  margin-bottom: .4em;
-  font-size: $font-size-lead;
-  @at-root .text + .p-lead {
-    margin-top: .8em;
-    @include text16;
-  }
-}
-%p-small {
-  font-size: $font-size-small;
-}
-%p-smaller {
-  font-size: $font-size-smaller;
-}
-
 
 //
 // Headings
@@ -48,39 +32,34 @@ h1, h2, h3, h4, h5, h6 {
   color: $heading-text-color;
   font-family:$font-family;
 }
+
+p {
+  font-family: $font-family;
+}
+
 .heading-1 {
   line-height: 1.26;
-  color: rgb(17, 17, 17);
   font-size: $heading-1;
-  padding: rem(30px) 0 rem(20px);
+  padding: rem(70px) 0 rem(50px);
   text-align:center;
-  font-family: $font-family;
-  &.dark {
-    color: $br-gray-color;
-  }
-  &.lipstick {
-    color: $lipstick;
+  &.text-color-orange {
+    font-weight: bold;
   }
 }
 .heading-2 {
   font-size: $heading-2;
-  color: rgb(17, 17, 17);
-  line-height:rem(18px);
   text-align:center;
-  font-family: $font-family;
+
+}
+.text {
   font-weight:400;
-  &.dark {
-    color: $br-gray-color;
-  }
-  &.lipstick {
-    color: $lipstick;
+  text-align:center; 
+  &.text-color-orange {
+    font-weight: bold;
   }
 }
-.text, .txt16 {
-  &.dark {
-    color: rgb(255, 255, 255)
-  }
-}
+
+
 //
 // Inline elements
 //
@@ -99,4 +78,26 @@ a {
 //
 %eng {
   font-family: $font-family-eng;
+}
+//
+// text set
+// 
+.text-color-orange {
+  color: $text-color-orange;
+}
+
+.dark {
+  color: $text-color-black;
+}
+.light {
+   color: $text-color-white;
+}
+.gray {
+  color: $text-color-gray;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
 }

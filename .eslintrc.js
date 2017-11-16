@@ -59,6 +59,7 @@ module.exports = {
     "Back":true,
     "lazyload": true,
     "slideTween":true,
-    "cancel":true
+    "Quad":true,
+    "Swiper":true
   }
 };
