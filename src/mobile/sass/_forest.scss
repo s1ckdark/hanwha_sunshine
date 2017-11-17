@@ -116,18 +116,20 @@
 				}
 			}
 			.owl-carousel {
-				width:100vw;
+				width:90vw;
+				margin:0 auto;
 				.img {
-					width: 100vw;
-					height: calc(100vw * 290 / 392);
+					width: 90vw;
+					height: calc(90vw * 290 / 392);
 					display:block;
+					border-radius:10px;
 				}
 				.desc {
 					padding-top: rem(50px);
 					color: $text-color-gray;
 					text-align: center;
-					font-size: rem(11px);
-					line-height: rem(33px);
+					font-size: rem(14px);
+					line-height: rem(24px);
 				}
 				.forest-item1 {
 					.img {
@@ -172,5 +174,8 @@
 		background-color: rgb(255,255,255);
 		z-index:31;
 		background: url('../img/forest/bg-forest_result.jpg') 50% 50%/cover;
+		.text {
+			font-size: rem(14px);
+		}
 	}
 }

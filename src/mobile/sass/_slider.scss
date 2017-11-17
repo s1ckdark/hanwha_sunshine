@@ -3,6 +3,9 @@
 //
 
 // owl carousel
+.owl-carousel {
+  display:block;
+}
 .owl-nav {
   > * {
     position: absolute;

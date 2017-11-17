@@ -283,7 +283,7 @@ function interviewTween(e) {
   for (var i = 0; i < length; i++) {
     if (i > 0) {// 두번째 슬라이드부터 이동하기
       timeline.to({}, 1, {}); // delay
-      timeline.to($slide.eq(i), 1, {zIndex:10, delay: 0, ease: Linear.easeNone});
+      timeline.to($slide.eq(i), 1, {xPercent: -100 * i,zIndex:10, delay: 0, ease: Linear.easeNone});
     }
     label = '.interview' + (i+1); // ex) slide1
     // timeline.add(label);
@@ -304,32 +304,11 @@ function interviewTween(e) {
     {
       triggerElement: $interview[0],
       triggerHook: 0,
-      duration: 100 * length * 2 + '%',
+      duration: 100 * length  + '%',
       offset: $('#roof').height() * -1
     })
-    .setPin($interview[0],  {pushfollowers: false})
+    .setPin($interview[0])
     .setTween(timeline)
-    // .on('enter end', function(e){
-    //     if (e.type === 'enter') {
-    //       $('.interview.active').attr('id','fixed');
-    //     } else {
-    //       $('.interview.active').removeAttr('id');
-    //   }
-    //             // e = e ? e : window.event;
-    //             // if(e.stopPropagation) e.stopPropagation();
-    //             // if(e.preventDefault) e.preventDefault();
-    //             // e.cancelBubble = true;
-    //             // e.cancel = true;
-    //             // e.returnValue = false;
-    //             // return false;
-    //              console.log(e);
-    //             // $("body").scroll(function(e){ e.preventDefault()});
-    //                 $('.interview.active').attr('id','fixed');
-    //             // if(e.progress > 0 && e.scrollDirection == 'FORWARD') {
-    //             //      // TweenMax.to(window, 1, {scrollTo:jumpTo});
-    //             //         // console.log(jumpTo);
-    //             // }
-    //         })
     .addTo(controller);
 }
 
@@ -469,19 +448,22 @@ var drawtl = new TimelineMax()
     .addTo(controller);
 
 function drawTreeIcon(){
-var $sv=$('.line');
-for(var i=0;i<$sv.length;i++){
-TweenMax.from($sv.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2});
+var $stroke=$('#tree path');
+for(var i=0;i<$stroke.length;i++){
+TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2,ease:Circ.easeInOut, strokeWidth:0});
 }
-TweenMax.to('.arrow', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,repeatDelay:0})
+TweenMax.to('.co2', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,transformStyle:'preserve-3d',ease:Power0.easeInOut,delay:1})
+TweenMax.to('.arrow-recycle', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,ease:Power0.easeInOut,delay:2})
+TweenMax.to('.plant', 1, {scale:0.9,repeat:-1,ease:Power0.easeInOut,delay:2,y:-5,yoyo:true,transformOrigin:"50% 100%"})
+
 }
 
 function drawSpaceIcon(){
-var $stroke=$('#tree path');
+var $stroke=$('#space path');
 for(var i=0;i<$stroke.length;i++){
-TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.5});
-TweenMax.to('.earth', 3, {rotationZ:180, transformOrigin:"50% 50%",repeat:-1,transformStyle:'preserve-3d',ease:Quad.easeInOut})
-TweenMax.to('.spaceship', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,transformStyle:'preserve-3d',ease:Quad.easeInOut})
+TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2});
+TweenMax.to('.planet', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,delay:3,transformStyle:'preserve-3d',ease:Power0.easeInOut})
+TweenMax.to('.spaceship', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,ease:Quad.easeInOut})
 }
 }
 

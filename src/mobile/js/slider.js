@@ -16,7 +16,16 @@ $(function(){
     lazyLoad: true,
     items:1,
     margin: 20
-    });  
+    });    
+
+  // var $interviewSlider = $('.interview-inner').owlCarousel({
+  //   loop: true,
+  //   dots:true,
+  //   lazyLoad: true,
+  //   items:1,
+  //   margin: 20,
+  //   stagePadding: 50,
+  //   });  
 
 $('.interview-slider').on('mousewheel initialized.owl.carousel changed.owl.carousel', function(e) {
     if (!e.namespace)  {
