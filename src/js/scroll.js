@@ -268,17 +268,19 @@ function interviewTween(e) {
   var label;
   var tweens = [];
   var tween;
-//   for (var j = 0; j < length; j++) {
-//     tween = new SplitText($slide.eq(j).find('.text'));
-//     tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
-//     tweens.push(tween);
-//   }
 
-// function playTween(index){
-//     if (index !== null) {
-//       tweens[index].play(); // play 최초만 실행. 계속 실행하려면 restart로 변경.
-//     }
-//   }
+  for (var j = 0; j < length; j++) {
+    console.log($slide.eq(j).find('.heading'));
+    tween = new SplitText($slide.eq(j).find('.heading'));
+    tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
+    tweens.push(tween);
+  }
+
+function playTween(index){
+    if (index !== null) {
+      tweens[index].play(); // play 최초만 실행. 계속 실행하려면 restart로 변경.
+    }
+  }
 
   for (var i = 0; i < length; i++) {
     if (i > 0) {// 두번째 슬라이드부터 이동하기
@@ -288,18 +290,19 @@ function interviewTween(e) {
     label = '.interview' + (i+1); // ex) slide1
     // timeline.add(label);
     var $label = $(label).find('.nav a');
-    // timeline.call(playTween, [i]);
+    timeline.call(playTween, [i]);
     if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
       timeline.to($slide.eq(i-1), .5, {className: '-=active'})
       timeline.to($label.eq(i-1), .5, {className: '-=active'})
+      // $slide.eq(i).removeAttr('id');
     }
     timeline.to($slide.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
     timeline.to($label.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
+    // $slide.eq(i).attr('id','fixed');
     if (i + 1 === length) {// 마지막 슬라이드
       timeline.to({}, 1, {}); // delay
     }
   }
-
   new ScrollMagic.Scene(
     {
       triggerElement: $interview[0],
@@ -307,32 +310,19 @@ function interviewTween(e) {
       duration: 100 * length * 2 + '%',
       offset: $('#roof').height() * -1
     })
-    .setPin($interview[0],  {pushfollowers: false})
+    .setPin($interview[0])
     .setTween(timeline)
-    // .on('enter end', function(e){
-    //     if (e.type === 'enter') {
-    //       $('.interview.active').attr('id','fixed');
-    //     } else {
-    //       $('.interview.active').removeAttr('id');
-    //   }
-    //             // e = e ? e : window.event;
-    //             // if(e.stopPropagation) e.stopPropagation();
-    //             // if(e.preventDefault) e.preventDefault();
-    //             // e.cancelBubble = true;
-    //             // e.cancel = true;
-    //             // e.returnValue = false;
-    //             // return false;
-    //              console.log(e);
-    //             // $("body").scroll(function(e){ e.preventDefault()});
-    //                 $('.interview.active').attr('id','fixed');
-    //             // if(e.progress > 0 && e.scrollDirection == 'FORWARD') {
-    //             //      // TweenMax.to(window, 1, {scrollTo:jumpTo});
-    //             //         // console.log(jumpTo);
-    //             // }
-    //         })
+    .on('progress', function(e){
+          var current = Math.floor(e.progress * 100);
+          console.log(current);
+          if(current >= 20/3 && current < 40 / 3) {
+            $('.interview.active .interview-slider').trigger('next.owl.carousel');
+          } else if( current >= 40/3 && current < 60 / 3) {
+            $('.interview.active .interview-slider').trigger('next.owl.carousel');
+          }
+      })
     .addTo(controller);
 }
-
 
 interviewTween();
 // background parallax scrolling
@@ -346,9 +336,6 @@ new ScrollMagic.Scene(
     .setTween(".parallax > .bg_parallax", {y: "80%", ease: Linear.easeNone})
     .addIndicators()
     .addTo(controller);
-
-
-
 //
 // origin
 //

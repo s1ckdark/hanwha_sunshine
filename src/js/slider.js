@@ -24,9 +24,10 @@ $('.interview-slider').on('mousewheel initialized.owl.carousel changed.owl.carou
     }
     var carousel = e.relatedTarget;
     if(carousel.relative(carousel.current()) == 2) {
-        TweenMax.from('.item .info-graphic svg', 1, {transformOrigin:'50% 50%',drawSVG:0,opacity:0,delay:1});
-        TweenMax.from('.item .textDesc', 1, {transformOrigin:'50% 50%',opacity:0,delay:1});
+        TweenMax.from('.item .info-graphic svg', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:1});
+        TweenMax.from('.item .textDesc', 1, {transformOrigin:'50% 50%',strokeWidth:0,opacity:0,delay:2});
     }
+    console.log(e.item.index);
     $('.counter .activeNum').text(carousel.relative(carousel.current()) + 1);
     $('.counter .totalNum').text(carousel.items().length);
   }).owlCarousel({

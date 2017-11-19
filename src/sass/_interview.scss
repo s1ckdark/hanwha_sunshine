@@ -322,19 +322,25 @@
 			    .info-circle {
 			    	position: relative;
 			    	height: rem(180px);
+		    	 	.textDesc {
+			    		text-align:center;
+			    	}
 				    .circle-1 {
+				    	width: rem(124px);
 				    	position: absolute;
 				    	left: rem(40px);
 				    	top: rem(60px);
 				    	z-index:3;
 				    }
 		    	    .circle-2 {
+		    	    	width :rem(84px);
 				    	position: absolute;
 				    	left: rem(130px);
 				    	top: rem(50px);
 				    	z-index:2;
 				    }
 		    	    .circle-3 {
+		    	    	width: rem(65px);
 				    	position: absolute;
 				    	left: rem(180px);
 				    	top:rem(100px);
