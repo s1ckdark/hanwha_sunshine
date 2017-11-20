@@ -124,28 +124,6 @@ iconTween.from('.stroke', 1, {stroke:'1px', transformOrigin:"50% 50%"});
     })
     .addTo(controller);
 
-var bar3d = new TimelineMax({paused:true});
-bar3d.fromTo('.bar3d',1,{scale:0},{scale:1,ease:Back.easeOut},.5)
-     .fromTo('.bar3d .ship.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},1)
-     .fromTo('.bar3d .chip.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},1.5)
-     .fromTo('.bar3d .vehicle.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},2)
-     .fromTo('.bar3d .medicine.circle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},2.5)
-
- 
-  new ScrollMagic.Scene(
-    {
-      triggerElement: $('.market')[0],
-      duration: $('.market').height(),
-    })
-     .on('enter leave', function(event){  
-      if (event.type === 'enter') {
-        bar3d.play();
-        } else {
-        bar3d.pause();
-      }
-
-    })
-    .addTo(controller);
 var chartBubble = new TimelineMax({paused:true});
 chartBubble
      .fromTo('.retangle_bubble.s2011',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.1)
@@ -270,7 +248,6 @@ function interviewTween(e) {
   var tween;
 
   for (var j = 0; j < length; j++) {
-    console.log($slide.eq(j).find('.heading'));
     tween = new SplitText($slide.eq(j).find('.heading'));
     tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
     tweens.push(tween);
@@ -294,15 +271,14 @@ function playTween(index){
     if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
       timeline.to($slide.eq(i-1), .5, {className: '-=active'})
       timeline.to($label.eq(i-1), .5, {className: '-=active'})
-      // $slide.eq(i).removeAttr('id');
     }
     timeline.to($slide.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
     timeline.to($label.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
-    // $slide.eq(i).attr('id','fixed');
     if (i + 1 === length) {// 마지막 슬라이드
       timeline.to({}, 1, {}); // delay
     }
   }
+
   new ScrollMagic.Scene(
     {
       triggerElement: $interview[0],
@@ -313,16 +289,28 @@ function playTween(index){
     .setPin($interview[0])
     .setTween(timeline)
     .on('progress', function(e){
-          var current = Math.floor(e.progress * 100);
+          var current = Math.floor(e.progress * 100)%25;
           console.log(current);
-          if(current >= 20/3 && current < 40 / 3) {
-            $('.interview.active .interview-slider').trigger('next.owl.carousel');
-          } else if( current >= 40/3 && current < 60 / 3) {
-            $('.interview.active .interview-slider').trigger('next.owl.carousel');
+          if(current >0 && current <8) {
+            $('.interview.active .interview-slider').trigger('to.owl.carousel', 0);
+          } else if(current >= 8 && current < 16) {
+             $('.interview.active .interview-slider').trigger('to.owl.carousel', 1);
+          } else if( current >= 16 && current < 24) {
+             $('.interview.active .interview-slider').trigger('to.owl.carousel', 2);
           }
       })
     .addTo(controller);
 }
+  $.fn.scrollEnd = function(callback, timeout) {          
+  $(this).scroll(function(){
+    var $this = $(this);
+    if ($this.data('scrollTimeout')) {
+      clearTimeout($this.data('scrollTimeout'));
+    }
+    $this.data('scrollTimeout', setTimeout(callback,timeout));
+  });
+};
+
 
 interviewTween();
 // background parallax scrolling

@@ -298,9 +298,19 @@ function interviewTween(e) {
     if (i + 1 === length) {// 마지막 슬라이드
       timeline.to({}, 1, {}); // delay
     }
-  }
-
   new ScrollMagic.Scene(
+    {
+      triggerElement: $slide[i],
+      triggerHook: 0,
+      duration: '100%',
+      offset: $slide[i] * -1
+    })
+    .setPin($slide[i])
+    .setTween(timeline)
+    .addTo(controller);
+  }
+  
+    new ScrollMagic.Scene(
     {
       triggerElement: $interview[0],
       triggerHook: 0,
@@ -311,7 +321,6 @@ function interviewTween(e) {
     .setTween(timeline)
     .addTo(controller);
 }
-
 
 interviewTween();
 // background parallax scrolling

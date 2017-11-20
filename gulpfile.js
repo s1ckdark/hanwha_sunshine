@@ -33,8 +33,9 @@ gulp.task('html', function () {
         version: date.getTime(), // CSS, JS cache version
         viewport_width: '1200', // viewport of PC. mobile viewport set up device-width
         brand: '한화', // header logo title
-        title: '',
-        keyword: '',
+        title: '한화 해피 선샤인… 사랑 빛 쏟아지다',
+        description:'산봉우리 사이로 태양이 떠오릅니다. 햇살은 아이들 공부방을 밝히는 등불이 됩니다. 할머니의 시린 몸을 녹이는 따뜻한 쉼터가 됩니다. 장애인이 일자리를 찾는 희망이 됩니다.',
+        keyword: '태양광, 신재생에너지, 원자력 에너지, 태양광 발전, 사회공헌, 사회공헌활동, 해피선샤인, CSR, 한화, 한화 그룹 사회공헌활동, 공부방, 꽃때말공부방, 치매, 요양원, 장애인 여행, 장애인, 하늘품 단기 보호센터, 이산화탄소 배출, 이산화탄소, 화석연료, 여수 가사리 생태교육관, 발전설비, 소비전력, 세탁기, 텔레비전, 에어컨, 한화 태양의 숲, 태양의 숲, 태양광 발전 무상 지원, 태양광패널, 한화 큐셀, 태양광 모듈, 모듈',
         og_image: baseurl + '/img/og-image.jpg', // 1200x628px
         og_article_publisher: 'https://www.facebook.com/joongang', // A Facebook page URL or ID
         dablena_init: 'www.hanwha.co.kr', // client website
