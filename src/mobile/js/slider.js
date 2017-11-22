@@ -18,33 +18,28 @@ $(function(){
     margin: 20
     });    
 
-  // var $interviewSlider = $('.interview-inner').owlCarousel({
-  //   loop: true,
-  //   dots:true,
-  //   lazyLoad: true,
-  //   items:1,
-  //   margin: 20,
-  //   stagePadding: 50,
-  //   });  
+  var $interviewInner = $('.interview-inner').owlCarousel({
+    loop: true,
+    dots:true,
+    lazyLoad: true,
+    items:1,
+    });  
 
-$('.interview-slider').on('mousewheel initialized.owl.carousel changed.owl.carousel', function(e) {
-    if (!e.namespace)  {
-      return;
-    }
-    var carousel = e.relatedTarget;
-    if(carousel.relative(carousel.current()) == 2) {
-        TweenMax.from('.item .info-graphic svg', 1, {transformOrigin:'50% 50%',drawSVG:0,opacity:0,delay:1});
-        TweenMax.from('.item .textDesc', 1, {transformOrigin:'50% 50%',opacity:0,delay:1});
-    }
-    $('.counter .activeNum').text(carousel.relative(carousel.current()) + 1);
-    $('.counter .totalNum').text(carousel.items().length);
-  }).owlCarousel({
+  var $interviewSlider =$('.interview-slider').owlCarousel({
     loop:false,
     nav: false,
     dots: false,
     lazyLoad: true,
     items:1,
+    autoplay:true
     });
+
+    var $colorSlider = $('.color-slider').owlCarousel({
+    loop: true,
+    dots:true,
+    lazyLoad: true,
+    items:1,
+    });  
 
 // var interviewSwiper = new Swiper('.interview-inner ', {
 //     pagination: '.swiper-pagination',

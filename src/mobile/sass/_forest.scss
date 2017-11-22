@@ -7,9 +7,9 @@
 		padding: rem(30px) 0 rem(100px);
 	}
 	.forestLocation {
-		width:100%;
-		height:100vh;
-		background:#f2f1f1 url('../img/forest/map.png') no-repeat 0% 50%/contain;
+		width:100vw;
+		height:calc(100vw * 647 / 640);
+		background:#f2f1f1 url('../img/forest/map.jpg') no-repeat 0% 50%/contain;
 		.location_desc {
 			position:relative;	
 			.map_point {

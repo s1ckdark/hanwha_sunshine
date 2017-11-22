@@ -86,5 +86,15 @@ $(function(){
   function elOut() {
       this.animation.reverse();
   }
+  TweenMax.set('.item-pop', {scale:0});
+  $('.popbtn').click(function(){
+    var target = $($(this).data('pop'))[0];
+    console.log(target);
+    TweenMax.to(target,.5,{scale:1});
+  })
 
+    $('.closebtn').click(function(){
+    var $this = $(this).parents();
+    TweenMax.to($this,.5,{scale:0, easing:Bounce.easeInOut});
+  })
 });

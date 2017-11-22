@@ -3,65 +3,138 @@
 //
 
 #interview {
-	overflow: visible;
+	overflow:hidden;
   	position: relative;
 	@extend %full-screen;
+    background: #e5e5e5;
 	.interview-inner {
 		@extend %clearfix;
-		width:400%;
+		width:90vw;
 		display:block;
-	}
-	.interview {
-		width:25%;
-		height:100vh;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: 50% 50%;
-		// opacity: 0;
-		transform: translate(0, 10px);
-	    transition: all .4s;
-	    z-index:5;
-	    float:left;
-	    overflow:hidden;
-	    .wrapper {
-		    p {
-		    	color: #ccc;
-		    	font-size: rem(16px);
-		    	margin-bottom: rem(30px);
-		    	.bold {
-		    		font-weight:500;
-		    		color: $text-color-white;
-		    	}
-		    }
-		    .nav {
-		    	display:inline-block;
-		    	font-size: rem(14px);
-		    	font-weight: 700;
-		    	a {
-		    		color: #fefefe;
-		    		margin: 0 rem(12px);
-		    		opacity: .3;
-			    	&.active {
-			    		color: $text-color-orange;
-			    		opacity: 1;
-			    		z-index: 10;
+		position:absolute;
+		overflow: visible;
+		.owl-stage-outer {
+			overflow: visible;
+		}
+		.interview {
+			width:90vw;
+			height:100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: 50% 50%;
+			// opacity: 0;
+			transform: translate(0, 10px);
+		    transition: all .4s;
+		    z-index:5;
+		    overflow:hidden;
+		    .section-header {
+			    .header-img {
+			    	width:90vw;
+			    	height:calc(90vw * 360 / 640);
+			    }
+			    .text {
+			    	height:rem(80px);
+			    	margin:rem(5px) 0;
+			    }
+			    .popbtn {
+			    	font-size: rem(15px);
+			    	color: $text-color-black;
+			    }
+			}
+
+		    .wrapper {
+		    	padding:0 1rem;
+			    p {
+			    	color: #ccc;
+			    	font-size: rem(16px);
+			    	margin-bottom: rem(30px);
+			    	.bold {
+			    		font-weight:500;
+			    		color: $text-color-white;
+			    	}
+			    }
+			    .nav {
+			    	display:inline-block;
+			    	font-size: rem(14px);
+			    	font-weight: 700;
+			    	a {
+			    		color: #fefefe;
+			    		margin: 0 rem(12px);
+			    		opacity: .3;
+				    	&.active {
+				    		color: $text-color-orange;
+				    		opacity: 1;
+				    		z-index: 10;
+				    	}
+				    }
+			    }
+			    .section-header {
+			    	padding: rem(20px) 0 0;
+			    	h4.heading-2 {
+			    		color: $text-color-black;
+			    		.boldtxt {font-weight:700;}
 			    	}
 			    }
 		    }
-		    .section-header {
-		    	padding: rem(20px) 0 0;
-		    	h4.heading {
-		    	}
+		    .btn {
+		    	font-size: rem(15px);
+		    	color: $text-color-gray;
 		    }
-		    .interview-slider {
-		    	width: 80vw; //rem(400px);
-		    	.item {
-		    		width: 80vw; //rem(400px);
-		    		height: 80vw; //rem(400px);
-		    		background: #fff;
+			&.interview1 {
+				.header-img {
+		    		background: url('../img/interview/bg-interview-1-1.jpg') no-repeat 50% 50%/cover;
 		    	}
-		    }
-	    }
+			}
+			&.interview2 {
+				.header-img {
+		    		background: url('../img/interview/bg-interview-2-1.jpg') no-repeat 50% 50%/cover;
+		    	}
+			}
+			&.interview3 {
+				.header-img {
+		    		background: url('../img/interview/bg-interview-3-1.jpg') no-repeat 50% 50%/cover;
+		    	}
+				
+			}
+			&.interview4 {
+				.header-img {
+		    		background: url('../img/interview/bg-interview-4-1.jpg') no-repeat 50% 50%/cover;
+		    	}
+			}
+			&.active {
+	        	opacity: 1;
+	        	transform: translate(0, 0);
+	        	z-index: 10;
+			}
+		}
+	}
+	.pop-section {
+		position: relative;
+	    .item-pop {
+		    	width:100vw;
+		    	height:100vh;
+		    	position: fixed;
+		    	overflow-y: scroll;
+		    	top:0;right:0;bottom:0;left:0;
+		    	background-color: #fff;
+		    	z-index:10;
+		    	.closebtn {
+		    		position: absolute;
+		    		top:rem(50px);
+		    		right: rem(50px);
+		    	}
+	    	  .interview-slider {
+			    	// width: 80vw; //rem(400px);
+			    	width:100%;
+			    	.item {
+			    		// width: 80vw; //rem(400px);
+			    		// height: 80vw; //rem(400px);
+			    		background: #fff;
+			    	}
+			    }
+			    .inner {
+			    	background: #fff;
+			    }
 	    .info- {
 	    	&graphic {
 	    		position:relative;
@@ -88,12 +161,7 @@
 	    		text-align:center;
 	    	}
 	    }
-	    .btn {
-	    	font-size: rem(15px);
-	    	color: $text-color-gray;
-	    }
-		&.interview1 {
-			background-image: url('../img/interview/bg-interview-1.jpg');
+		.pop1 {
 			.interview-slider {
 		    	.owl-item:nth-child(1) {
 		    		.item {
@@ -163,8 +231,7 @@
 		    	}
 		    }
 		}
-		&.interview2 {
-			background-image: url('../img/interview/bg-interview-2.jpg');
+		.pop2 {
 			.interview-slider {
 		    	.owl-item:nth-child(1) {
 		    		.item {
@@ -231,68 +298,66 @@
 		    	}
 		    }
 		}
-		&.interview3 {
-			background-image: url('../img/interview/bg-interview-3.jpg');
+		.pop3 {
 			.interview-slider {
-		    	.owl-item:nth-child(1) {
-		    		.item {
-			    		background: url('../img/interview/bg-interview-3-1.jpg') no-repeat 50% 50%/cover;
-			    	}	
-			    }
-		    	.owl-item:nth-child(2) {
-		    		.item {
-			    		background: url('../img/interview/bg-interview-3-2.jpg') no-repeat 50% 50%/cover;
-			    	}	
-		    	}
-			     .btn {
-			    	width:rem(350px);
-			    }
-			    .info-bar {
-			    	position:relative;
-			    	height:rem(150px);
-			    	margin-top:rem(30px);
-		    		.bar84 {
-		    			position:relative;
-						top:0;
-						left:10%;
-		    			#bar84 {
-		    				display:inline-block;
-		    			}
-	    				.textDesc {
-		    				color: $text-color-orange;
-		    				margin-left:rem(100px);
-		    				font-size: rem(28px);
-		    				font-weight:700;
-			    			.numTxt {
-								color: $text-color-white;
-								font-size: rem(28px);
-								font-weight: 700;
-								padding-right: rem(30px);
+			    	.owl-item:nth-child(1) {
+			    		.item {
+				    		background: url('../img/interview/bg-interview-3-1.jpg') no-repeat 50% 50%/cover;
+				    	}	
+				    }
+			    	.owl-item:nth-child(2) {
+			    		.item {
+				    		background: url('../img/interview/bg-interview-3-2.jpg') no-repeat 50% 50%/cover;
+				    	}	
+			    	}
+				     .btn {
+				    	width:rem(350px);
+				    }
+				    .info-bar {
+				    	position:relative;
+				    	height:rem(150px);
+				    	margin-top:rem(30px);
+			    		.bar84 {
+			    			position:relative;
+							top:0;
+							left:10%;
+			    			#bar84 {
+			    				display:inline-block;
 			    			}
-		    			}
-		    		}
-					.bar21 {
-		    			position:relative;
-	    				top:10%;
-						left:10%;
-		    			#bar21 {
-		    			}
-		    			.textDesc {
-		    				color: $text-color-gray;
-		    				margin-left:rem(80px);
-		    				font-size: rem(18px);
-		    				font-weight: 700;
-							.numTxt {
-			    				font-size:rem(26px);
-			    				color: $text-color-muted;
+		    				.textDesc {
+			    				color: $text-color-orange;
+			    				margin-left:rem(100px);
+			    				font-size: rem(28px);
+			    				font-weight:700;
+				    			.numTxt {
+									color: $text-color-white;
+									font-size: rem(28px);
+									font-weight: 700;
+									padding-right: rem(30px);
+				    			}
 			    			}
-		    			}
-		    		}
-		    	}
-		    }
+			    		}
+						.bar21 {
+			    			position:relative;
+		    				top:10%;
+							left:10%;
+			    			#bar21 {
+			    			}
+			    			.textDesc {
+			    				color: $text-color-gray;
+			    				margin-left:rem(80px);
+			    				font-size: rem(18px);
+			    				font-weight: 700;
+								.numTxt {
+				    				font-size:rem(26px);
+				    				color: $text-color-muted;
+				    			}
+			    			}
+			    		}
+			    	}
+			    }
 		}
-		&.interview4 {
-			background-image: url('../img/interview/bg-interview-4.jpg');
+		.pop4 {
 			.interview-slider {
 		    	.owl-item:nth-child(1) {
 		    		.item {
@@ -337,11 +402,6 @@
 				}
 		    }
 		}
-		&.active {
-        	opacity: 1;
-        	transform: translate(0, 0);
-        	z-index: 10;
-		}
 	}
-
+}
 }

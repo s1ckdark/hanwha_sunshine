@@ -10,55 +10,25 @@
 		width: 100vw;
 		height: rem(466px);
 		background: url('../img/origin/bg-origin.jpg') no-repeat 50% 50%/cover;
-		.bg_parallax {
-			position: absolute;
-			width: 100vw;
-			height: calc(100vw * 466 / 1600);
-			background: url('../img/origin/bg-origin.jpg') no-repeat 50% 50%/cover;
-		}
 	}
 	.energy {
 		overflow: hidden;
 	  	position: relative;
 		@extend %full-screen;
-		background: url('../img/origin/bg-slide.png') no-repeat 0% 50%/cover;
 		.color-slider-section {
 			position: relative;
-			.fixed-content {
-				z-index:11;
-				position:absolute;
-				.fixed-inner {
-					width: 80vw;
-					position:relative;
-					.heading-1 {
-						padding: rem(80px) 0;
-						text-align: left;
-					}
-					.text {
-						text-align: left;
-					}
-				}
-			}
 		}
 		.energy-value {
 			position:relative;
-			width:100vw;
-			height:100%;
 			.color-slider {
 				width:100%;
 				height:100%;
 				position:absolute;
 				margin:0 auto;
 				.item {
-					position:absolute;
 					// opacity:0;
-					// z-index:5;
-					// @extend %full-screen;
-					.bg-slider {
-					    z-index:-2;
-						position:absolute;
-						width: 100vw;
-						height: calc(100vh);
+					z-index:5;
+					@extend %full-screen;
 						&.bg-orange {
 							z-index:-1;
 							background-color: $orange;
@@ -71,12 +41,6 @@
 							z-index:-1;
 							background: #2a6388;
 						}
-					}
-					&.active {
-						.bg-slider {
-							opacity:1;
-						}
-					}
 					.sub-title {
 						font-size: rem(12px);
 						padding: rem(20px) 0 0;

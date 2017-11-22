@@ -250,79 +250,69 @@ function tweenText(e, hook){
 });
 }
 
-upTween('p.text','.4');
+// upTween('p.text','.4');
 tweenText('.heading-1','.5');
 tweenText('.heading-2','.5');
 
 //
 // interview scroll pin
 // 
-function interviewTween(e) {
+// function interviewTween(e) {
   
-  var $interview = $('#interview');
-  var $slide = $interview.find('.slide');
-  var length = $slide.length;
-  var percent = 100 / length;
-  var timeline = new TimelineMax();
-  var $sliderInner = $slide;
-  var label;
-  var tweens = [];
-  var tween;
-//   for (var j = 0; j < length; j++) {
-//     tween = new SplitText($slide.eq(j).find('.text'));
-//     tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
-//     tweens.push(tween);
-//   }
+//   var $interview = $('#interview');
+//   var $slide = $interview.find('.slide');
+//   var length = $slide.length;
+//   var percent = 100 / length;
+//   var timeline = new TimelineMax();
+//   var $sliderInner = $slide;
+//   var label;
+//   var tweens = [];
+//   var tween;
 
-// function playTween(index){
-//     if (index !== null) {
-//       tweens[index].play(); // play 최초만 실행. 계속 실행하려면 restart로 변경.
+// //   for (var j = 0; j < length; j++) {
+// //     tween = new SplitText($slide.eq(j).find('.heading-2'));
+// //     tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
+// //     tweens.push(tween);
+// //   }
+
+// // function playTween(index){
+// //     if (index !== null) {
+// //       tweens[index].play(); // play 최초만 실행. 계속 실행하려면 restart로 변경.
+// //     }
+// //   }
+
+//   for (var i = 0; i < length; i++) {
+//     if (i > 0) {// 두번째 슬라이드부터 이동하기
+//       timeline.to({}, 1, {}); // delay
+//       timeline.to($slide.eq(i), 1, {xPercent: -100 * i,zIndex:10, delay: 0, ease: Linear.easeNone});
+//     }
+//     label = '.interview' + (i+1); // ex) slide1
+//     timeline.add(label);
+//     var $label = $(label).find('.nav a');
+//     // timeline.call(playTween, [i]);
+//     if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
+//       timeline.to($slide.eq(i-1), .5, {className: '-=active'})
+//       timeline.to($label.eq(i-1), .5, {className: '-=active'})
+//     }
+//     timeline.to($slide.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
+//     timeline.to($label.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
+//     if (i + 1 === length) {// 마지막 슬라이드
+//       timeline.to({}, 1, {}); // delay
 //     }
 //   }
+//     new ScrollMagic.Scene(
+//     {
+//       triggerElement: $interview[0],
+//       triggerHook: 0,
+//       duration: 100 * length  + '%',
+//       offset: $('#roof').height() * -1
+//     })
+//     .setPin($interview[0])
+//     .setTween(timeline)
+//     .addTo(controller);
+// }
 
-  for (var i = 0; i < length; i++) {
-    if (i > 0) {// 두번째 슬라이드부터 이동하기
-      timeline.to({}, 1, {}); // delay
-      timeline.to($slide.eq(i), 1, {xPercent: -100 * i,zIndex:10, delay: 0, ease: Linear.easeNone});
-    }
-    label = '.interview' + (i+1); // ex) slide1
-    // timeline.add(label);
-    var $label = $(label).find('.nav a');
-    // timeline.call(playTween, [i]);
-    if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
-      timeline.to($slide.eq(i-1), .5, {className: '-=active'})
-      timeline.to($label.eq(i-1), .5, {className: '-=active'})
-    }
-    timeline.to($slide.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
-    timeline.to($label.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
-    if (i + 1 === length) {// 마지막 슬라이드
-      timeline.to({}, 1, {}); // delay
-    }
-  new ScrollMagic.Scene(
-    {
-      triggerElement: $slide[i],
-      triggerHook: 0,
-      duration: '100%',
-      offset: $slide[i] * -1
-    })
-    .setPin($slide[i])
-    .setTween(timeline)
-    .addTo(controller);
-  }
-  
-    new ScrollMagic.Scene(
-    {
-      triggerElement: $interview[0],
-      triggerHook: 0,
-      duration: 100 * length  + '%',
-      offset: $('#roof').height() * -1
-    })
-    .setPin($interview[0])
-    .setTween(timeline)
-    .addTo(controller);
-}
-
-interviewTween();
+// interviewTween();
 // background parallax scrolling
 
 new ScrollMagic.Scene(
@@ -399,7 +389,7 @@ new ScrollMagic.Scene(
      .setTween(timeline)
      .addTo(controller);
 }
-slideTween();
+// slideTween();
 
 
 
@@ -457,23 +447,22 @@ var drawtl = new TimelineMax()
     .addTo(controller);
 
 function drawTreeIcon(){
-var $stroke=$('#tree path');
-for(var i=0;i<$stroke.length;i++){
-TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2,ease:Circ.easeInOut, strokeWidth:0});
-}
-TweenMax.to('.co2', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,transformStyle:'preserve-3d',ease:Power0.easeInOut,delay:1})
-TweenMax.to('.arrow-recycle', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,ease:Power0.easeInOut,delay:2})
-TweenMax.to('.plant', 1, {scale:0.9,repeat:-1,ease:Power0.easeInOut,delay:2,y:-5,yoyo:true,transformOrigin:"50% 100%"})
-
+  var $stroke=$('#tree path');
+  for(var i=0;i<$stroke.length;i++){
+    TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2,ease:Circ.easeInOut, strokeWidth:0});
+  }
+  TweenMax.to('.co2', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,transformStyle:'preserve-3d',ease:Power0.easeInOut,delay:1})
+  TweenMax.to('.arrow-recycle', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,ease:Power0.easeInOut,delay:2})
+  TweenMax.to('.plant', 1, {scale:0.9,repeat:-1,ease:Power0.easeInOut,delay:2,y:-5,yoyo:true,transformOrigin:"50% 100%"})
 }
 
 function drawSpaceIcon(){
-var $stroke=$('#space path');
-for(var i=0;i<$stroke.length;i++){
-TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2});
-TweenMax.to('.planet', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,delay:3,transformStyle:'preserve-3d',ease:Power0.easeInOut})
-TweenMax.to('.spaceship', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,ease:Quad.easeInOut})
-}
+  var $stroke=$('#space path');
+  for(var i=0;i<$stroke.length;i++){
+  TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2});
+  TweenMax.to('.planet', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,delay:3,transformStyle:'preserve-3d',ease:Power0.easeInOut})
+  TweenMax.to('.spaceship', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,ease:Quad.easeInOut})
+  }
 }
 
     new ScrollMagic.Scene(
