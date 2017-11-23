@@ -485,20 +485,14 @@ function drawSpaceIcon(){
     .addTo(controller);
 
 function drawLine(){
+  TweenMax.set('.active .icon', {y:5,opacity:0});
   var $stroke=$('#indicator-line path');
   for(var i=0;i<$stroke.length;i++){
-    if(i==0) {
-       TweenMax.from($stroke.eq(i), 4,  {drawSVG:0,opacity:0,delay:0,ease:Circ.easeInOut, strokeWidth:0, transformOrigin:"0% 0%"});
-     } else if(i>0 && i<4) {
-    TweenMax.from($stroke.eq(i), .5,  {drawSVG:0,opacity:0, delay:4+i*.2,ease:Circ.easeInOut, strokeWidth:0, transformOrigin:"0% 0%"});
-  } else if(i>4 && i<6) {
-     TweenMax.from($stroke.eq(i), .5,  {drawSVG:0,opacity:0, delay:4+i*.2,ease:Circ.easeInOut, strokeWidth:0, transformOrigin:"0% 0%"});
-   } else if(i==7){
-     TweenMax.from($stroke.eq(i), 4,  {drawSVG:0,opacity:0, delay:4+i*.2,ease:Circ.easeInOut, strokeWidth:0, transformOrigin:"0% 0%"});
-   } else if(i>7) {
-      TweenMax.from($stroke.eq(i), 4,  {drawSVG:0,opacity:0, delay:4+i*.2,ease:Circ.easeInOut, strokeWidth:0, transformOrigin:"0% 0%"});
-    }
+    TweenMax.from($stroke.eq(i), .5,  {drawSVG:0,opacity:0, delay:i*1.2,ease:Circ.easeInOut, strokeWidth:0,});
 }
+    TweenMax.to('.active .icon-panel .icon', .5,{y:'-=5',ease:Bounce.easeIn,opacity:1,delay:1});
+    TweenMax.to('.active .icon-electronics .icon', .5,{y:'-=5',ease:Bounce.easeIn,opacity:1,delay:4});
+    TweenMax.to('.active .icon-food .icon', .5,{y:'-=5',ease:Bounce.easeIn,opacity:1,delay:8});
 }
 var cohe=$('.color-slider').height();
 new ScrollMagic.Scene(
