@@ -4,4 +4,18 @@
 #wecan {
 	@extend %full-screen;
 	background-color: #efefef;
+	.btn {
+		font-size: rem(30px);
+		line-height: rem(30px);
+		display: block;
+		padding:rem(10px) rem(25px);
+		margin:0 auto;
+		text-align: center;
+		width: rem(220px);
+		height: rem(50px);
+	}
+	.text {
+		color: $text-color-gray;
+		margin:rem(40px) 0 0;
+	}
 }

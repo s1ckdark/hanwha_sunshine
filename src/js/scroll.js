@@ -41,11 +41,21 @@ var controller = new ScrollMagic.Controller();
 //     .addTo(controller);
 
   // video
+  var $hero = $('#hero-video');
   var $video = $('#video');
-  var $twinklebtn = $('.top-indicator .link');
+  var $twinklebtn = $('.hero .link');
+
+  $hero.find('video').attr({
+    'src': 'http://cf.c.ooyala.com/BuYnBnZDE6ftRuR_RcUkc5C1p6B_PqgO/DOcJ-FxaFrRg4gtDEwOjFyazpzZzug5m',
+    'controls':true,
+    'controlsList':'nodownload',
+    'preload':'auto',
+    'loop':false,
+    'poster': ''
+  });
 
   $video.find('video').attr({
-    'src': 'http://cf.c.ooyala.com/15dTkyZDE6hd11k9l-gw1Af3KKt819wk/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_ ',
+    'src': 'http://cf.c.ooyala.com/k1dnBnZDE6FwYT2kf0EB33ExJ2ggaDRf/DOcJ-FxaFrRg4gtDEwOjFyazpzZzug5m',
     'controls':true,
     'controlsList':'nodownload',
     'preload':'auto',
@@ -386,7 +396,7 @@ new ScrollMagic.Scene(
      .setTween(timeline)
      .addTo(controller);
 }
-slideTween();
+// slideTween();
 
 
 
@@ -444,20 +454,22 @@ var drawtl = new TimelineMax()
     .addTo(controller);
 
 function drawTreeIcon(){
-var $sv=$('.line');
-for(var i=0;i<$sv.length;i++){
-TweenMax.from($sv.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2});
-}
-TweenMax.to('.arrow', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,repeatDelay:0})
+  var $stroke=$('#tree path');
+  for(var i=0;i<$stroke.length;i++){
+    TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2,ease:Circ.easeInOut, strokeWidth:0});
+  }
+  TweenMax.to('.co2', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,transformStyle:'preserve-3d',ease:Power0.easeInOut,delay:1})
+  TweenMax.to('.arrow-recycle', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,ease:Power0.easeInOut,delay:2})
+  TweenMax.to('.plant', 1, {scale:0.9,repeat:-1,ease:Power0.easeInOut,delay:2,y:-5,yoyo:true,transformOrigin:"50% 100%"})
 }
 
 function drawSpaceIcon(){
-var $stroke=$('#tree path');
-for(var i=0;i<$stroke.length;i++){
-TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.5});
-TweenMax.to('.earth', 3, {rotationZ:180, transformOrigin:"50% 50%",repeat:-1,transformStyle:'preserve-3d',ease:Quad.easeInOut})
-TweenMax.to('.spaceship', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,transformStyle:'preserve-3d',ease:Quad.easeInOut})
-}
+  var $stroke=$('#space path');
+  for(var i=0;i<$stroke.length;i++){
+  TweenMax.from($stroke.eq(i), 1, {drawSVG:0,opacity:0, delay:i*.2});
+  TweenMax.to('.planet', 3, {rotation:360, transformOrigin:"50% 50%",repeat:-1,delay:3,transformStyle:'preserve-3d',ease:Power0.easeInOut})
+  TweenMax.to('.spaceship', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:-1,ease:Quad.easeInOut})
+  }
 }
 
     new ScrollMagic.Scene(
@@ -469,5 +481,34 @@ TweenMax.to('.spaceship', .5, {y:-5, transformOrigin:"50% 50%",yoyo:true,repeat:
     .on('enter', function(){
       drawTreeIcon();
       drawSpaceIcon();
+    })
+    .addTo(controller);
+
+function drawLine(){
+  var $stroke=$('#indicator-line path');
+  for(var i=0;i<$stroke.length;i++){
+    if(i==0) {
+       TweenMax.from($stroke.eq(i), 4,  {drawSVG:0,opacity:0,delay:0,ease:Circ.easeInOut, strokeWidth:0, transformOrigin:"0% 0%"});
+     } else if(i>0 && i<4) {
+    TweenMax.from($stroke.eq(i), .5,  {drawSVG:0,opacity:0, delay:4+i*.2,ease:Circ.easeInOut, strokeWidth:0, transformOrigin:"0% 0%"});
+  } else if(i>4 && i<6) {
+     TweenMax.from($stroke.eq(i), .5,  {drawSVG:0,opacity:0, delay:4+i*.2,ease:Circ.easeInOut, strokeWidth:0, transformOrigin:"0% 0%"});
+   } else if(i==7){
+     TweenMax.from($stroke.eq(i), 4,  {drawSVG:0,opacity:0, delay:4+i*.2,ease:Circ.easeInOut, strokeWidth:0, transformOrigin:"0% 0%"});
+   } else if(i>7) {
+      TweenMax.from($stroke.eq(i), 4,  {drawSVG:0,opacity:0, delay:4+i*.2,ease:Circ.easeInOut, strokeWidth:0, transformOrigin:"0% 0%"});
+    }
+}
+}
+var cohe=$('.color-slider').height();
+new ScrollMagic.Scene(
+    {
+      triggerElement:'.color-slider',
+      triggerHook: .6,
+      duration: cohe
+    })
+    .addIndicators()
+    .on('enter', function(){
+      drawLine();
     })
     .addTo(controller);

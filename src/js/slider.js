@@ -38,6 +38,22 @@ $('.interview-slider').on('mousewheel initialized.owl.carousel changed.owl.carou
     rewind: true
     });
 
+  var $tweenSlider = $('.tweenSlider .owl-carousel').owlCarousel({
+    loop: true,
+    dots:true,
+    lazyLoad: true,
+    items:1,
+    margin: 20
+    });  
+
+
+
+  var $colorSlider = $('.color-slider').owlCarousel({
+    loop: false,
+    dots:true,
+    lazyLoad: true,
+    items:1
+    });  
 
 // var interviewSwiper = new Swiper('.interview-inner ', {
 //     pagination: '.swiper-pagination',

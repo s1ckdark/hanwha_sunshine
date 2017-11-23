@@ -11,22 +11,22 @@
   // hero 
   //
 
-var $svg = $('.circle svg');
-$svg.each(function(i){
-    var $this = $(this);
-    TweenMax.to(this, 2+1*i, {rotate:360,
-    bezier: {
-    type: "quadratic",
-    values:[
-      /*p1*/{ x: 0, y: 0 }, { x:2, y: 0 }, { x: 2, y: 2 },
-      /*p2*/{ x: 2, y:4}, { x: 0, y: 4 },
-      /*p3*/{ x: -2, y: 4 }, { x: -2, y: 2 },
-      /*p4*/{ x: -2, y: 0 }, { x: 0, y: 0 }],
-    autoRotate: false
-  },
-  ease: Linear.easeNone,repeat:-1
-},0.1*i);
-});
+// var $svg = $('.circle svg');
+// $svg.each(function(i){
+//     var $this = $(this);
+//     TweenMax.to(this, 2+1*i, {rotate:360,
+//     bezier: {
+//     type: "quadratic",
+//     values:[
+//       /*p1*/{ x: 0, y: 0 }, { x:2, y: 0 }, { x: 2, y: 2 },
+//       /*p2*/{ x: 2, y:4}, { x: 0, y: 4 },
+//       /*p3*/{ x: -2, y: 4 }, { x: -2, y: 2 },
+//       /*p4*/{ x: -2, y: 0 }, { x: 0, y: 0 }],
+//     autoRotate: false
+//   },
+//   ease: Linear.easeNone,repeat:-1
+// },0.1*i);
+// });
 
 
 

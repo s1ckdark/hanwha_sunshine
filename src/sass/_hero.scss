@@ -1,88 +1,89 @@
-//
-// Hero
-//
-
-#hero {
-  overflow: hidden;
-  position: relative;
-  background: url('../img/hero/bg-hero.jpg') 50% 50%/cover;
-  @extend %full-screen;
-  > .wrapper {
-    z-index: 1;
+  //
+  // Hero
+  //
+  #hero {
+    overflow: hidden;
     position: relative;
-    height: 100%;
-  }
-  // .circle {
-  //   position:relative;
-  //   width: rem(900px);
-  //   margin:0 auto;
-  //   svg {
-  //     width:rem(900px);
-  //     height:rem(900px);
-  //     left:0;right:0;top:0;bottom:0;
-  //     position:absolute;
-  //   }
-  // }
-  // #circle1 circle {stroke:rgb(243,115,33);fill:none;}
-  // #circle2 circle {stroke:rgb(248,155,105);fill:none;;}
-  // #circle3 circle {stroke:rgb(251,181,132);fill:none;;}
-  // #circle4 circle {stroke:rgb(0,0,0);fill:none;;}
-
-
-  .hero-intro  {
-    position: absolute;
-    top:0;
-    bottom:0;
-    left: 0;
-    right:0;
-    padding-bottom: rem(128px);
-    text-align: center;
-    .heading {
-      font-size: rem(72px);
-      line-height : rem(95px);
-      font-weight:600;
-      padding:rem(280px) 0 rem(100px);
+    .wrapper {
+      z-index: 1;
+      position: relative;
+      height: 100%;
     }
-    .text-intro {
-      font-weight: 400;
-      font-size: rem(16px);
-      line-height: rem(32px);
-      color: $text-color-white
+
+    .hero-intro {
+      @extend %full-screen;
+      position: relative;
+      background: url('../img/hero/bg-hero.jpg') 50% 50%/cover;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding-bottom: rem(128px);
+      text-align: center;
+      .main_contents {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        .circle {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: rem(-332px) 0 0 rem(-332px);
+        }
+        .circle li {
+          position: absolute;
+          opacity: 0;
+        }
+      }
+      .heading {
+        font-size: rem(72px);
+        line-height: rem(95px);
+        font-weight: 600;
+        padding: rem(280px) 0 rem(100px);
+      }
+      .hero-sub-title {
+        font-size: rem(18px);
+        line-height: rem(38px);
+        letter-spacing: rem(10px);
+        color: $text-color-orange;
+      }
+      .hero-indicator {
+        position: relative;
+        bottom: rem(30px);
+        left: 0;
+        right: 0;
+        border-width: 2px;
+        border-color: rgb(255, 255, 255);
+        border-style: solid;
+        border-radius: 15px;
+        position: absolute;
+        width: rem(28px);
+        height: rem(41px);
+        padding: rem(10px) 0;
+        z-index: 19;
+        margin: 0 auto;
+        .link {
+          display: block;
+          width: 12px;
+          height: 8px;
+          margin: rem(10px) auto;
+          background: url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAQAAABn7dZ6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhCwsRBim4ESI6AAAATElEQVQI103LQRHAMAgF0Z/BTBSESsZK3eBge2CggRP7BiE2hq41NhIPSVxkBIkLJ2HICCA54qbJqN6bKjtqaJr8Q9FktNDM0dLbxwdjBXEgc8MxSAAAAABJRU5ErkJggg==') 50% 50% no-repeat;
+        }
+      }
+    }
+    .hero-sub {
+      padding: rem(130px) 0 rem(70px);
+      background-color: $orange;
+      .text-intro {
+        font-weight: 400;
+        font-size: rem(16px);
+        line-height: rem(32px);
+        color: $text-color-white;
+        text-align: center;
+        span {
+          font-weight: 700;
+          font-size: rem(25px);
+        }
+      }
     }
   }
-
-  .hero-indicator {
-    position: absolute;
-    bottom:rem(30px);
-    left: 0;
-    right:0;
-    border-width: 2px;
-    border-color: rgb(255, 255, 255);
-    border-style: solid;
-    border-radius: 15px;
-    position: absolute;
-    width: rem(28px);
-    height: rem(41px);
-    padding: rem(10px) 0;
-    z-index: 19;
-    margin:0 auto;
-    .link {
-        display: block;
-        width: 12px;
-        height: 8px;
-        margin: rem(10px) auto;
-        background: url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAQAAABn7dZ6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhCwsRBim4ESI6AAAATElEQVQI103LQRHAMAgF0Z/BTBSESsZK3eBge2CggRP7BiE2hq41NhIPSVxkBIkLJ2HICCA54qbJqN6bKjtqaJr8Q9FktNDM0dLbxwdjBXEgc8MxSAAAAABJRU5ErkJggg==') 50% 50% no-repeat;
-    }
-  }
- .main_contents {
-    position:absolute; 
-    width:100%;
-    height:100%;
-    // top:50%; left:50%; 
-    // margin:-400px 0 0 -400px; 
-    // height:800px; z-index:3;
-   .circle {position:absolute; top:50%; left:50%;margin:rem(-332px) 0 0 rem(-332px); }
-   .circle li {position:absolute;opacity: 0;}
-  }
-}
-

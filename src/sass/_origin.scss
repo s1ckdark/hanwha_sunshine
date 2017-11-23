@@ -2,264 +2,285 @@
 // origin
 //
 #origin {
-	width:100vw;
-	height:100%;
-	position:relative;
-	.life {
-		position: relative;
-		width: 100vw;
-		height: rem(466px);
-		background: url('../img/origin/bg-origin.jpg') no-repeat 50% 50%/cover;
-		.bg_parallax {
-			position: absolute;
-			width: 100vw;
-			height: calc(100vw * 466 / 1600);
-			background: url('../img/origin/bg-origin.jpg') no-repeat 50% 50%/cover;
-		}
-	}
-	.energy {
-		overflow: hidden;
-	  	position: relative;
-		@extend %full-screen;
-		background: url('../img/origin/bg-slide.png') no-repeat 0% 50%/cover;
-		.color-slider-section {
-			position: relative;
-			.fixed-content {
-				z-index:11;
-				position:absolute;left:0;top:0;
-				width:50%;
-				.fixed-inner {
-					width: rem(512px);
-					left:calc(100% - 512px);
-					position:relative;
-					.heading-1 {
-						padding: rem(80px) 0;
-						text-align: left;
-					}
-					.text {
-						text-align: left;
-					}
-				}
-			}
-		}
-		.energy-value {
-			position:absolute;
-			width:50%;
-			height:100%;
-			left:50%;
-			.color-slider {
-				width:100%;
-				height:100%;
-				position:relative;
-				margin-left: 80px;
-				.item {
-					position:absolute;
-					// opacity:0;
-					// z-index:5;
-					// @extend %full-screen;
-					.bg-slider {
-					    z-index:-2;
-						position:absolute;
-						width: 100vw;
-						height: calc(100vh - 78px);
-						left: calc(-50vw - 80px);
-						&.bg-orange {
-							z-index:-1;
-							background-color: $orange;
-						}
-						&.bg-green {
-							z-index:-1;
-							background: #5f883c;
-						}
-						&.bg-blue {
-							z-index:-1;
-							background: #2a6388;
-						}
-					}
-					&.active {
-						.bg-slider {
-							opacity:1;
-						}
-					}
-					.sub-title {
-						font-size: rem(24px);
-						padding: rem(80px) 0 0;
-						text-align:center;
-						.bold {
-							font-weight:700;
-						}
-					}
-					.panel-graphic {
-						position:relative;
-						height: rem(220px);
-						margin: rem(100px) auto rem(50px);
-						width:rem(300px);
-					}
-						svg {
-							position:absolute;
-							&.panel-base {
-								top: 30px;
-								left:50%;
-								margin-left: rem(-150px);
-							}
-						}
-						.panel-size {
-							position: absolute;
-							opacity:0;
-							left: rem(99px);
-							top: rem(-24px);
-							&.active {
-								opacity:1;
-							}
-						}
-					}
-					.info {
-						> div {
-							display: inline-block;
-						} 
-					}
-					.icon {
-						width:rem(100px);
-						height:rem(100px);
-						background: #fff;
-						border-radius:50%;
-						display:block;
-						position: relative;
-						margin: 0 auto;
-						svg {
-							position: absolute;
-						}
-					}
-					.data {
-						font-size: rem(36px);
-						font-weight: 700;
-						text-align: center;
-					}
-					.desc {
-						font-size: rem(15px);
-						text-align: center;
-					}
-				  	&.active {
-			    		opacity: 1;
-			    		z-index: 10;
-		    			transform: translate(0, 0);
-			    	}
-				}
-				.icon-food, .icon-electronics {
-					width: rem(260px);
-				}
-				// .owl-item:nth-child(1) {
-					.item:nth-child(1) {
-						background: $orange;
-						z-index:10;
-						&.active {
-							.panel-size {
-								.panel-1 {
-								}
-							}
-							.panel-arrow {
-								position: absolute;
-								left:rem(80px);
-								top:rem(50px);
-							}
-							.icon-food {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-22px) 0 0 rem(-22px);
-								}
-							}
-							.icon-electronics {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-22px) 0 0 rem(-22px);
-								}
-							}
-						}
-					}
-				// }
-				// .owl-item:nth-child(2) {
-					.item:nth-child(2) {
-						&.active {
-							background: #5f883c;
-							.panel-size {
-								.panel-1 {
-									top:0;
-									left:0;
-								}
-								.panel-2 {
-									top:rem(4px);
-									left:rem(43px);
-								}
-							}
-							.panel-arrow {
-								position: absolute;
-								left:rem(100px);
-								top:rem(25px);
-							}
-							.icon-food {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-28px) 0 0 rem(-28.5px);
-								}
-							}
-							.icon-electronics {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-28px) 0 0 rem(-22px);
-								}
-							}
-						}
-					}
-				// .owl-item:nth-child(3) {
-					.item:nth-child(3) {
-						&.active {
-							background: #2a6388;
-							.panel-size {
-								.panel-2-1 {
-									top:rem(20px);
-									left:rem(-24px);
-								}
-								.panel-2-2 {
-									top:rem(9px);
-									left:rem(-8px);
-								}
-								.panel-2-3 {
-									top:rem(-2px);
-									left:rem(10px);
-								}
-								.panel-2-4 {
-									top:rem(5px);
-									left:rem(54px);
-								}
-							}
-							.panel-arrow {
-								position: absolute;
-								left:rem(110px);
-								top:rem(25px);
-							}
-							.icon-food {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-28px) 0 0 rem(-35px);
-								}
-							}
-							.icon-electronics {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-20.5px) 0 0 rem(-38.5px);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+  width: 100vw;
+  height: 100%;
+  position: relative;
+  .life {
+    position: relative;
+    width: 100vw;
+    height: rem(650px);
+    padding: rem(150px) 0 rem(50px);
+    .col:nth-child(1) {
+      width: rem(750px);
+    }
 
+    .col:nth-child(2) {
+      width: rem(330px);
+    }
+    .item {
+      width: rem(692px);
+      height: rem(600px);
+      background-repeat: no-repeat;
+      background-size: cover;
+      &.life1 {
+        background: url('../img/origin/life-1.png');
+      }
+      &.life2 {
+        background: url('../img/origin/life-2.png');
+      }
+    }
+    .section-header {
+      .heading-1 {
+        text-align: left;
+        color: $text-color-black;
+      }
+    }
+    .text {
+      color: $text-color-gray;
+      text-align: left;
+    }
+  }
+  .energy {
+    overflow: hidden;
+    position: relative;
+    @extend %full-screen;
+    background: url('../img/origin/bg-slide.png') no-repeat 0% 50%/cover;
+    .energy-value {
+      .color-slider {
+        @extend %full-screen;
+        position: absolute;
+        .item {
+          position: relative;
+          width: 100vw;
+          height: calc(100vh - 78px);
+      	  &.bg-orange {
+        	background-color: $orange;
+	      }
+          &.bg-green {
+            background: #5f883c;
+	      }
+	      .bg-blue {
+        	background: #2a6388;
+	      }
+        }
+        .section-header {
 
+        }
 
+        .sub-header {
+        	.heading-2 {
+	          font-size: rem(24px);
+	          padding: rem(80px) 0 0;
+	          text-align: center;
+		          .bold {
+		            font-weight: 700;
+		          }
+	      	  }
+	      	  .text {
+	      	  		font-size: rem(18px);
+	      	  		line-height: rem(33px);
+	      	  		text-align:center;
+	      	  		margin: rem(10px) 0 rem(30px);
+	      	  }
+	      	  .info-ref {
+	      	  	text-align: center;
+	      	  }
+        }
+        svg {
+          position: absolute;
+          &.panel-base {
+            top: 30px;
+            left: 50%;
+            margin-left: rem(-150px);
+          }
+        }
+      }
+      .info {
+        >div {
+          display: inline-block;
+        }
+      }
+      .data {
+        font-size: rem(36px);
+        font-weight: 700;
+        text-align: center;
+      }
+      .desc {
+        font-size: rem(15px);
+        text-align: center;
+      }
+      &.active {
+        opacity: 1;
+        z-index: 10;
+        transform: translate(0, 0);
+      }
+    }
+    .active {
+      .bg-orange {
+        .icon {
+        	background-color: #f99127;
+      	}
+      }
+      .bg-green {
+        .icon {
+            background: #2a7635;
+        }
+      }
+      .bg-blue {
+      	.icon {
+        	background: #154f74;
+      	}
+      }
+}
+    .graphics {
+    	margin: rem(70px) 0 0;
+		&:after {
+			content:'';
+			clear:both;
+			display:table;
+		}
+		.icon {
+	        width: rem(230px);
+	        height: rem(230px);
+	        border-radius: 50%;
+	        display: block;
+	        position: relative;
+	        margin: 0 auto;
+	        svg {
+	          position: absolute;
+	        }
+	      }
+		    .icon-food, .icon-panel,
+		    .icon-electronics {
+		      width: rem(230px);
+		      float:left;
+		    }
+		    .icon-electronics {
+		    	margin:0 rem(175px);
+		    }
+		    .descText {
+		    	font-size:rem(45px);
+		    	text-align: center;
+		    	letter-spacing: rem(-2px);
+		    	font-weight: 700;
+		    }
+		}
+    
+
+    .owl-item:nth-child(1) {
+      .item {
+        // .item:nth-child(1) {
+        z-index: 10;
+        // &.active {
+         .icon-panel {
+	          svg {
+	              top: 50%;
+	              left: 50%;
+	              margin: rem(-66px) 0 0 rem(-58px);
+	          }
+          }
+          .icon-food {
+            svg {
+              top: 50%;
+              left: 50%;
+              margin: rem(-58px) 0 0 rem(-59px);
+            }
+          }
+          .icon-electronics {
+            svg {
+              top: 50%;
+              left: 50%;
+              margin: rem(-66px) 0 0 rem(-58px);
+            }
+          }
+        // }
+      }
+    }
+    .owl-item:nth-child(2) {
+      .item {
+        z-index: 10;
+        // &.active {
+         .icon-panel {
+	          svg {
+	              top: 50%;
+	              left: 50%;
+	              margin: rem(-87.5px) 0 0 rem(-65px);
+	          }
+          }
+          .icon-food {
+            svg {
+              top: 50%;
+              left: 50%;
+              margin: rem(-58px) 0 0 rem(-59px);
+            }
+          }
+          .icon-electronics {
+            svg {
+              top: 50%;
+              left: 50%;
+              margin: rem(-66px) 0 0 rem(-58px);
+            }
+          }
+        // }
+      }
+    }
+    .owl-item:nth-child(3) {
+      .item {
+        z-index: 10;
+        // &.active {
+         .icon-panel {
+	          svg {
+	              top: 50%;
+	              left: 50%;
+	              margin: rem(-78px) 0 0 rem(-66px);
+	          }
+          }
+          .icon-food {
+            svg {
+              top: 50%;
+              left: 50%;
+              margin: rem(-73px) 0 0 rem(-57.5px);
+            }
+          }
+          .icon-electronics {
+            svg {
+              top: 50%;
+              left: 50%;
+              margin: rem(-79px) 0 0 rem(-42px);
+            }
+          }
+      }
+    }
+            .fixed-content {
+            position: absolute;
+            background: url('../img/origin/bg-slide.png') no-repeat 0% 50%/cover;
+	        bottom:0;
+	        right:0;
+	        left: 0;
+	        top: 0;
+		    z-index:2;
+	        @extend %full-screen;
+	        .fixed-inner {
+	          position: relative;
+	          .heading-1 {
+	            padding: rem(80px) 0;
+	            text-align: left;
+	          }
+	          .text {
+	            text-align: left;
+	          }
+	          .indicator, .sunshine {
+	          	z-index:11;
+	          }
+	          .indicator {
+	          	position:relative;
+	          	margin:rem(120px) 0 0;
+	          	text-align:center;
+	          	svg {
+					transform-origin:0% 0%;
+	          	}
+	          }
+        }
+      }
+  }
+}
