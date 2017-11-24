@@ -159,13 +159,7 @@ function scrollToSection () {
       newpos = $id.offset().top - $('#roof').outerHeight(); // header가 내용을 가리지 않게 위치 조정
 
       $('html, body').stop().animate({scrollTop: newpos}, 500);
-
-      // if supported by the browser we can even update the URL.
-      // if (window.history && window.history.pushState) {
-      //   history.pushState('', document.title, id);
-      // }
-    }
-  });
+  }});
 }
 
 
@@ -282,16 +276,6 @@ function playTween(index){
       })
     .addTo(controller);
 }
-//   $.fn.scrollEnd = function(callback, timeout) {          
-//   $(this).scroll(function(){
-//     var $this = $(this);
-//     if ($this.data('scrollTimeout')) {
-//       clearTimeout($this.data('scrollTimeout'));
-//     }
-//     $this.data('scrollTimeout', setTimeout(callback,timeout));
-//   });
-// };
-
 
 interviewTween();
 // background parallax scrolling
@@ -308,109 +292,6 @@ new ScrollMagic.Scene(
 //
 // origin
 //
-
-// function slideTween() {
-//   var $area = $('.energy');
-//   var $dots = $area.find('.owl-dot');
-//   var $slide = $('.color-slider');
-//   var $item = $slide.find('.item');  
-//   var length = $item.length;
-//   // var $owldots = $('.energy .owl-dots');
-//   // var percent = 100 / length;
-//   var timeline = new TimelineMax();
-//   var $sliderInner = $item;
-//   var label;
-//   var tweens = [];
-//   var tween;
-
-//   var $stroke=$('#indicator-line path');
-//   var ds = 0.2, ls=2;
-//   var drawTween = new TimelineMax({paused:true});
-//       drawTween.from($stroke.eq(0),  ls,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 0)
-//     .from($stroke.eq(1), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls)
-//     .from($stroke.eq(2), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*1)
-//     .from($stroke.eq(3), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*2)
-//     .from($stroke.eq(4), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*3)
-//     .from($stroke.eq(5), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 9.5)
-//     .from($stroke.eq(6), ls,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 10)
-//     .from($stroke.eq(7), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 14)
-//     .from($stroke.eq(8), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 14)
-//     .from($stroke.eq(9), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 14.4)
-//     .from($stroke.eq(10), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 14.6)
-//     .from($stroke.eq(11), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 14.8);
-
-// // //   for (var j = 0; j < length; j++) {
-// // //     tween = new SplitText($item.eq(j).find('.text'));
-// // //     tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
-// // //     tweens.push(tween);
-// // //   }
-//  //    tweens.push(drawTween);
-//  // function playTween(index){
-//  //     if (index !== null) {
-//  //       tweens[index].play(); // play 최초만 실행. 계속 실행하려면 restart로 변경.
-//  //     }
-//  //   }
-
-
-
-// for (var i = 0; i < length; i++) {
-//     if (i > 0) {// 두번째 슬라이드부터 이동하기
-//       timeline.to({}, 1, {}); // delay
-//       timeline.to($item.eq(i), 1, {zIndex:10, delay: 0, ease: Linear.easeNone});
-//     }
-//     label = 'slide' + (i+1); // ex) slide1
-//     timeline.add(label);
-//     // var $label = $(label).find('.nav a');
-//     // drawTween.play();
-//     if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
-//       timeline.to($item.eq(i-1), .5, {className: '-=active'})
-//       // timeline.to($owldots.eq(i-1).find('.owl-dot'), .5, {className: '-=active'})
-//       // timeline.to('.energy', .5, {className: '-=active'})
-//       // timeline.to($label.eq(i-1), .5, {className: '-=active'})
-//     }
-//     timeline.to($item.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
-//     // timeline.to($owldots.eq(i).find('.owl-dot'), .5, {className: '+=active'}); // 현재 슬라이드 보이기
-//     // timeline.to($label.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
-//     if (i + 1 === length) {// 마지막 슬라이드
-//       timeline.to({}, 1, {}); // delay
-//     }
-//   }
-//   // svg 트윈 시작하기
-//   function playTween(index){
-//     if (index !== null) {
-//       drawTween.restart(); // play 최초만 실행. 계속 실행하려면 restart로 변경.
-//     }
-//   }
-
-//   TweenMax.set([$slide, $slide.find('.descText')], {autoAlpha: 0});
-//   timeline = new TimelineMax({delay: .1});
-//   for (var j = 0; j < length; j++) {
-//      timeline.to($slide.eq(j), .2, {autoAlpha: 1});
-//      // timeline.to($dots.eq(j), 0, {className: '+=active'});
-//      timeline.staggerFrom($slide.eq(j).find('.descText'), .4, {y: 30,autoAlpha:1}, 1); // 글자 트윈
-//      timeline.call(playTween, [j]); // play tween
-//      timeline.from($slide.eq(j).find('.icon'), .1, {autoAlpha: 0}); // svg 나타나기
-//      timeline.to({}, 1.5, {}); // delay
-//     if (j + 1 !== length) {// 마지막 슬라이드 제외
-//       timeline.to($slide.eq(j), 0, {autoAlpha: 0});
-//       timeline.to($dots.eq(j), 0, {className: '-=active'});
-//     }
-//   }
-
-// new ScrollMagic.Scene(
-//     {
-//       triggerElement: '.energy',
-//       triggerHook: 0,
-//       duration: 100 * length + '%',
-//       offset: $('#roof').height() * -1
-//     })
-//      .setPin('.energy')
-     // .addIndicators()
-//      .setTween(timeline)
-//      .addTo(controller);
-// }
-//  slideTween();
-
 
 
 var pinBouceTween = TweenMax.to('.map_point .pin', .5, {scale:1.2, yoyo:true, repeat:-1});
@@ -517,104 +398,6 @@ function drawSpaceIcon(){
     // .to('.active .icon-electronics .icon', .5,{y:'-=5',ease:Bounce.easeIn,opacity:1,delay:4})
     // .to('.active .icon-food .icon', .5,{y:'-=5',ease:Bounce.easeIn,opacity:1,delay:8});
 
-
-// var cohe=$('.color-slider').height();
-// new ScrollMagic.Scene(
-//     {
-//       triggerElement:'.energy-value',
-//       triggerHook: 0,
-//       duration: cohe,
-//       offset: $('#roof').height() * -1
-//     })
-//     .setPin('.color-slider')
-    // .addIndicators()
-//     .addTo(controller);
-
-// new ScrollMagic.Scene(
-//     {
-//       triggerElement:'.energy-value',
-//       triggerHook: 0,
-//       duration: cohe,
-//       offset: $('#roof').height() * -1
-//     })
-//     .setPin('.color-slider .owl-item.active')
-    // .addIndicators()
-//     .on('enter', function(){
-//       drawLine();
-//     })
-//     .addTo(controller);        
-
-// var drawTweens = [];
-// window.addEventListener('load', function(){
-//   // svg 트윈 만들기
-//   var tween;
-//   // svg 1번
-//   tween = new TimelineMax({paused: true})
-//   // 노트북 안 강아지
-//     .from('#as1-dog', .4, {y: 200})
-//     .add('label1')
-//     .from('#as1-clip', .4, {y: -200}, 0) // as1-dog 용 clip도 같이 움직여줘야 함.
-//     // 말풍선
-//     .from('#as1-mung', .4, {scale: 0, x: 80, y: 60, transformOrigin: 'center center'})
-//     // 하트
-//     .from('#as1-heart', .4, {scale: 0, rotation: -30, x: 80, y: 60, transformOrigin: 'center center'})
-//     // 선
-//     .staggerFrom('#as1-line line', .1, {opacity: 0}, .1)
-//     // 계속 움직이는 트윈
-//     .add(new TimelineMax({yoyo: true, repeat: -1})
-//       .to('#as1-dog', 4, {y: 10, ease: Elastic.easeOut})
-//       .to('#as1-clip', 4, {y: -10, ease: Elastic.easeOut}, 0)
-//       , 'label1'
-//     )
-//   ;
-//   drawTweens.push(tween);
-//   // svg 2번
-//   tween = new TimelineMax({paused: true})
-//   // 손가락
-//     .from('#as2-hand', .4, {y: 100})
-//     // 원
-//     .from('#as2-circle', .4, {scale: 0, transformOrigin: 'center center'}, '-=.2')
-//     // 강아지
-//     .from('#as2-dog', .4, {scale: 0, transformOrigin: 'center center'})
-//     // .from('#as2-dog-c', .4, {scale: 0, transformOrigin: 'center center'})
-//     // .staggerFrom(['#as2-dog-c1', '#as2-dog-c2', '#as2-dog-c3'], .1, {scale: 0, transformOrigin: 'center center'}, .1)
-//     .add('label1')
-//     // 문서
-//     .from('#as2-doc', .4, {scale: 0, rotation: '-45_ccw', x: -50, y: -50, transformOrigin: 'right bottom'})
-//     .staggerFrom('#as2-doc-line line', .1, {opacity: 0}, .1)
-//     // 말풍선
-//     .from('#as2-talk', .4, {x: 30, scale: 0, transformOrigin: 'center center'})
-//     .staggerFromTo('#as2-talk line', .3, {strokeDashoffset: 50, strokeDasharray: 50}, {strokeDashoffset: 0}, .2)
-//     // 계속 움직이는 트윈
-//     .add(new TimelineMax({yoyo: true, repeat: -1})
-//       .to('#as2-dog', 4, {rotation: 6, transformOrigin: 'center top'})
-//       , 'label1'
-//     )
-//   ;
-//   drawTweens.push(tween);
-//   // svg 3번
-//   tween = new TimelineMax({paused: true})
-//   // 손
-//     .from('#as3-hand1', .5, {x: -100, y: -100, rotation: -45, transformOrigin: 'center center'})
-//     .from('#as3-hand2', .5, {x: 100, y: 100, rotation: -45, transformOrigin: 'center center'}, 0)
-//     // 원
-//     .add('label1')
-//     .from('#as3-circle1', .5, {scale: 0, transformOrigin: 'center center'})
-//     .from('#as3-line1', .5, {scale: 0, transformOrigin: 'right bottom'}, 'label1')
-//     .set('#as3-circle2', {x: -10}, 'label1')
-//     .from('#as3-circle2', .5, {scale: 0, transformOrigin: 'center center'}, 'label1')
-//     .from('#as3-line2', .5, {scale: 0, transformOrigin: 'left bottom'}, 'label1')
-//     .add('label2')
-//     // 선
-//     .staggerFrom('#as3-line line', .1, {opacity: 0}, .1)
-//     // 계속 움직이는 트윈
-//     .add(new TimelineMax({yoyo: true, repeat: -1})
-//       .to(['#as3-circle1', '#as3-circle2'], 1, {scale: 1.1, transformOrigin: 'center center', ease: Linear.none})
-//       , 'label2'
-//     )
-//   ;
-//   drawTweens.push(tween);
-// });
 
 window.addEventListener('load', function(){
   var $area = $('.energy');
