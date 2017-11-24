@@ -11,22 +11,6 @@
   // hero 
   //
 
-// var $svg = $('.circle svg');
-// $svg.each(function(i){
-//     var $this = $(this);
-//     TweenMax.to(this, 2+1*i, {rotate:360,
-//     bezier: {
-//     type: "quadratic",
-//     values:[
-//       /*p1*/{ x: 0, y: 0 }, { x:2, y: 0 }, { x: 2, y: 2 },
-//       /*p2*/{ x: 2, y:4}, { x: 0, y: 4 },
-//       /*p3*/{ x: -2, y: 4 }, { x: -2, y: 2 },
-//       /*p4*/{ x: -2, y: 0 }, { x: 0, y: 0 }],
-//     autoRotate: false
-//   },
-//   ease: Linear.easeNone,repeat:-1
-// },0.1*i);
-// });
 
 
 
@@ -55,7 +39,7 @@ function circleMotion(){
   var $circleObj;
   var CIRCLE_LEN = 7;
   var loopObjArr = [];
-  $circleObj = $(".main_contents>.circle>li");
+  $circleObj = $(".circle_contents>.circle>li");
  
   function initPosition(){ 
     for(var i = 0; i < CIRCLE_LEN; ++i){
@@ -108,12 +92,6 @@ function circleMotion(){
     
   }
 
-     // function loopMotion(){
-     //        for (var i = 0; i < CIRCLE_LEN; ++i) {
-     //            var loopObj = loopObjArr[i];
-     //            render(i);
-     //        }
-     //    }
 scaleMotion();
 inMotion();
 

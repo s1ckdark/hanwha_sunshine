@@ -16,7 +16,7 @@
       width: 65%;
       .chart-inner {
         float: right;
-        margin-right: 10%;
+        margin-right: 20%;
         width: rem(558px);
         height: rem(420px);
         .section-header {
@@ -60,7 +60,7 @@
             position: absolute;
             &#chart-bar {
               left: 12%;
-              top: 28%;
+              top: 24%;
             }
             &#point-over {
               left: 7%;
@@ -68,11 +68,11 @@
               opacity: 0;
             }
             &#chart-lines {
-              left: 14%;
-              top: -7%;
+              left: 13.5%;
+              top: -5.5%;
             }
             &#chart-point {
-              left: 14%;
+              left: 13.5%;
               top: -8%;
             }
           }
@@ -112,6 +112,9 @@
             bottom: 0;
             left: 0;
           }
+        }
+        #textDesc {
+          margin:rem(10px) 0 0 rem(-70px);
         }
         .textDesc {
           position: absolute;

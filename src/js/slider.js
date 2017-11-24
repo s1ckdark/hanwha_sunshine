@@ -15,7 +15,9 @@ $(function(){
     dots:true,
     lazyLoad: true,
     items:1,
-    margin: 20
+    margin: 20,
+    autoplay:true,
+    autoplaySpeed:300
     });  
 
 $('.interview-slider').on('mousewheel initialized.owl.carousel changed.owl.carousel', function(e) {
@@ -43,31 +45,10 @@ $('.interview-slider').on('mousewheel initialized.owl.carousel changed.owl.carou
     dots:true,
     lazyLoad: true,
     items:1,
-    margin: 20
+    autoplay:true,
+    margin:20,
+    autoplaySpeed:300
     });  
 
 
-
-  var $colorSlider = $('.color-slider').owlCarousel({
-    loop: false,
-    dots:true,
-    lazyLoad: true,
-    items:1
-    });  
-
-// var interviewSwiper = new Swiper('.interview-inner ', {
-//     pagination: '.swiper-pagination',
-//     direction: 'vertical',
-//     slidesPerView: 1,
-//     paginationClickable: true,
-//     spaceBetween: 30,
-//     mousewheelControl: true,
-//     parallax: true,
-//     speed: 600,
-// });
-
-
-// var interviewPix = new Swiper('.interview-slider', {
-//         speed: 400,
-//     });
 });

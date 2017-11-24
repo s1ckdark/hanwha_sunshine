@@ -4,6 +4,7 @@
 #forest{
 	.share {
 		padding: rem(30px) 0 rem(100px);
+		position:relative;
 	}
 	.forestLocation {
 		position:relative;
@@ -23,8 +24,8 @@
 					left:rem(350px);
 				}
 				&.map_point3 {
-					top:rem(380px);
-					left:rem(380px);
+					top:rem(365px);
+					left:rem(565px);
 				}
 				&.map_point4 {
 					top:rem(340px);
@@ -35,9 +36,10 @@
 					left:rem(565px);
 				}
 				&.map_point6 {
-					top:rem(365px);
-					left:rem(565px);
+					top:rem(380px);
+					left:rem(380px);
 				}
+
 				.pin {
 					width: rem(15px);
 					height: rem(15px);
@@ -68,9 +70,13 @@
 					width: rem(54px);
 					color:$text-color-white;
 					font-size: rem(32px);
-					line-height: rem(60px);
+					line-height: rem(20px);
 					display: inline-block;
 					text-align:center;
+					i {
+						font-size:rem(15px);
+						font-style:normal;
+					}
 				}
 				.text {
 					width: rem(238px);
@@ -81,6 +87,11 @@
 					display: inline-block;
 					padding: rem(14px) 0;
 					margin: rem(5px) rem(5px) rem(5px) 0;
+					span {
+						font-size: rem(15px);
+						letter-spacing:-1px;
+						font-weight:300;	
+					}
 				}		
 				.tree {
 					position:absolute;
@@ -171,5 +182,26 @@
 		background-color: rgb(255,255,255);
 		z-index:31;
 		background: url('../img/forest/bg-forest_result.jpg') 50% 50%/cover;
+		.sub-text {
+			margin-top:rem(50px);
+			font-size: rem(25px);
+			line-height: rem(50px);
+			text-align:center;
+		}
 	}
+	  .circle_contents {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        .circle {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: rem(-332px) 0 0 rem(-332px);
+        }
+        .circle li {
+          position: absolute;
+          opacity: 0;
+        }
+      }
 }

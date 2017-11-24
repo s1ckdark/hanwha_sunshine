@@ -322,7 +322,7 @@ new ScrollMagic.Scene(
       duration: "200%"
     })
     .setTween(".parallax > .bg_parallax", {y: "80%", ease: Linear.easeNone})
-    .addIndicators()
+    // .addIndicators()
     .addTo(controller);
 
 
@@ -385,7 +385,7 @@ new ScrollMagic.Scene(
       offset: $('#roof').height() * -1
     })
      .setPin('.energy')
-     .addIndicators()
+     // .addIndicators()
      .setTween(timeline)
      .addTo(controller);
 }
@@ -399,7 +399,7 @@ new ScrollMagic.Scene(
       triggerElement: '.forestLocation',
       triggerHook: .5,
     })
-    .addIndicators()
+    // .addIndicators()
     .setTween(pinBouceTween)
     .addTo(controller);
 
@@ -442,7 +442,7 @@ var drawtl = new TimelineMax()
       triggerElement: '.chart-inner',
       triggerHook: .6,
     })
-    .addIndicators()
+    // .addIndicators()
     .setTween(drawtl)
     .addTo(controller);
 
@@ -470,7 +470,7 @@ function drawSpaceIcon(){
       triggerElement:'#info-graphic',
       triggerHook: .6,
     })
-    .addIndicators()
+    // .addIndicators()
     .on('enter', function(){
       drawTreeIcon();
       drawSpaceIcon();

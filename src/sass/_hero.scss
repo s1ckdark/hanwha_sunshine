@@ -13,28 +13,24 @@
     .hero-intro {
       @extend %full-screen;
       position: relative;
-      background: url('../img/hero/bg-hero.jpg') 50% 50%/cover;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
-      padding-bottom: rem(128px);
+      // padding-bottom: rem(128px);
       text-align: center;
-      .main_contents {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        .circle {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          margin: rem(-332px) 0 0 rem(-332px);
-        }
-        .circle li {
-          position: absolute;
-          opacity: 0;
+      #hero-video {
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0;left:0;right:0;bottom:0;      
+        overflow:hidden;
+        .play {
+        &:after {
+          content:none;
         }
       }
+    }
       .heading {
         font-size: rem(72px);
         line-height: rem(95px);
@@ -76,13 +72,15 @@
       background-color: $orange;
       .text-intro {
         font-weight: 400;
-        font-size: rem(16px);
+        font-size: rem(18px);
         line-height: rem(32px);
         color: $text-color-white;
         text-align: center;
+        padding:rem(50px) 0;
         span {
           font-weight: 700;
           font-size: rem(25px);
+          line-height: rem(50px);
         }
       }
     }
