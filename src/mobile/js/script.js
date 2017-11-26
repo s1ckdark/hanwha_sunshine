@@ -87,14 +87,17 @@ $(function(){
       this.animation.reverse();
   }
   TweenMax.set('.item-pop', {scale:0});
-  $('.popbtn').click(function(){
-    var target = $($(this).data('pop'))[0];
-    console.log(target);
-    TweenMax.to(target,.5,{scale:1});
+  $('.popbtn').each(function() {
+    var $this = $(this);
+    $this.click(function(){
+    console.log("click");
+    var data = $(this).data('pop');
+    var $target = $(data);
+    TweenMax.to($target[0],.5,{scale:1,ease:Expo.easeInOut});
   })
-
+});
     $('.closebtn').click(function(){
     var $this = $(this).parents();
-    TweenMax.to($this,.5,{scale:0, easing:Bounce.easeInOut});
+    TweenMax.to($this[0],.5,{scale:0, ease:Expo.easeInOut});
   })
 });

@@ -21,7 +21,7 @@
       width: rem(360px);
     }
     .owl-stage-outer {
-        
+        overflow:visible;
     }
           .owl-dots {
         text-align:left;
@@ -34,18 +34,17 @@
         }
       }
     .owl-stage {
-      position:relative;
+      position:absolute;
 
     }
     .owl-item {
-
-      &.active {
+  &.active {
+        transform:scale(1);
         .item {
             width: rem(692px);
             height: rem(600px);
             background-repeat: no-repeat;
             background-size: cover;
-            transform:scale(1);
             opacity:1;
             &.life1 {
               background: url('../img/origin/life-1.png');
@@ -55,12 +54,14 @@
             }
           }
       }
+      &.cloned {
+            transform:scale(0.5);
+            margin-left:rem(-600px);
        .item {
             width: rem(692px);
             height: rem(600px);
             background-repeat: no-repeat;
             background-size: cover;
-            transform:scale(0.5);
             opacity:0.2;
             &.life1 {
               background: url('../img/origin/life-1.png');
@@ -69,6 +70,7 @@
               background: url('../img/origin/life-2.png');
             }
           }
+        }
   }
 
     .section-header {

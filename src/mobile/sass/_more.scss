@@ -17,16 +17,26 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     &.hanwha_engine {
+      width:100vw; 
+      height: calc(100vw * 319 / 640);
       background-image: url('../img/more/hanwha_engine.jpg');
     }    
     &.hanwha_solar {
       background-image: url('../img/more/hanwha_solar.jpg');
     }    
     &.hanwha_sunshine {
+      img {
+        width:rem(150px);
+      }
+      width:100vw;
+      height: calc(100vw * 445 / 640);
       background-image: url('../img/more/hanwha_sunshine.jpg');
       a.btn {
         background: #fff;
       }
+    }
+    .btn {
+      margin: rem(15px) 0 rem(10px);
     }
     .btn-more-text {
       font-family: $font-family;

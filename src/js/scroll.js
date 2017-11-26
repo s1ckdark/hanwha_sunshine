@@ -10,7 +10,7 @@
 *    - TweenMax.min.js
 * */
 
-// // ScrollMagic 컨트롤러
+// ScrollMagic 컨트롤러
 var controller = new ScrollMagic.Controller();
 
 // window.addEventListener('load', initScrollMagic);
@@ -64,37 +64,37 @@ var controller = new ScrollMagic.Controller();
   });
 
     // scroll auto play
-  var $videos = $('.video-play');
-  $videos.each(function(){
-    var $this = $(this);
-    var $videos = $this.find('video');
-    new ScrollMagic.Scene(
-      {
-          triggerElement: this,
-          duration: $this.height()
-      })
-      .on('enter leave', function(event){
-        var $video = $this;
-        var video = $video.find('video')[0];
-        var timer;
-        var isPlaying = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2;
-        if (event.type === 'enter') {
-          timer = setTimeout(function(){ // enter -> leave 이벤트 연속 발생시 play() 방지
-            if (!isPlaying) {
-              $video.find('.play').click(); // play
-            }
-          }, 600);
-        } else {
-          if (timer) {
-            clearTimeout(timer);
-          }
-          if (isPlaying) {
-            video.pause(); // pause
-          }
-        }
-      })
-      .addTo(controller);
-  });
+  // var $videos = $('.video-play');
+  // $videos.each(function(){
+  //   var $this = $(this);
+  //   var $videos = $this.find('video');
+  //   new ScrollMagic.Scene(
+  //     {
+  //         triggerElement: this,
+  //         duration: $this.height()
+  //     })
+  //     .on('enter leave', function(event){
+  //       var $video = $this;
+  //       var video = $video.find('video')[0];
+  //       var timer;
+  //       var isPlaying = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2;
+  //       if (event.type === 'enter') {
+  //         timer = setTimeout(function(){ // enter -> leave 이벤트 연속 발생시 play() 방지
+  //           if (!isPlaying) {
+  //             $video.find('.play').click(); // play
+  //           }
+  //         }, 600);
+  //       } else {
+  //         if (timer) {
+  //           clearTimeout(timer);
+  //         }
+  //         if (isPlaying) {
+  //           video.pause(); // pause
+  //         }
+  //       }
+  //     })
+  //     .addTo(controller);
+  // });
 
 
 
@@ -126,24 +126,24 @@ var controller = new ScrollMagic.Controller();
     })
     .addTo(controller);
 
-var iconTween = new TimelineMax({paused:true});
-iconTween.from('.stroke', 1, {stroke:'1px', transformOrigin:"50% 50%"});
- new ScrollMagic.Scene(
-    {
-      triggerElement: $('.icon')[0]
-    })
-     .on('enter leave', function(event){  
-      if (event.type === 'enter') {
-        iconTween.play();
-        } else {
-        iconTween.pause();
-      }
+// var iconTween = new TimelineMax({paused:true});
+// iconTween.from('.stroke', 1, {stroke:'1px', transformOrigin:"50% 50%"});
+//  new ScrollMagic.Scene(
+//     {
+//       triggerElement: $('.icon')[0]
+//     })
+//      .on('enter leave', function(event){  
+//       if (event.type === 'enter') {
+//         iconTween.play();
+//         } else {
+//         iconTween.pause();
+//       }
 
-    })
-    .addTo(controller);
+//     })
+//     .addTo(controller);
 
 
-  scrollToSection();
+
 
   
 // Section Nav 링크 스크롤링
@@ -162,7 +162,7 @@ function scrollToSection () {
   }});
 }
 
-
+scrollToSection();
 
 function upTween(e, hook){
      var $e = $(e);
@@ -244,11 +244,11 @@ function playTween(index){
     var $label = $(label).find('.nav a');
     timeline.call(playTween, [i]);
     if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
-      timeline.to($slide.eq(i-1), 0, {className: '-=active'})
-      timeline.to($label.eq(i-1), 0, {className: '-=active'})
+      timeline.to($slide.eq(i-1), 0, {className: '-=active'}, label); 
+      timeline.to($label.eq(i-1), 0, {className: '-=active'}, label); 
     }
-    timeline.to($slide.eq(i), 0, {className: '+=active'}); // 현재 슬라이드 보이기
-    timeline.to($label.eq(i), 0, {className: '+=active'}); // 현재 슬라이드 보이기
+    timeline.to($slide.eq(i), 0, {className: '+=active'}, label); // 현재 슬라이드 보이기
+    timeline.to($label.eq(i), 0, {className: '+=active'}, label); // 현재 슬라이드 보이기
     if (i + 1 === length) {// 마지막 슬라이드
       timeline.to({}, 1, {}); // delay
     }
@@ -258,24 +258,77 @@ function playTween(index){
     {
       triggerElement: $interview[0],
       triggerHook: 0,
-      duration: 100 * length * 1.2 + '%', 
+      duration: 100 * length * 1.2 + '%', // 너무 빨리 지나가지 않게 1.2배 조정
       offset: $('#roof').height() * -1
     })
     .setPin($interview[0])
     .setTween(timeline)
-    .on('progress', function(e){
-          var current = Math.floor(e.progress * 100)%25;
-          console.log(current);
-          if(current >0 && current <8) {
-            $('.interview.active .interview-slider').trigger('to.owl.carousel', 0);
-          } else if(current >= 8 && current < 16) {
-             $('.interview.active .interview-slider').trigger('to.owl.carousel', 1);
-          } else if( current >= 16 && current < 24) {
-             $('.interview.active .interview-slider').trigger('to.owl.carousel', 2);
-          }
-      })
+    .on("update progress", callback)
+    //       var current = Math.floor(e.progress * 100);
+    //       console.log(current);
+    //       if(current >0 && current <9) {
+    //         $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+    //       } else if(current >= 9 && current < 18) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+    //       } else if( current >= 18 && current < 28) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+    //       } else if(current >= 28 && current < 36) {
+
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+    //       } else if( current >= 36 && current < 45) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+    //       } else if(current >= 45 && current < 56) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+    //       } else if(current >= 56 && current < 65) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+    //       } else if( current >= 65 && current < 74) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+    //       } else if(current >= 74 && current < 85) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+    //       } else if(current >= 85 && current < 90) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+    //       } else if( current >= 90 && current < 95) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+    //       } else if(current >= 95 && current < 100) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+    //       } 
+    //   })
     .addTo(controller);
+    // console.log($slide.height());
+
+function callback (event) {
+        console.log(event);
 }
+  // nav
+  // $(label).find('.nav a').on('click', function(e){
+  //   e.preventDefault();
+
+  //   var $this = $(this);
+  //   var forward = $this.hasClass('next');
+  //   var index = $slide.filter('.active').index();
+  //   var height = $interview.parent('.scrollmagic-pin-spacer').outerHeight();
+  //   var progress = [.03, .28, .56, .85]; // 슬라이더 나타나는 트윈이 일정하지 않아서 수동으로 작업
+  //   var newpos;
+
+  //   index = forward ? index + 1 : index - 1;
+  //   if (0 <= index && index < length) {
+  //     newpos = $interview.parent('.scrollmagic-pin-spacer').offset().top - $('#roof').outerHeight() + (height * progress[index]); // header가 내용을 가리지 않게 위치 조정
+  //     $('html, body').stop().animate({scrollTop: newpos}, 500);
+  //   }
+  // });
+}
+    var $is = $('.interview-slider').find('.owl-item');
+
+     $is.each(function(index, elem) {
+      console.log(index);
+            new ScrollMagic.Scene({
+              triggerElement: elem,
+              duration:$('interview-slider').height() / 3,
+              offset:$('interview-slider').height() / 3 * index
+          })
+          .addTo(controller)
+          .addIndicators({name: "period marker"});
+      });
 
 interviewTween();
 // background parallax scrolling
@@ -392,14 +445,7 @@ function drawSpaceIcon(){
     })
     .addTo(controller);
 
-
-
-    // .to('.active .icon-panel .icon', .5,{y:'-=5',ease:Bounce.easeIn,opacity:1,delay:1})
-    // .to('.active .icon-electronics .icon', .5,{y:'-=5',ease:Bounce.easeIn,opacity:1,delay:4})
-    // .to('.active .icon-food .icon', .5,{y:'-=5',ease:Bounce.easeIn,opacity:1,delay:8});
-
-
-window.addEventListener('load', function(){
+function slideTween(){
   var $area = $('.energy');
   var $dots = $area.find('.owl-dot');
   var $slider = $area.find('.color-slider');
@@ -408,9 +454,10 @@ window.addEventListener('load', function(){
   var timeline;
 
   var $stroke=$('#indicator-line path');
-  var ds = 0.1, ls=1;
+  var ds = 0.5, ls=2;
   var drawTween = new TimelineMax({paused:true});
-      drawTween.from($stroke.eq(0),  ls,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 0)
+  drawTween.from($stroke.eq(0),  ls,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 0)
+    .to('.sunshine', 1, {position:'absolute',left:'10%',top:'15%',ease:Linear.easeIn})
     .from($stroke.eq(1), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls)
     .from($stroke.eq(2), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*1)
     .from($stroke.eq(3), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*2)
@@ -421,7 +468,14 @@ window.addEventListener('load', function(){
     .from($stroke.eq(8), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 2*ls + ds*2)
     .from($stroke.eq(9), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 2*ls + ds*3)
     .from($stroke.eq(10), ds, {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 2*ls + ds*4)
-    .from($stroke.eq(11), ds, {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 2*ls + ds*5);
+    .from($stroke.eq(11), ds, {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 2*ls + ds*5)
+    .to('.sunshine', 1, {position:'absolute',left:'10%',top:'15%',ease:Linear.easeIn,autoAlpha:1},0)
+    .to($slide.find('.icon-panel'), .5, {y:'-=5',autoAlpha:1}, ls)
+    .to($slide.find('.icon-panel .descText'), .1, {autoAlpha: 1,ease:Bounce.easeInOut},ls+ds) // svg 나타나기
+    .to($slide.find('.icon-electronics'), .5, {y:'-=5',autoAlpha:1},ls+ds*2)
+    .to($slide.find('.icon-electronics .descText'), .1, {autoAlpha: 1,ease:Bounce.easeInOut},ls + ds*3) // svg 나타나기
+    .to($slide.find('.icon-food'), .5, {y:'-=5',autoAlpha:1},2*ls + ds*2)
+    .to($slide.find('.icon-food .descText'), .1, {autoAlpha: 1,ease:Bounce.easeInOut},2*ls + ds*2); // svg 나타나기
   // svg 트윈 시작하기
   function playTween(index){
     if (index !== null) {
@@ -429,21 +483,14 @@ window.addEventListener('load', function(){
     }
   }
 
-  TweenMax.set([$slide, $slide.find('.descText')], {autoAlpha: 0});
+  TweenMax.set([$slide, $slide.find('.descText'), $area.find('.sunshine')], {autoAlpha: 0});
   TweenMax.set([$slide.find('.icon-panel'), $slide.find('.icon-electronics'), $slide.find('.icon-food')], {y:'+=5',autoAlpha: 0});
-  timeline = new TimelineMax({delay: .1});
+  timeline = new TimelineMax({delay:.1});
   for (var i = 0; i < length; i++) {
      timeline.to($slide.eq(i), .2, {autoAlpha: 1});
      timeline.to($dots.eq(i), 0, {className: '+=active'});
-     timeline.to('.sunshine', 1, {position:'absolute',left:'10%',top:'15%',ease:Linear.easeIn});
-     timeline.call(playTween, [i]); // play tween
      timeline.to($slide.eq(i).find('.graphics'), 0,{className: '+=active'});
-     timeline.staggerTo($slide.eq(i).find('.icon-panel'), .5, {y:'-=5',autoAlpha:1});
-     timeline.to($slide.eq(i).find('.icon-panel .descText'), .1, {autoAlpha: 1,ease:Bounce.easeInOut}); // svg 나타나기
-     timeline.staggerTo($slide.eq(i).find('.icon-electronics'), .5, {y:'-=5',autoAlpha:1});
-     timeline.to($slide.eq(i).find('.icon-electronics .descText'), .1, {autoAlpha: 1,ease:Bounce.easeInOut}); // svg 나타나기
-     timeline.staggerTo($slide.eq(i).find('.icon-food'), .5, {y:'-=5',autoAlpha:1});
-     timeline.to($slide.eq(i).find('.icon-food .descText'), .1, {autoAlpha: 1,ease:Bounce.easeInOut}); // svg 나타나기
+     timeline.call(playTween, [i]); // play tween
      timeline.to({}, 1.5, {}); // delay
     if (i + 1 !== length) {// 마지막 슬라이드 제외
       timeline.to($slide.eq(i), 0, {autoAlpha: 0});
@@ -455,10 +502,13 @@ window.addEventListener('load', function(){
     {
       triggerElement: $area[0],
       triggerHook: 0,
-      duration: 100 * length * 1.5 + '%', // 너무 빨리 지나가지 않게 1.2배 조정
+      duration: 100 * length + '%', // 너무 빨리 지나가지 않게 1.2배 조정
       offset: $('#roof').height() * -1,
     })
     .setPin($area[0])
     .setTween(timeline)
     .addTo(controller);
-});
+
+
+}
+slideTween();

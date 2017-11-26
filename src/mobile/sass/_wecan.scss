@@ -2,6 +2,14 @@
 // wecan 
 //
 #wecan {
-	@extend %full-screen;
+	width:100%;
+	height:100%;
+	padding:0 0 rem(30px);
 	background-color: #efefef;
+	.btn {
+		text-align:center;
+	}
+	.text {
+		color: $text-color-gray;
+	}
 }

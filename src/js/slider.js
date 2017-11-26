@@ -20,25 +20,49 @@ $(function(){
     autoplaySpeed:300
     });  
 
-$('.interview-slider').on('mousewheel initialized.owl.carousel changed.owl.carousel', function(e) {
+var interviewSlider = $('.interview-slider');
+interviewSlider.on('initialized.owl.carousel changed.owl.carousel', function(e) {
     if (!e.namespace)  {
       return;
     }
-     var carousel = e.relatedTarget;
-    if(carousel.relative(carousel.current()) == 2) {
-        TweenMax.from('.item .info-graphic svg', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:1});
-        TweenMax.from('.item .textDesc', 1, {transformOrigin:'50% 50%',strokeWidth:0,opacity:0,delay:2});
-    }
-    $('.counter .activeNum').text(carousel.relative(carousel.current()) + 1);
-    $('.counter .totalNum').text(carousel.items().length);
+    // console.log(e);
   }).owlCarousel({
     loop:false,
     nav: false,
     dots: false,
-    lazyLoad: true,
+    startPosition: 0,
     items:1,
-    rewind: true
-    });
+    rewind: false,
+    onInitialized  : counter, //When the plugin has initialized.
+    onTranslated : counter //When the translation of the stage has finished.
+});
+
+var is = $('.interview.active .interview-slider');
+is.on('mousewheel', '.interview.active', function(e) {
+    var curr = $(this);
+    console.log(e);
+   if (e.deltaY > 0) {
+      curr.trigger('next.owl');
+   } else {
+      curr.trigger('prev.owl');
+   }
+   e.preventDefault();
+});
+
+
+function counter(event) {
+   var element   = event.target;         // DOM element, in this example .owl-carousel
+    var items     = event.item.count;     // Number of items
+    var item      = event.item.index + 1;     // Position of the current item
+  $('.counter .activeNum').html(item);
+  $('.counter .totalNum').html(items);
+
+   if(item == 3) {
+        TweenMax.from('.item .info-graphic svg', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:.5});
+        TweenMax.from('.item .textDesc', 1, {transformOrigin:'50% 50%',strokeWidth:0,opacity:0,delay:.6});
+    }
+}
+
 
   var $tweenSlider = $('.tweenSlider .owl-carousel').owlCarousel({
     loop: true,

@@ -8,8 +8,35 @@
 	.life {
 		position: relative;
 		width: 100vw;
-		height: rem(466px);
-		background: url('../img/origin/bg-origin.jpg') no-repeat 50% 50%/cover;
+		height:100%;
+		padding:rem(20px) 0 rem(30px);
+		// background: url('../img/origin/bg-origin.jpg') no-repeat 50% 50%/cover;
+		.tween-slider {
+			.item {
+				width:90vw;
+				height:calc(90vw * 415 / 575);
+				background-size:cover;
+				&.img1 {
+					background-image:url('../img/origin/tweenImg-1.jpg');
+				}
+				&.img2 {
+					background-image:url('../img/origin/tweenImg-2.jpg');
+				}
+			}
+		}
+		.heading-1 {
+			color: $text-color-black;
+		}
+		.text {
+				font-size: rem(14px);
+				line-height: rem(24px);
+				color: $text-color-gray;
+				&.bold {
+					padding-top: rem(20px);
+					font-size: rem(17.5px);
+					line-height: rem(25px);
+				}
+			}
 	}
 	.energy {
 		overflow: hidden;
@@ -23,203 +50,139 @@
 			.color-slider {
 				width:100%;
 				height:100%;
-				position:absolute;
 				margin:0 auto;
+						.owl-dots {
+						position:absolute;
+						bottom:rem(20px);
+						width:100%;
+						text-align: center;
+						.owl-dot {
+							background: white;
+							opacity:0.2;
+							&.active {
+								opacity: 1;
+							}
+						}
+					}
 				.item {
 					// opacity:0;
 					z-index:5;
 					@extend %full-screen;
-						&.bg-orange {
-							z-index:-1;
-							background-color: $orange;
-						}
-						&.bg-green {
-							z-index:-1;
-							background: #5f883c;
-						}
-						&.bg-blue {
-							z-index:-1;
-							background: #2a6388;
-						}
-					.sub-title {
-						font-size: rem(12px);
-						padding: rem(20px) 0 0;
-						text-align:center;
-						.bold {
-							font-weight:700;
-						}
+					svg {
+						position: absolute;
 					}
-					.panel-graphic {
+					.icon-panel {
+						margin:0 auto;
+					}
+					.info-text {
 						position:relative;
-						height: rem(220px);
-						margin: rem(100px) 10vw rem(50px) 10vw;
-						width: 80vw;
-					}
-						svg {
+						.text {
 							position:absolute;
-							&.panel-base {
-								top: 30px;
-								left:50%;
-								margin-left: rem(-150px);
-							}
-						}
-						.panel-size {
-							position: absolute;
-							opacity:0;
-							left: rem(99px);
-							top: rem(-24px);
-							&.active {
-								opacity:1;
-							}
+							text-align:center;
+							display:block;
+							width:100%;
 						}
 					}
+			
 					.info {
-						> div {
-							display: inline-block;
-						} 
+						position:relative;
+						height:30vw;
+						padding:rem(50px) 0 rem(20px) 0;
+						.icon-electronics, .icon-food {
+							position:absolute;
+						}
+						.icon-electronics {
+							left:0;
+						}
+						.icon-food {
+							right:0;
+						}
+					}
+					.indicator {
+						svg {
+							width:40vw;
+							left:30vw;
+							top:33%;
+						}
 					}
 					.icon {
-						width:rem(50px);
-						height:rem(50px);
-						background: #fff;
+						position:relative;
+						height: 30vw;
+						width: 30vw;
 						border-radius:50%;
-						display:block;
-						position: relative;
-						margin: 0 auto;
 						svg {
-							position: absolute;
+							height: 16vw;
+							width: 16vw;
+							top:50%;
+							left:50%;
+							margin:-8vw 0 0 -8vw;
 						}
 					}
-					.data {
-						font-size: rem(36px);
-						font-weight: 700;
-						text-align: center;
+					&.bg-orange {
+						z-index:-1;
+						background-color: $orange;
+						.icon {
+							background-color: rgb(249, 145, 39);
+						}
+					
+					}
+					&.bg-green {
+						z-index:-1;
+						background: #5f883c;
+						.icon {
+							background-color: #449a50;
+							&.icon-panel {
+								svg {
+								width:20vw;
+								height:20vw;
+								margin:-10vw 0 0 -10vw;
+								}
+							}
+						}
+					}
+					&.bg-blue {
+						z-index:-1;
+						background: #154f74;
+						.icon {
+							background-color: #2a6388;
+							&.icon-panel {
+								svg {
+								width:20vw;
+								height:20vw;
+								margin:-10vw 0 0 -10vw;
+								}
+							}
+						}
 					}
 					.desc {
 						font-size: rem(15px);
 						text-align: center;
-					}
-				  	&.active {
-			    		opacity: 1;
-			    		z-index: 10;
-		    			transform: translate(0, 0);
-			    	}
-				}
-				.icon-food, .icon-electronics {
-					width: 30vw;
-				}
-				// .owl-item:nth-child(1) {
-					.item:nth-child(1) {
-						background: $orange;
-						z-index:10;
-						&.active {
-							.panel-size {
-								.panel-1 {
-								}
-							}
-							.panel-arrow {
-								position: absolute;
-								left:rem(80px);
-								top:rem(50px);
-							}
-							.icon-food {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-22px) 0 0 rem(-22px);
-								}
-							}
-							.icon-electronics {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-22px) 0 0 rem(-22px);
-								}
+						.sub-title {
+							font-size: rem(17.5px);
+							padding: rem(20px) 0 0;
+							text-align:center;
+							.bold {
+								font-weight:700;
 							}
 						}
-					}
-				// }
-				// .owl-item:nth-child(2) {
-					.item:nth-child(2) {
-						&.active {
-							background: #5f883c;
-							.panel-size {
-								.panel-1 {
-									top:0;
-									left:0;
-								}
-								.panel-2 {
-									top:rem(4px);
-									left:rem(43px);
-								}
-							}
-							.panel-arrow {
-								position: absolute;
-								left:rem(100px);
-								top:rem(25px);
-							}
-							.icon-food {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-28px) 0 0 rem(-28.5px);
-								}
-							}
-							.icon-electronics {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-28px) 0 0 rem(-22px);
-								}
-							}
-						}
-					}
-				// .owl-item:nth-child(3) {
-					.item:nth-child(3) {
-						&.active {
-							background: #2a6388;
-							.panel-size {
-								.panel-2-1 {
-									top:rem(20px);
-									left:rem(-24px);
-								}
-								.panel-2-2 {
-									top:rem(9px);
-									left:rem(-8px);
-								}
-								.panel-2-3 {
-									top:rem(-2px);
-									left:rem(10px);
-								}
-								.panel-2-4 {
-									top:rem(5px);
-									left:rem(54px);
-								}
-							}
-							.panel-arrow {
-								position: absolute;
-								left:rem(110px);
-								top:rem(25px);
-							}
-							.icon-food {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-28px) 0 0 rem(-35px);
-								}
-							}
-							.icon-electronics {
-								svg {
-									top: 50%;
-									left: 50%;
-									margin: rem(-20.5px) 0 0 rem(-38.5px);
-								}
-							}
+						.text {
+							font-size: rem(14px);
+							font-weight: 300;
 						}
 					}
 				}
 			}
+					.fixed-text {
+						position:absolute;
+						bottom:rem(40px);
+						text-align: center;
+						color: $text-color-white;
+						z-index:10;
+					}
 		}
+	}
+}	
+		
 
 
 

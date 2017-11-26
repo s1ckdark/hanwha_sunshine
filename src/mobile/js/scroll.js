@@ -13,33 +13,6 @@
 // // ScrollMagic 컨트롤러
 var controller = new ScrollMagic.Controller();
 
-// window.addEventListener('load', initScrollMagic);
-
-// function initScrollMagic() {
-//   // 4C 인재 텍스트 색상 채우기
-//   var $person4c = $('#person-4c-color');
-//   new ScrollMagic.Scene(
-//     {
-//       triggerElement: $person4c[0],
-//       offset: -50,
-//     })
-//     .setTween($person4c, .8, {width: '100%', ease: Linear.easeNone})
-//     .addTo(controller);
-
-//   // 로버트의 말 텍스트 색상 채우기
-//   var $robertQuote = $('#robert-quote');
-//   var $robertQuoteText = $robertQuote.find('.color');
-//   var rqTimeline = new TimelineMax()
-//     .to($robertQuoteText.eq(0), .8, {width: '100%'})
-//     .to($robertQuoteText.eq(1), 1.0, {width: '100%'})
-//     .to($robertQuoteText.eq(2), 1.5, {width: '100%'});
-//   new ScrollMagic.Scene(
-//     {
-//       triggerElement: $robertQuote[0]
-//     })
-//     .setTween(rqTimeline)
-//     .addTo(controller);
-
   // video
   var $video = $('#video');
   var $twinklebtn = $('.top-indicator .link');
@@ -124,67 +97,67 @@ iconTween.from('.stroke', 1, {stroke:'1px', transformOrigin:"50% 50%"});
     })
     .addTo(controller);
 
-var bar3d = new TimelineMax({paused:true});
-bar3d.fromTo('.bar3d',1,{scale:0},{scale:1,ease:Back.easeOut},.5)
-     .fromTo('.bar3d .ship.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},1)
-     .fromTo('.bar3d .chip.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},1.5)
-     .fromTo('.bar3d .vehicle.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},2)
-     .fromTo('.bar3d .medicine.circle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},2.5)
+// var bar3d = new TimelineMax({paused:true});
+// bar3d.fromTo('.bar3d',1,{scale:0},{scale:1,ease:Back.easeOut},.5)
+//      .fromTo('.bar3d .ship.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},1)
+//      .fromTo('.bar3d .chip.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},1.5)
+//      .fromTo('.bar3d .vehicle.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},2)
+//      .fromTo('.bar3d .medicine.circle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},2.5)
 
  
-  new ScrollMagic.Scene(
-    {
-      triggerElement: $('.market')[0],
-      duration: $('.market').height(),
-    })
-     .on('enter leave', function(event){  
-      if (event.type === 'enter') {
-        bar3d.play();
-        } else {
-        bar3d.pause();
-      }
+//   new ScrollMagic.Scene(
+//     {
+//       triggerElement: $('.market')[0],
+//       duration: $('.market').height(),
+//     })
+//      .on('enter leave', function(event){  
+//       if (event.type === 'enter') {
+//         bar3d.play();
+//         } else {
+//         bar3d.pause();
+//       }
 
-    })
-    .addTo(controller);
-var chartBubble = new TimelineMax({paused:true});
-chartBubble
-     .fromTo('.retangle_bubble.s2011',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.1)
-     .fromTo('.retangle_bubble.s2012',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.2)
-     .fromTo('.retangle_bubble.s2013',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.3)
-     .fromTo('.retangle_bubble.s2014',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.4)
-     .fromTo('.retangle_bubble.s2015',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.5)
-     .fromTo('.retangle_bubble.s2016',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.6)
-     .fromTo('.kanarbSales .circle_bubble',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.7);
+//     })
+//     .addTo(controller);
+// var chartBubble = new TimelineMax({paused:true});
+// chartBubble
+//      .fromTo('.retangle_bubble.s2011',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.1)
+//      .fromTo('.retangle_bubble.s2012',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.2)
+//      .fromTo('.retangle_bubble.s2013',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.3)
+//      .fromTo('.retangle_bubble.s2014',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.4)
+//      .fromTo('.retangle_bubble.s2015',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.5)
+//      .fromTo('.retangle_bubble.s2016',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.6)
+//      .fromTo('.kanarbSales .circle_bubble',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.7);
 
-var chartLine = new TimelineMax({paused:true,onComplete:function(){chartBubble.play();}});
-chartLine.staggerFrom("#line path", .1, {drawSVG:"80% 50%"}, .1);
+// var chartLine = new TimelineMax({paused:true,onComplete:function(){chartBubble.play();}});
+// chartLine.staggerFrom("#line path", .1, {drawSVG:"80% 50%"}, .1);
 
 
-  new ScrollMagic.Scene(
-    {
-      triggerElement: '.bg_medicine',
-      triggerHook:.5,
-    })
-     .on('enter leave', function(event){  
-      if (event.type === 'enter') {
-        chartLine.play();
-        } else {
-        chartLine.pause();
-      }
-    })
-    .addTo(controller);
+//   new ScrollMagic.Scene(
+//     {
+//       triggerElement: '.bg_medicine',
+//       triggerHook:.5,
+//     })
+//      .on('enter leave', function(event){  
+//       if (event.type === 'enter') {
+//         chartLine.play();
+//         } else {
+//         chartLine.pause();
+//       }
+//     })
+//     .addTo(controller);
 
-  new ScrollMagic.Scene(
-    {
-      triggerElement: '.cardflip',
-      triggerHook:.6
-    })
-     .on('enter', function(event){  
-      if (event.type === 'enter') {
-          TweenMax.fromTo($(".cardflip"), 1, {rotationY:0}, {rotationY:360}, 0.1);
-      }   
-    })
-    .addTo(controller);
+//   new ScrollMagic.Scene(
+//     {
+//       triggerElement: '.cardflip',
+//       triggerHook:.6
+//     })
+//      .on('enter', function(event){  
+//       if (event.type === 'enter') {
+//           TweenMax.fromTo($(".cardflip"), 1, {rotationY:0}, {rotationY:360}, 0.1);
+//       }   
+//     })
+//     .addTo(controller);
 
   scrollToSection();
 
@@ -424,26 +397,40 @@ new ScrollMagic.Scene(
         );
     });
 
-TweenMax.set(['.chart-inner svg path','.chart-inner svg text'],{opacity:0,y:-10});
+
+TweenMax.set(['.chart-inner #pie','.chart-inner #textDesc'],{opacity:0,y:-10});
 TweenMax.set('.mix-chart', {xPercent:-65,opacity:0});
 TweenMax.set('.pie-chart', {xPercent:40,opacity:0});
 TweenMax.set('#chart-bar path',{height:0});
 var drawtl = new TimelineMax()
-    .to('.mix-chart', 1, {xPercent:0,transformOrigin:'0% 0%',ease: Linear.easeOut,opacity:1}, 0.3)
+    .to('.mix-chart', .5, {xPercent:0,transformOrigin:'0% 0%',ease: Linear.easeOut,opacity:1}, 0.3)
     .to('.chart-inner #chart-bar path', 1, {drawSVG: "0% 100%", transformOrigin:'0% 0%',ease: Bounce.easeOut,opacity:1,height:150,y:'+=10' }, 1.3)
     .to('.chart-inner #chart-point path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.6)
     .to('.chart-inner #chart-lines path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.6)
-    .to('.pie-chart', 1, {xPercent:0,transformOrigin:'100% 0%',ease: Linear.easeOut,opacity:1}, 0.8)
-    .to('.chart-inner #pie path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.8)
-    .to('.chart-inner .textDesc', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.8);
-
+    .to('.chart-inner #chart-point path', .1, {autoAlpha:0}, 2.5)
+    .to('.chart-inner #point-over', 1, {transformOrigin:"0% 0%",drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'-=5' }, 2.5);
+  
     new ScrollMagic.Scene(
     {
-      triggerElement: '.chart-inner',
+      triggerElement: '.mix-chart',
       triggerHook: .6,
     })
     // .addIndicators()
     .setTween(drawtl)
+    .addTo(controller);
+
+var drawtl2 = new TimelineMax()
+    .to('.pie-chart', .5, {xPercent:0,transformOrigin:'100% 0%',ease: Linear.easeOut,opacity:1}, 0.8)
+    .to('.chart-inner #pie', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.8)
+    .to('.chart-inner #textDesc', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.8);
+
+    new ScrollMagic.Scene(
+    {
+      triggerElement: '.pie-chart',
+      triggerHook: .6,
+    })
+    // .addIndicators()
+    .setTween(drawtl2)
     .addTo(controller);
 
 function drawTreeIcon(){

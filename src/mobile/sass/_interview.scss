@@ -30,7 +30,7 @@
 		    .section-header {
 			    .header-img {
 			    	width:90vw;
-			    	height:calc(90vw * 360 / 640);
+			    	height:calc(90vw * 398 / 510);
 			    }
 			    .text {
 			    	height:rem(80px);
@@ -39,14 +39,16 @@
 			    .popbtn {
 			    	font-size: rem(15px);
 			    	color: $text-color-black;
+			    	text-align:right;
+			    	width:100%;
 			    }
 			}
 
 		    .wrapper {
 		    	padding:0 1rem;
-			    p {
-			    	color: #ccc;
-			    	font-size: rem(16px);
+			    p.text {
+			    	color: $text-color-gray;
+			    	font-size: rem(13px);
 			    	margin-bottom: rem(30px);
 			    	.bold {
 			    		font-weight:500;
@@ -57,6 +59,7 @@
 			    	display:inline-block;
 			    	font-size: rem(14px);
 			    	font-weight: 700;
+			    	padding:rem(35px) 0 rem(15px);
 			    	a {
 			    		color: #fefefe;
 			    		margin: 0 rem(12px);
@@ -69,11 +72,28 @@
 				    }
 			    }
 			    .section-header {
-			    	padding: rem(20px) 0 0;
-			    	h4.heading-2 {
-			    		color: $text-color-black;
-			    		.boldtxt {font-weight:700;}
+			    	background:white;
+			    	.header-img {
+			    		width:100%;
 			    	}
+			    	.text-area {
+			    		padding: rem(15px);
+				    	h4.p-heading {
+					    	text-align:left;
+				    		color: $text-color-black;
+				    		line-height: rem(27.5px);
+				    		padding:0 0 rem(10px);
+				    		font-size: rem(21px);
+				    		.boldtxt {font-weight:700;}
+				    	}
+				    	.p-text {
+				    		text-align:left;
+				    		line-height: rem(20px);
+				    		font-size: rem(13px);
+				    		padding:rem(15px) 0 rem(10px);
+				    		color: $text-color-gray;
+				    	}
+				    }
 			    }
 		    }
 		    .btn {
@@ -82,23 +102,23 @@
 		    }
 			&.interview1 {
 				.header-img {
-		    		background: url('../img/interview/bg-interview-1-1.jpg') no-repeat 50% 50%/cover;
+		    		background: url('../img/interview/bg-interview-1.jpg') no-repeat 50% 50%/cover;
 		    	}
 			}
 			&.interview2 {
 				.header-img {
-		    		background: url('../img/interview/bg-interview-2-1.jpg') no-repeat 50% 50%/cover;
+		    		background: url('../img/interview/bg-interview-2.jpg') no-repeat 50% 50%/cover;
 		    	}
 			}
 			&.interview3 {
 				.header-img {
-		    		background: url('../img/interview/bg-interview-3-1.jpg') no-repeat 50% 50%/cover;
+		    		background: url('../img/interview/bg-interview-3.jpg') no-repeat 50% 50%/cover;
 		    	}
 				
 			}
 			&.interview4 {
 				.header-img {
-		    		background: url('../img/interview/bg-interview-4-1.jpg') no-repeat 50% 50%/cover;
+		    		background: url('../img/interview/bg-interview-4.jpg') no-repeat 50% 50%/cover;
 		    	}
 			}
 			&.active {
@@ -111,26 +131,41 @@
 	.pop-section {
 		position: relative;
 	    .item-pop {
-		    	width:100vw;
-		    	height:100vh;
+	    		@extend %full-screen;
 		    	position: fixed;
 		    	overflow-y: scroll;
-		    	top:0;right:0;bottom:0;left:0;
+		    	top:50px;right:0;bottom:0;left:0;
 		    	background-color: #fff;
 		    	z-index:10;
 		    	.closebtn {
 		    		position: absolute;
-		    		top:rem(50px);
-		    		right: rem(50px);
+		    		top:rem(10px);
+		    		right: rem(10px);
+		    		background:url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAQAAABvl+iIAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhCxoUEQePKllyAAAAnUlEQVRIx62W2xGAIAwEtzSa0rJszCL0S8cXSMjyfbfDQHIJLBTyp7BAYU3DTkYWdvNnYC/vKOzTNwKreqKwpj4C+9X2wrp0PaLu2/8JQ2/aEod/umYYqr8v03BXPI2pXr2a0wlyAIwoorAyGSCAmY3ZAGm30t5K+0GtrrRq13pQSwYtr7QU1bJdmzjaHNSms7YzaJuMtl+JW5+2i+6nQmX6M8PhQAAAAABJRU5ErkJggg==');
+		    		width:rem(16.5px);
+		    		height:rem(16.5px);
+		    		background-size: contain;
+		    		z-index:11;
 		    	}
+		    	.heading-2 {
+		    		color: $text-color-black;
+		    	}
+			    .desc {
+			    	.text {
+			    		color:$text-color-gray;
+			    	}
+			    }
+
 	    	  .interview-slider {
 			    	// width: 80vw; //rem(400px);
 			    	width:100%;
 			    	.item {
-			    		// width: 80vw; //rem(400px);
-			    		// height: 80vw; //rem(400px);
+			    		width: 100vw; //rem(400px);
+			    		height: calc(100vw * 360 / 640); //rem(400px);
 			    		background: #fff;
+			    		background-size:cover;
 			    	}
+
 			    }
 			    .inner {
 			    	background: #fff;
@@ -161,7 +196,8 @@
 	    		text-align:center;
 	    	}
 	    }
-		.pop1 {
+
+		&.pop1 {
 			.interview-slider {
 		    	.owl-item:nth-child(1) {
 		    		.item {
@@ -231,7 +267,7 @@
 		    	}
 		    }
 		}
-		.pop2 {
+		&.pop2 {
 			.interview-slider {
 		    	.owl-item:nth-child(1) {
 		    		.item {
@@ -298,7 +334,7 @@
 		    	}
 		    }
 		}
-		.pop3 {
+		&.pop3 {
 			.interview-slider {
 			    	.owl-item:nth-child(1) {
 			    		.item {
@@ -357,7 +393,7 @@
 			    	}
 			    }
 		}
-		.pop4 {
+		&.pop4 {
 			.interview-slider {
 		    	.owl-item:nth-child(1) {
 		    		.item {
