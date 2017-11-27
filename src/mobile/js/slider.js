@@ -19,7 +19,7 @@ $(function(){
     });    
 
   var $interviewInner = $('.interview-inner').owlCarousel({
-    loop:true,
+    loop:false,
     dots:true,
     items:1,
     dotsContainer: '.i-nav'

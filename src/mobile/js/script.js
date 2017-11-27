@@ -7,17 +7,12 @@ $(function(){
   });
 
   TweenMax.set('.item-pop', {scale:0});
-  $('.popbtn').on('click', function(){
-    var pop = new TweenMax({paused:true});
+  var pop = new TweenMax({paused:true});
+  $('.popbtn').click(function(){
+    console.log("click");
     var $this = $(this), popdata = $this.data('pop'), $pd = $(popdata);
-   
-    TweenMax.to($pd,.5,{scale:1,ease:Expo.easeInOut});
-     
-//     $this.on('click', function(event) {
-//     event.preventDefault();
-//     pop.reversed() ? pop.play() : pop.reverse();
-// });
-    
+    TweenMax.to('.closebtn', 0, {autoAlpha:1});
+    TweenMax.to($pd,.5,{scale:1,ease:Expo.easeInOut,className:'+=active'});    
   })
 
   // $('.popbtn').click(function(){
@@ -28,8 +23,8 @@ $(function(){
   // })
 
     $('.closebtn').click(function(){
-    var $this = $(this).parents().parents();
-    TweenMax.to($this[0],.5,{scale:0, ease:Expo.easeInOut});
+       TweenMax.to('.closebtn', 0, {autoAlpha:0});
+    TweenMax.to($('.item-pop.active'),.5,{scale:0, ease:Expo.easeInOut});
   })
 
 });
