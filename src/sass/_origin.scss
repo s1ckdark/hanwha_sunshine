@@ -21,7 +21,7 @@
       width: rem(360px);
     }
     .owl-stage-outer {
-        overflow:visible;
+        overflow:hidden;
     }
           .owl-dots {
         text-align:left;
@@ -34,35 +34,24 @@
         }
       }
     .owl-stage {
-      position:absolute;
+      position:relative;
 
     }
     .owl-item {
-  &.active {
-        transform:scale(1);
-        .item {
-            width: rem(692px);
+      position:relative;
+           width: rem(692px);
             height: rem(600px);
-            background-repeat: no-repeat;
-            background-size: cover;
-            opacity:1;
-            &.life1 {
-              background: url('../img/origin/life-1.png');
-            }
-            &.life2 {
-              background: url('../img/origin/life-2.png');
-            }
-          }
-      }
-      &.cloned {
-            transform:scale(0.5);
-            margin-left:rem(-600px);
+                       opacity:0.2;
+        
        .item {
+            right:0px;
+            bottom:0px;
+            position:absolute;
             width: rem(692px);
             height: rem(600px);
             background-repeat: no-repeat;
             background-size: cover;
-            opacity:0.2;
+     transform:scale(.2);
             &.life1 {
               background: url('../img/origin/life-1.png');
             }
@@ -70,8 +59,16 @@
               background: url('../img/origin/life-2.png');
             }
           }
+          &.active {
+              
+                     opacity:1;
+    .item {
+        position: absolute;
+        top:0px;left:0px;
+            transform:scale(1);
+      }
+      }
         }
-  }
 
     .section-header {
       .heading-1 {
@@ -187,8 +184,8 @@
         display: table;
       }
       .icon {
-        width: rem(230px);
-        height: rem(230px);
+        width: rem(180px);
+        height: rem(180px);
         border-radius: 50%;
         display: block;
         position: relative;
@@ -223,21 +220,21 @@
           svg {
             top: 50%;
             left: 50%;
-            margin: rem(-70px) 0 0 rem(-65px);
+            margin: rem(-50px) 0 0 rem(-56px);
           }
         }
         .icon-food {
           svg {
             top: 50%;
             left: 50%;
-            margin: rem(-70px) 0 0 rem(-59px);
+            margin: rem(-55px) 0 0 rem(-45px);
           }
         }
         .icon-electronics {
           svg {
             top: 50%;
             left: 50%;
-            margin: rem(-66px) 0 0 rem(-64px);
+            margin: rem(-56px) 0 0 rem(-56px);
           }
         } // }
       }
@@ -249,21 +246,21 @@
           svg {
             top: 50%;
             left: 50%;
-            margin: rem(-70px) 0 0 rem(-82px);
+            margin: rem(-51px) 0 0 rem(-72px);
           }
         }
         .icon-food {
           svg {
             top: 50%;
             left: 50%;
-            margin: rem(-62px) 0 0 rem(-55px);
+            margin: rem(-50px) 0 0 rem(-47px);
           }
         }
         .icon-electronics {
           svg {
             top: 50%;
             left: 50%;
-            margin: rem(-66px) 0 0 rem(-54px);
+            margin: rem(-52px) 0 0 rem(-44px);
           }
         } // }
       }
@@ -275,21 +272,21 @@
           svg {
             top: 50%;
             left: 50%;
-            margin: rem(-72px) 0 0 rem(-75px);
+            margin: rem(-50px) 0 0 rem(-58px);
           }
         }
         .icon-food {
           svg {
             top: 50%;
             left: 50%;
-            margin: rem(-73px) 0 0 rem(-70px);
+            margin: rem(-54px) 0 0 rem(-56px);
           }
         }
         .icon-electronics {
           svg {
             top: 50%;
             left: 50%;
-            margin: rem(-35px) 0 0 rem(-72px);
+            margin: rem(-22px) 0 0 rem(-57px);
           }
         }
       }
@@ -314,11 +311,12 @@
         }
         .indicator,
         .sunshine {
+
           z-index: 11;
         }
         .indicator {
           position: relative;
-          margin: rem(250px) 0 0;
+          margin: rem(220px) 0 0;
           text-align: center;
         }
       }

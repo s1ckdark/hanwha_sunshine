@@ -6,10 +6,17 @@
 	height:100%;
 	padding:0 0 rem(30px);
 	background-color: #efefef;
+	.heading-1 {
+		padding:rem(15px) 0 rem(10px);
+	}
 	.btn {
 		text-align:center;
+		width: 30vw;
+		margin:0 auto;
+		display: block;
 	}
 	.text {
+		padding:rem(10px) 0 rem(15px);
 		color: $text-color-gray;
 	}
 }

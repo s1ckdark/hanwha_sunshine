@@ -16,11 +16,26 @@
 				width:90vw;
 				height:calc(90vw * 415 / 575);
 				background-size:cover;
+				background-position: 50% 50%;
 				&.img1 {
+					border-radius: 10px;
 					background-image:url('../img/origin/tweenImg-1.jpg');
 				}
 				&.img2 {
+					border-radius: 10px;
 					background-image:url('../img/origin/tweenImg-2.jpg');
+				}
+			}
+		}
+		.heading-1 {
+			padding:0 0 rem(15px);
+		}
+		.owl-dots {
+			margin-top:rem(20px);
+			.owl-dot {
+				background-color: $text-color-lgray;
+				&.active {
+					background-color: $orange;
 				}
 			}
 		}
@@ -65,6 +80,14 @@
 						}
 					}
 				.item {
+					.sunshine {
+						position:absolute;
+						right:30vw;
+						top:0;
+						svg {
+							width:20vw;
+						}
+					}
 					// opacity:0;
 					z-index:5;
 					@extend %full-screen;
@@ -76,11 +99,16 @@
 					}
 					.info-text {
 						position:relative;
+						top: 50%;
+					    width: rem(100px);
+					    margin: 0 auto;
+					    text-align: center;
 						.text {
 							position:absolute;
 							text-align:center;
 							display:block;
 							width:100%;
+							opacity:0;
 						}
 					}
 			
@@ -118,12 +146,25 @@
 							margin:-8vw 0 0 -8vw;
 						}
 					}
+					.triangle {
+							width:75vw;
+							height:calc(75vw * 489 / 561);
+							margin:0 auto;
+
+						}
+						svg {
+							width:75vw;
+							margin:0 auto;
+							height:calc(75vw * 489 / 561);
+			
+						}
 					&.bg-orange {
 						z-index:-1;
 						background-color: $orange;
 						.icon {
 							background-color: rgb(249, 145, 39);
 						}
+
 					
 					}
 					&.bg-green {

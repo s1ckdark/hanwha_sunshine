@@ -13,33 +13,6 @@
 // ScrollMagic 컨트롤러
 var controller = new ScrollMagic.Controller();
 
-// window.addEventListener('load', initScrollMagic);
-
-// function initScrollMagic() {
-//   // 4C 인재 텍스트 색상 채우기
-//   var $person4c = $('#person-4c-color');
-//   new ScrollMagic.Scene(
-//     {
-//       triggerElement: $person4c[0],
-//       offset: -50,
-//     })
-//     .setTween($person4c, .8, {width: '100%', ease: Linear.easeNone})
-//     .addTo(controller);
-
-//   // 로버트의 말 텍스트 색상 채우기
-//   var $robertQuote = $('#robert-quote');
-//   var $robertQuoteText = $robertQuote.find('.color');
-//   var rqTimeline = new TimelineMax()
-//     .to($robertQuoteText.eq(0), .8, {width: '100%'})
-//     .to($robertQuoteText.eq(1), 1.0, {width: '100%'})
-//     .to($robertQuoteText.eq(2), 1.5, {width: '100%'});
-//   new ScrollMagic.Scene(
-//     {
-//       triggerElement: $robertQuote[0]
-//     })
-//     .setTween(rqTimeline)
-//     .addTo(controller);
-
   // video
   var $hero_video = $('#hero-video');
   var $video = $('#video1');
@@ -263,42 +236,38 @@ function playTween(index){
     })
     .setPin($interview[0])
     .setTween(timeline)
-    .on("update progress", callback)
-    //       var current = Math.floor(e.progress * 100);
-    //       console.log(current);
-    //       if(current >0 && current <9) {
-    //         $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
-    //       } else if(current >= 9 && current < 18) {
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
-    //       } else if( current >= 18 && current < 28) {
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
-    //       } else if(current >= 28 && current < 36) {
-
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
-    //       } else if( current >= 36 && current < 45) {
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
-    //       } else if(current >= 45 && current < 56) {
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
-    //       } else if(current >= 56 && current < 65) {
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
-    //       } else if( current >= 65 && current < 74) {
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
-    //       } else if(current >= 74 && current < 85) {
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
-    //       } else if(current >= 85 && current < 90) {
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
-    //       } else if( current >= 90 && current < 95) {
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
-    //       } else if(current >= 95 && current < 100) {
-    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
-    //       } 
-    //   })
+    .on("progress", function(e){
+          var current = Math.floor(e.progress * 100);
+          console.log(current);
+          if(current >0 && current <9) {
+            $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+          } else if(current >= 9 && current < 18) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+          } else if( current >= 18 && current < 28) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+          } else if(current >= 28 && current < 36) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+          } else if( current >= 36 && current < 45) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+          } else if(current >= 45 && current < 56) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+          } else if(current >= 56 && current < 65) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+          } else if( current >= 65 && current < 74) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+          } else if(current >= 74 && current < 85) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+          } else if(current >= 85 && current < 90) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+          } else if( current >= 90 && current < 95) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+          } else if(current >= 95 && current < 100) {
+              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+          } 
+      })
     .addTo(controller);
     // console.log($slide.height());
 
-function callback (event) {
-        console.log(event);
-}
   // nav
   // $(label).find('.nav a').on('click', function(e){
   //   e.preventDefault();
@@ -317,18 +286,18 @@ function callback (event) {
   //   }
   // });
 }
-    var $is = $('.interview-slider').find('.owl-item');
+    // var $is = $('.interview-slider').find('.owl-item');
 
-     $is.each(function(index, elem) {
-      console.log(index);
-            new ScrollMagic.Scene({
-              triggerElement: elem,
-              duration:$('interview-slider').height() / 3,
-              offset:$('interview-slider').height() / 3 * index
-          })
-          .addTo(controller)
-          .addIndicators({name: "period marker"});
-      });
+    //  $is.each(function(index, elem) {
+    //   console.log(index);
+    //         new ScrollMagic.Scene({
+    //           triggerElement: elem,
+    //           duration:$('interview-slider').height() / 3,
+    //           offset:$('interview-slider').height() / 3 * index
+    //       })
+    //       .addTo(controller)
+    //       .addIndicators({name: "period marker"});
+    //   });
 
 interviewTween();
 // background parallax scrolling
@@ -357,13 +326,13 @@ new ScrollMagic.Scene(
     .on('enter', function(){
       $('.map_point .pin').each(function(i){
         var $this = $(this);
-        var tl = new TimelineMax({repeatDelay:1});
-        tl.fromTo($this.next('.desc'), .2,{autoAlpha:0}, {zIndex: 50,autoAlpha:1, top:-120, height:90, left:-142.5},i*1.5)
+        var tl = new TimelineMax({delay:1});
+        tl.fromTo($this.next('.desc'), .2,{autoAlpha:0}, {zIndex: 50,autoAlpha:1, top:-120, height:90, left:-142.5},i*1)
             // .to(pinSelf.next('.desc').find('.numText'), .2, {autoAlpha:1})
             // .to(pinSelf.next('.desc').find('.text'), .2, {autoAlpha:1})
          .fromTo($this.next('.desc').find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-64, onComplete:function(){
-          TweenMax.to($this.next('.desc'), .2, {autoAlpha:0,delay:1});
-        }}, i*1.6);
+          TweenMax.to($this.next('.desc'), .2, {autoAlpha:0,delay:0});
+        }}, i*1.1);
       })
     })
     .reverse(false)
@@ -397,7 +366,7 @@ TweenMax.set('.pie-chart', {xPercent:40,opacity:0});
 TweenMax.set('#chart-bar path',{height:0});
 var drawtl = new TimelineMax()
     .to('.mix-chart', .5, {xPercent:0,transformOrigin:'0% 0%',ease: Linear.easeOut,opacity:1}, 0.3)
-    .to('.chart-inner #chart-bar path', 1, {drawSVG: "0% 100%", transformOrigin:'0% 0%',ease: Bounce.easeOut,opacity:1,height:150,y:'+=10' }, 1.3)
+    .to('.chart-inner #chart-bar path', 1, {drawSVG: "0% 100%", transformOrigin:'0% 0%',ease: Bounce.easeOut,opacity:1,height:150,y:'+=5' }, 1.3)
     .to('.chart-inner #chart-point path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.6)
     .to('.chart-inner #chart-lines path', 1, {drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'+=10' }, 1.6)
     .to('.chart-inner #point-over', 1, {transformOrigin:"0% 0%",drawSVG: "0% 100%", ease: Bounce.easeOut,opacity:1,y:'-=5' }, 2.5)
@@ -454,16 +423,16 @@ function slideTween(){
   var timeline;
 
   var $stroke=$('#indicator-line path');
-  var ds = 0.5, ls=2;
+  var ds = 0.2, ls=1;
   var drawTween = new TimelineMax({paused:true});
   drawTween.from($stroke.eq(0),  ls,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 0)
     .to('.sunshine', 1, {position:'absolute',left:'10%',top:'15%',ease:Linear.easeIn})
-    .from($stroke.eq(1), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls)
+    .from($stroke.eq(1), ls,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls)
     .from($stroke.eq(2), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*1)
     .from($stroke.eq(3), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*2)
     .from($stroke.eq(4), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*3)
-    .from($stroke.eq(5), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*4)
-    .from($stroke.eq(6), ls,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*5)
+    .from($stroke.eq(5), ls,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*4)
+    .from($stroke.eq(6), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, ls + ds*5)
     .from($stroke.eq(7), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 2*ls + ds*1)
     .from($stroke.eq(8), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 2*ls + ds*2)
     .from($stroke.eq(9), ds,  {drawSVG:0,opacity:0, ease: Linear.none, strokeWidth:0}, 2*ls + ds*3)

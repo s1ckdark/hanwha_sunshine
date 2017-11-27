@@ -86,18 +86,18 @@ $(function(){
   function elOut() {
       this.animation.reverse();
   }
+
   TweenMax.set('.item-pop', {scale:0});
-  $('.popbtn').each(function() {
-    var $this = $(this);
-    $this.click(function(){
+  $('.popbtn').click(function(){
     console.log("click");
     var data = $(this).data('pop');
     var $target = $(data);
     TweenMax.to($target[0],.5,{scale:1,ease:Expo.easeInOut});
   })
-});
+
     $('.closebtn').click(function(){
-    var $this = $(this).parents();
+    var $this = $(this).parents().parents();
     TweenMax.to($this[0],.5,{scale:0, ease:Expo.easeInOut});
   })
+
 });

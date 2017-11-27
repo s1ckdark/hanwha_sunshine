@@ -18,13 +18,13 @@ $btn-padding-wide: rem(20px);
 }
 
 .btn-corner-rounded {
-  display:block;
+  display:inline;
   border-radius: 100px;
   background-color: rgb(214, 214, 214);
   height: rem(28px);
   color: #525252;
   margin:0 auto;
-  padding:0;
+  padding:0 rem(10px);
   line-height:rem(28px);
   font-size: rem(16px);
   text-align: center;

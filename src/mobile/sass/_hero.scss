@@ -20,8 +20,19 @@
   // #circle2 circle {stroke:rgb(248,155,105);fill:none;;}
   // #circle3 circle {stroke:rgb(251,181,132);fill:none;;}
   // #circle4 circle {stroke:rgb(0,0,0);fill:none;;}
+.headline {
+  width:60vw;
+  margin:0 auto;
+  padding:30% 0 0;
+  display: block;
+  #title_orange {
+    width:60vw;
 
-
+  }
+  #title_white {
+    width:60vw;
+  }
+}
   .hero-intro  {
     @extend %full-screen;
     background: url('../img/hero/bg-hero.jpg') 100% 50%/cover;
@@ -50,16 +61,16 @@
     border-style: solid;
     border-radius: 15px;
     position: absolute;
-    width: rem(28px);
-    height: rem(41px);
+    width: rem(14px);
+    height: rem(20px);
     padding: rem(10px) 0;
     z-index: 19;
     margin:0 auto;
     .link {
         display: block;
-        width: 12px;
-        height: 8px;
-        margin: rem(10px) auto;
+        width: 6px;
+        height: 4px;
+        margin: rem(5px) auto;
         background: url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAQAAABn7dZ6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhCwsRBim4ESI6AAAATElEQVQI103LQRHAMAgF0Z/BTBSESsZK3eBge2CggRP7BiE2hq41NhIPSVxkBIkLJ2HICCA54qbJqN6bKjtqaJr8Q9FktNDM0dLbxwdjBXEgc8MxSAAAAABJRU5ErkJggg==') 50% 50% no-repeat;
     }
   }
@@ -81,7 +92,8 @@
       color: $text-color-white;
       padding:rem(60px) 0 rem(30px);
         span.boldtxt {
-          font-size: rem(12px);
+          font-size: rem(13px);
+          line-height: rem(23px);
           font-weight: 700;
         }
     .wrapper {

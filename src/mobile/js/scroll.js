@@ -8,17 +8,27 @@
 *    - debug.addIndicators.min.js
 * - TweenMax: https://greensock.com
 *    - TweenMax.min.js
-* */
+* */ 
 
 // // ScrollMagic 컨트롤러
 var controller = new ScrollMagic.Controller();
 
   // video
-  var $video = $('#video');
-  var $twinklebtn = $('.top-indicator .link');
+  var $hero_video = $('#hero-video');
+  var $video = $('#video1');
+  var $twinklebtn = $('#hero .link');
+
+  $hero_video.find('video').attr({
+    'src': 'http://cf.c.ooyala.com/BuYnBnZDE6ftRuR_RcUkc5C1p6B_PqgO/DOcJ-FxaFrRg4gtDEwOjFyazpzZzug5m',
+    'controls':true,
+    'controlsList':'nodownload',
+    'preload':'auto',
+    'loop':false,
+    'poster': ''
+  });
 
   $video.find('video').attr({
-    'src': 'http://cf.c.ooyala.com/15dTkyZDE6hd11k9l-gw1Af3KKt819wk/DOcJ-FxaFrRg4gtDEwOjFyazowODE7G_ ',
+    'src': 'http://cf.c.ooyala.com/k1dnBnZDE6FwYT2kf0EB33ExJ2ggaDRf/DOcJ-FxaFrRg4gtDEwOjFyazpzZzug5m',
     'controls':true,
     'controlsList':'nodownload',
     'preload':'auto',
@@ -57,7 +67,7 @@ var controller = new ScrollMagic.Controller();
   var arrowTween = new TimelineMax({paused:true});
   arrowTween.staggerTo($twinklebtn, 1, {opacity:0.3,ease:SteppedEase.config(1),y:'+20',repeat:-1,delay:-1},0.5);
 
-  var $hero = $('.hero').children();
+  var $hero = $('.hero-indicator span').children();
   var heroAni = new TimelineMax({paused:true, repeat:-1,repeatDelay:5});
   heroAni.to($hero.eq(1),1, {autoAlpha:1,scale:1,ease: Back.easeInOut},0)
          .to($hero.eq(1),1, {autoAlpha:0,scale:1,ease: Back.easeInOut},2)
@@ -68,8 +78,8 @@ var controller = new ScrollMagic.Controller();
  
   new ScrollMagic.Scene(
     {
-      triggerElement: $('#top')[0],
-      duration: $('#top').height(),
+      triggerElement: $('#hero')[0],
+      duration: $('#hero').height(),
     })
     .on('enter leave', function(event){  
       if (event.type === 'enter') {
@@ -373,7 +383,20 @@ new ScrollMagic.Scene(
       triggerHook: .5,
     })
     // .addIndicators()
-    .setTween(pinBouceTween)
+    .on('enter', function(){
+      $('.map_point .pin').each(function(i){
+        var $this = $(this);
+        var tl = new TimelineMax({delay:1});
+        tl.fromTo($this.next('.desc'), .2,{autoAlpha:0}, {zIndex: 9,autoAlpha:1, top:-80},i*1)
+            // .to(pinSelf.next('.desc').find('.numText'), .2, {autoAlpha:1})
+            // .to(pinSelf.next('.desc').find('.text'), .2, {autoAlpha:1})
+         .fromTo($this.next('.desc').find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-64, onComplete:function(){
+          TweenMax.to($this.next('.desc'), .2, {autoAlpha:0,delay:1});
+        }}, i*1.1);
+      })
+    })
+    .reverse(false)
+    // .setTween(pinBouceTween)
     .addTo(controller);
 
    $('.map_point .pin').each(function(index, element){
@@ -382,7 +405,7 @@ new ScrollMagic.Scene(
 
         var pinDescTimeline = new TimelineMax({paused:true})
             .to(pinSelf,.1, {scale:2})
-            .to(pinSelf.next('.desc'), .6, {zIndex: 50,autoAlpha:1, top:-120, height:90, left:-142.5})
+            .to(pinSelf.next('.desc'), .6, {zIndex: 9,autoAlpha:1, top:-80})
             // .to(pinSelf.next('.desc').find('.numText'), .2, {autoAlpha:1})
             // .to(pinSelf.next('.desc').find('.text'), .2, {autoAlpha:1})
             .to(pinSelf.next('.desc').find('.tree'), .2, {autoAlpha:1,top:-64});
@@ -463,3 +486,22 @@ function drawSpaceIcon(){
       drawSpaceIcon();
     })
     .addTo(controller);
+
+    new ScrollMagic.Scene(
+    {
+      triggerElement:'#interview',
+      triggerHook: .6,
+    })
+    // .addIndicators()
+    .on('enter', function(){
+  $('.popbtn').each(function() {
+    var $this = $(this);
+    $this.click(function(){
+    console.log("click");
+    var data = $(this).data('pop');
+    var $target = $(data);
+    TweenMax.to($target[0],.5,{scale:1,ease:Expo.easeInOut});
+  })
+    })})
+    .addTo(controller);  
+

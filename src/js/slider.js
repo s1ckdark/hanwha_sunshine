@@ -37,21 +37,20 @@ interviewSlider.on('initialized.owl.carousel changed.owl.carousel', function(e) 
     onTranslated : counter //When the translation of the stage has finished.
 });
 
-var is = $('.interview.active .interview-slider');
-is.on('mousewheel', '.interview.active', function(e) {
-    var curr = $(this);
-    console.log(e);
-   if (e.deltaY > 0) {
-      curr.trigger('next.owl');
-   } else {
-      curr.trigger('prev.owl');
-   }
-   e.preventDefault();
-});
+// var is = $('.interview-slider');
+// is.on('mousewheel', '.owl-stage', function(e) {
+// is.unbind('mousewheel');
+//     if (e.deltaY<0) {
+//        is.trigger('next.owl');
+//     } else {
+//        is.trigger('prev.owl');
+//     }
+//     e.preventDefault();
+// });
 
 
 function counter(event) {
-   var element   = event.target;         // DOM element, in this example .owl-carousel
+   var element   = event.target;         
     var items     = event.item.count;     // Number of items
     var item      = event.item.index + 1;     // Position of the current item
   $('.counter .activeNum').html(item);
@@ -69,8 +68,7 @@ function counter(event) {
     dots:true,
     lazyLoad: true,
     items:1,
-    autoplay:true,
-    margin:20,
+    // autoplay:true,
     autoplaySpeed:300
     });  
 

@@ -19,16 +19,19 @@ $(function(){
     });    
 
   var $interviewInner = $('.interview-inner').owlCarousel({
-    loop: true,
+    loop:true,
     dots:true,
     lazyLoad: true,
     items:1
     });  
 
+  $('.interview-inner').bind('mousewheel DOMMouseScroll', function(e) {
+    e.preventDefault();
+  });
   var $interviewSlider =$('.interview-slider').owlCarousel({
     loop:false,
     nav: false,
-    dots: false,
+    dots: true,
     lazyLoad: true,
     items:1
     });
@@ -37,14 +40,27 @@ $(function(){
     loop: true,
     dots:true,
     lazyLoad: true,
-    items:1
+    items:1,
+    onInitialized  : tweenSl, //When the plugin has initialized.
+    onTranslated : tweenSl //When the translation of the stage has finished.
     });  
+
+    function tweenSl(){
+        TweenMax.from('.triangle .line1', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:.5});
+        TweenMax.from('.triangle .line2', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:.5});
+        TweenMax.from('.triangle .line3', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:.5});
+        TweenMax.from('.triangle .arrow', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:.5});
+        TweenMax.to('.info-text .text1', 1, {opacity:0},{opacity:1,delay:1});
+        TweenMax.to('.info-text .text2', 1, {opacity:0},{opacity:1,delay:1});
+        TweenMax.to('.info-text .text3', 1, {opacity:0},{opacity:1,delay:1});
+    }
 
     var $tweenSlider = $('.tween-slider').owlCarousel({
     loop: true,
     dots:true,
     lazyLoad: true,
     items:1,
-    autoplay:true
+    autoplay:true,
+      margin: 20
     });  
 });

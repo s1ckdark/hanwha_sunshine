@@ -11,48 +11,50 @@
 		height:calc(100vw * 647 / 640);
 		background:#f2f1f1 url('../img/forest/map.jpg') no-repeat 0% 50%/contain;
 		.location_desc {
-			position:relative;	
+			position:relative;
+			height:calc(100vw * 647 / 640);	
 			.map_point {
 				position:absolute;
 				&.map_point1 {
-					top:rem(180px);
-					left:rem(300px);
+					top:30%;
+					left:28%;
 				}
 				&.map_point2 {
-					top:rem(300px);
-					left:rem(350px);
+					top:50%;
+					left:28%;
 				}
 				&.map_point3 {
-					top:rem(380px);
-					left:rem(380px);
+					top:52%;
+					left:75%;
 				}
 				&.map_point4 {
-					top:rem(340px);
-					left:rem(420px);
+					top:55%;
+					left:50%;
 				}
 				&.map_point5 {
-					top:rem(340px);
-					left:rem(565px);
+					top:60%;
+					left:80%;
 				}
 				&.map_point6 {
-					top:rem(365px);
-					left:rem(565px);
+					top:75%;
+					left:40%;
 				}
 				.pin {
 					width: rem(15px);
 					height: rem(15px);
 					background: url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA2FBMVEXzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyHzcyH2m2H5vZf5vpf4sIP0fC/6wZ3////97eP0gDb1h0D//v75vpj3nGL71r72nGH71bz0gzr//Pv5uZD4soT95dX0eSv1jk35tIn3o23zdiaKmgLcAAAALXRSTlMAAREIBGTK++WTHg/C8Uiy8ihHr5z4C8kx0jzGLpoKPqag6h8HqTNO/PDNfhAfM7nNAAAAAWJLR0Q0qbHp/QAAAAd0SU1FB+ELDQ85GmzMuLYAAACZSURBVAjXRc/VEsJADAXQUKxocYfiftHiWvT//4hkS+E+bHJmZ7JZIolH07zkxucPBAHoobBiJIpvYnGxgV8SSaKUNJPpbL7gmibKcFlanNUayOYoD2y2YmvHNwUqAntF68AuiY+OT8pl4HxRvrIrVOXTlgG3O8+rkSnvPezn6821zvs0/vs0W+x2x6XedT7UM/Q+BsPRmPsPJc8fJvlZzpgAAAAASUVORK5CYII=') no-repeat 50% 50%/cover;
 					position: absolute;
+					z-index:10;
 				}
 			.desc {
 				border-radius:10px;
 				background-color: $orange;	
-				width: rem(300px);
-				height: rem(90px);
+				width: rem(190px);
+				// height: rem(40px);
 				opacity: 0;
 				visibility: hidden;
 				position: absolute;
-				left: rem(-142.5px);
+				left: rem(-85px);
 				&:before {
 					background-color: $orange;
 					width: 1px;
@@ -65,22 +67,32 @@
 					bottom: rem(-36px) 
 				}
 				.numText {
-					width: rem(54px);
+					width: rem(30px);
 					color:$text-color-white;
-					font-size: rem(32px);
-					line-height: rem(60px);
+					font-size: rem(16px);
+					line-height: rem(20px);
 					display: inline-block;
 					text-align:center;
+					i {
+						font-size:rem(9px);
+						font-style:normal;
+					}
 				}
 				.text {
-					width: rem(238px);
-					height: rem(50px);
+					width: rem(150px);
+					height: rem(30px);
 					color:$text-color-gray;
 					background-color: $text-color-white;
 					border-radius: 10px;
 					display: inline-block;
-					padding: rem(14px) 0;
+					padding: rem(10px) 0;
 					margin: rem(5px) rem(5px) rem(5px) 0;
+					font-size:rem(11px);
+					span {
+						font-size: rem(10px);
+						letter-spacing:-1px;
+						font-weight:300;	
+					}
 				}		
 				.tree {
 					position:absolute;
@@ -113,6 +125,7 @@
 				.btn-corner-rounded {
 					width: rem(280px);
 					margin: rem(20px) auto;
+					display:block;
 				}
 			}
 			.owl-carousel {
