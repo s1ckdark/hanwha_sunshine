@@ -58,7 +58,13 @@ p {
     font-weight: bold;
   }
 }
-
+.co2 {
+  font-size:rem(18px);
+  b {
+    font-weight: 400;
+    font-size:rem(10px);
+  }
+}
 
 //
 // Inline elements
@@ -105,3 +111,4 @@ a {
 .bold {
   font-weight:bold;
 }
+

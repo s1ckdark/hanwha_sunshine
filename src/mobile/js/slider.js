@@ -21,8 +21,8 @@ $(function(){
   var $interviewInner = $('.interview-inner').owlCarousel({
     loop:true,
     dots:true,
-    lazyLoad: true,
-    items:1
+    items:1,
+    dotsContainer: '.i-nav'
     });  
 
   $('.interview-inner').bind('mousewheel DOMMouseScroll', function(e) {
@@ -32,7 +32,6 @@ $(function(){
     loop:false,
     nav: false,
     dots: true,
-    lazyLoad: true,
     items:1
     });
 
@@ -46,13 +45,20 @@ $(function(){
     });  
 
     function tweenSl(){
-        TweenMax.from('.triangle .line1', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:.5});
-        TweenMax.from('.triangle .line2', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:.5});
-        TweenMax.from('.triangle .line3', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:.5});
-        TweenMax.from('.triangle .arrow', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:.5});
-        TweenMax.to('.info-text .text1', 1, {opacity:0},{opacity:1,delay:1});
-        TweenMax.to('.info-text .text2', 1, {opacity:0},{opacity:1,delay:1});
-        TweenMax.to('.info-text .text3', 1, {opacity:0},{opacity:1,delay:1});
+        var tl = new TimelineMax()
+        .from('.triangle .line1', 2, {drawSVG:0,strokeWidth:0,opacity:0,delay:1},0)
+        .from('.triangle .line2', 2, {drawSVG:0,strokeWidth:0,opacity:0,delay:1},2.5)
+        .from('.triangle .line3', 2, {drawSVG:0,strokeWidth:0,opacity:0,delay:1},5)
+        .from('.triangle .arrow', 1, {drawSVG:0,strokeWidth:0,opacity:0,delay:.5},5)
+        .to('.info-text .text1', 1 ,{autoAlpha:1, onComplete:function(){
+           TweenMax.to('.info-text .text1', 0, {delay:1,autoAlpha:0}); 
+        }},1.5)
+        .to('.info-text .text2', 1, {autoAlpha:1, onComplete:function(){
+           TweenMax.to('.info-text .text2', 0, {delay:1,autoAlpha:0}); 
+        }},4)
+        .to('.info-text .text3', 1, {autoAlpha:1, onComplete:function(){
+           TweenMax.to('.info-text .text3', 0, {delay:1,autoAlpha:0}); 
+        }},5.5);
     }
 
     var $tweenSlider = $('.tween-slider').owlCarousel({

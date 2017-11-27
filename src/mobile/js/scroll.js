@@ -387,12 +387,10 @@ new ScrollMagic.Scene(
       $('.map_point .pin').each(function(i){
         var $this = $(this);
         var tl = new TimelineMax({delay:1});
-        tl.fromTo($this.next('.desc'), .2,{autoAlpha:0}, {zIndex: 9,autoAlpha:1, top:-80},i*1)
+        tl.to($this.next('.desc'), .2, {zIndex: 11,autoAlpha:1, top:-80},i*1)
             // .to(pinSelf.next('.desc').find('.numText'), .2, {autoAlpha:1})
             // .to(pinSelf.next('.desc').find('.text'), .2, {autoAlpha:1})
-         .fromTo($this.next('.desc').find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-64, onComplete:function(){
-          TweenMax.to($this.next('.desc'), .2, {autoAlpha:0,delay:1});
-        }}, i*1.1);
+         .fromTo($this.next('.desc').find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-64}, i*1.1);
       })
     })
     .reverse(false)
@@ -487,21 +485,4 @@ function drawSpaceIcon(){
     })
     .addTo(controller);
 
-    new ScrollMagic.Scene(
-    {
-      triggerElement:'#interview',
-      triggerHook: .6,
-    })
-    // .addIndicators()
-    .on('enter', function(){
-  $('.popbtn').each(function() {
-    var $this = $(this);
-    $this.click(function(){
-    console.log("click");
-    var data = $(this).data('pop');
-    var $target = $(data);
-    TweenMax.to($target[0],.5,{scale:1,ease:Expo.easeInOut});
-  })
-    })})
-    .addTo(controller);  
 

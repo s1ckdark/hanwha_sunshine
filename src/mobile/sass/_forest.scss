@@ -54,7 +54,7 @@
 				opacity: 0;
 				visibility: hidden;
 				position: absolute;
-				left: rem(-85px);
+				left: rem(-110px);
 				&:before {
 					background-color: $orange;
 					width: 1px;
@@ -63,8 +63,9 @@
 					display: block;
 					position:absolute;
 					left:50%;
-					margin-left: rem(-0.5px);
-					bottom: rem(-36px) 
+					margin-left: rem(22px);
+					bottom: rem(-36px);
+					z-index:1; 
 				}
 				.numText {
 					width: rem(30px);
@@ -193,7 +194,7 @@
 		background: url('../img/forest/bg-forest_result.jpg') 50% 50%/cover;
 		.text {
 			font-size: rem(14px);
-			line-height: rem(24px);
+			line-height: rem(23px);
 			&.bold {
 				padding-top: rem(40px);
 				font-size: rem(17.5px);
