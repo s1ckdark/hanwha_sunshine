@@ -90,9 +90,16 @@
 					margin: rem(5px) rem(5px) rem(5px) 0;
 					font-size:rem(11px);
 					span {
+						position:relative;
 						font-size: rem(10px);
 						letter-spacing:-1px;
 						font-weight:300;	
+						.m2 {
+							position:absolute;
+							font-weight:400;
+							font-size:rem(5px);
+							top:rem(-3px);
+						}
 					}
 				}		
 				.tree {
@@ -147,12 +154,12 @@
 				}
 				.forest-item1 {
 					.img {
-						background: url('../img/forest/map_location-1.jpg') no-repeat 50% 50%/cover;
+						background: url('../img/forest/map_location-2.jpg') no-repeat 50% 50%/cover;
 					}
 				}
 				.forest-item2 {
 					.img {
-						background: url('../img/forest/map_location-2.jpg') no-repeat 50% 50%/cover;
+						background: url('../img/forest/map_location-1.jpg') no-repeat 50% 50%/cover;
 					}
 					
 				}

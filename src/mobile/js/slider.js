@@ -32,7 +32,9 @@ $(function(){
     loop:false,
     nav: false,
     dots: true,
-    items:1
+    items:1,
+        animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
     });
 
     var $colorSlider = $('.color-slider').owlCarousel({

@@ -12,8 +12,23 @@ $(function(){
     console.log("click");
     var $this = $(this), popdata = $this.data('pop'), $pd = $(popdata);
     TweenMax.to('.closebtn', 0, {autoAlpha:1});
-    TweenMax.to($pd,.5,{scale:1,ease:Expo.easeInOut,className:'+=active'});    
+    TweenMax.to($pd,.5,{scale:1,ease:Expo.easeInOut,className:'+=active',onComplete:function(){
+         $('#viewport').bind("mousewheel", function() {
+    return false;
+});
+    }});    
   })
+
+$('.item-pop').on('mousewheel', function(e) {
+    console.log(event);
+        // var event = e.originalEvent;
+
+            // var d = event.wheelDelta || -event.detail;
+            // this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
+            // e.preventDefault();
+});
+
+
 
   // $('.popbtn').click(function(){
   //   console.log("click");
@@ -27,4 +42,23 @@ $(function(){
     TweenMax.to($('.item-pop.active'),.5,{scale:0, ease:Expo.easeInOut});
   })
 
+    // var toolbox = $('.item-pop');
+//     height = toolbox.height(),
+//     scrollHeight = toolbox.get(0).scrollHeight;
+
+// toolbox.off("mousewheel").on("mousewheel", function (event) {
+//   var blockScrolling = this.scrollTop === scrollHeight - height && event.deltaY < 0 || this.scrollTop === 0 && event.deltaY > 0;
+//   return !blockScrolling;
+// });
+
+// $.fn.scrollGuard = function() {
+//     return this
+//         .on('mousewheel', function (e) {
+//             var event = e.originalEvent;
+//             var d = event.wheelDelta || -event.detail;
+//             this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
+//             e.preventDefault();
+//             console.log("mouse");
+//           });
+// };    
 });

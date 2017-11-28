@@ -107,67 +107,6 @@ iconTween.from('.stroke', 1, {stroke:'1px', transformOrigin:"50% 50%"});
     })
     .addTo(controller);
 
-// var bar3d = new TimelineMax({paused:true});
-// bar3d.fromTo('.bar3d',1,{scale:0},{scale:1,ease:Back.easeOut},.5)
-//      .fromTo('.bar3d .ship.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},1)
-//      .fromTo('.bar3d .chip.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},1.5)
-//      .fromTo('.bar3d .vehicle.retangle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},2)
-//      .fromTo('.bar3d .medicine.circle_bubble',.5,{scale:0},{scale:1,ease:Back.easeOut},2.5)
-
- 
-//   new ScrollMagic.Scene(
-//     {
-//       triggerElement: $('.market')[0],
-//       duration: $('.market').height(),
-//     })
-//      .on('enter leave', function(event){  
-//       if (event.type === 'enter') {
-//         bar3d.play();
-//         } else {
-//         bar3d.pause();
-//       }
-
-//     })
-//     .addTo(controller);
-// var chartBubble = new TimelineMax({paused:true});
-// chartBubble
-//      .fromTo('.retangle_bubble.s2011',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.1)
-//      .fromTo('.retangle_bubble.s2012',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.2)
-//      .fromTo('.retangle_bubble.s2013',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.3)
-//      .fromTo('.retangle_bubble.s2014',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.4)
-//      .fromTo('.retangle_bubble.s2015',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.5)
-//      .fromTo('.retangle_bubble.s2016',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.6)
-//      .fromTo('.kanarbSales .circle_bubble',.1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1,ease:Back.easeOut},.7);
-
-// var chartLine = new TimelineMax({paused:true,onComplete:function(){chartBubble.play();}});
-// chartLine.staggerFrom("#line path", .1, {drawSVG:"80% 50%"}, .1);
-
-
-//   new ScrollMagic.Scene(
-//     {
-//       triggerElement: '.bg_medicine',
-//       triggerHook:.5,
-//     })
-//      .on('enter leave', function(event){  
-//       if (event.type === 'enter') {
-//         chartLine.play();
-//         } else {
-//         chartLine.pause();
-//       }
-//     })
-//     .addTo(controller);
-
-//   new ScrollMagic.Scene(
-//     {
-//       triggerElement: '.cardflip',
-//       triggerHook:.6
-//     })
-//      .on('enter', function(event){  
-//       if (event.type === 'enter') {
-//           TweenMax.fromTo($(".cardflip"), 1, {rotationY:0}, {rotationY:360}, 0.1);
-//       }   
-//     })
-//     .addTo(controller);
 
   scrollToSection();
 
@@ -237,66 +176,7 @@ function tweenText(e, hook){
 tweenText('.heading-1','.5');
 tweenText('.heading-2','.5');
 
-//
-// interview scroll pin
-// 
-// function interviewTween(e) {
-  
-//   var $interview = $('#interview');
-//   var $slide = $interview.find('.slide');
-//   var length = $slide.length;
-//   var percent = 100 / length;
-//   var timeline = new TimelineMax();
-//   var $sliderInner = $slide;
-//   var label;
-//   var tweens = [];
-//   var tween;
 
-// //   for (var j = 0; j < length; j++) {
-// //     tween = new SplitText($slide.eq(j).find('.heading-2'));
-// //     tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
-// //     tweens.push(tween);
-// //   }
-
-// // function playTween(index){
-// //     if (index !== null) {
-// //       tweens[index].play(); // play 최초만 실행. 계속 실행하려면 restart로 변경.
-// //     }
-// //   }
-
-//   for (var i = 0; i < length; i++) {
-//     if (i > 0) {// 두번째 슬라이드부터 이동하기
-//       timeline.to({}, 1, {}); // delay
-//       timeline.to($slide.eq(i), 1, {xPercent: -100 * i,zIndex:10, delay: 0, ease: Linear.easeNone});
-//     }
-//     label = '.interview' + (i+1); // ex) slide1
-//     timeline.add(label);
-//     var $label = $(label).find('.nav a');
-//     // timeline.call(playTween, [i]);
-//     if (i > 0) { // 두번째 슬라이드부터 이전 것 숨기기
-//       timeline.to($slide.eq(i-1), .5, {className: '-=active'})
-//       timeline.to($label.eq(i-1), .5, {className: '-=active'})
-//     }
-//     timeline.to($slide.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
-//     timeline.to($label.eq(i), .5, {className: '+=active'}); // 현재 슬라이드 보이기
-//     if (i + 1 === length) {// 마지막 슬라이드
-//       timeline.to({}, 1, {}); // delay
-//     }
-//   }
-//     new ScrollMagic.Scene(
-//     {
-//       triggerElement: $interview[0],
-//       triggerHook: 0,
-//       duration: 100 * length  + '%',
-//       offset: $('#roof').height() * -1
-//     })
-//     .setPin($interview[0])
-//     .setTween(timeline)
-//     .addTo(controller);
-// }
-
-// interviewTween();
-// background parallax scrolling
 
 new ScrollMagic.Scene(
     {
@@ -384,13 +264,11 @@ new ScrollMagic.Scene(
     })
     // .addIndicators()
     .on('enter', function(){
-      $('.map_point .pin').each(function(i){
+      $('.map_point .desc').each(function(i){
         var $this = $(this);
         var tl = new TimelineMax({delay:1});
-        tl.to($this.next('.desc'), .2, {zIndex: 11,autoAlpha:1, top:-80},i*1)
-            // .to(pinSelf.next('.desc').find('.numText'), .2, {autoAlpha:1})
-            // .to(pinSelf.next('.desc').find('.text'), .2, {autoAlpha:1})
-         .fromTo($this.next('.desc').find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-64}, i*1.1);
+        tl.to($this, .2, {zIndex: 11,autoAlpha:1, top:-80},i*1)
+         .fromTo($this.find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-64}, i*1.1);
       })
     })
     .reverse(false)

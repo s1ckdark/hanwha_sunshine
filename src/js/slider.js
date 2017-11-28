@@ -21,33 +21,19 @@ $(function(){
     });  
 
 var interviewSlider = $('.interview-slider');
-interviewSlider.on('initialized.owl.carousel changed.owl.carousel', function(e) {
-    if (!e.namespace)  {
-      return;
-    }
-    // console.log(e);
-  }).owlCarousel({
+interviewSlider.owlCarousel({
     loop:false,
     nav: false,
     dots: false,
-    startPosition: 0,
     items:1,
-    rewind: false,
+    autoplay: true,
+    autoplaySpeed:300,
+    startPosition:0,
     onInitialized  : counter, //When the plugin has initialized.
-    onTranslated : counter //When the translation of the stage has finished.
+    onTranslated : counter, //When the translation of the stage has finished.
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
 });
-
-// var is = $('.interview-slider');
-// is.on('mousewheel', '.owl-stage', function(e) {
-// is.unbind('mousewheel');
-//     if (e.deltaY<0) {
-//        is.trigger('next.owl');
-//     } else {
-//        is.trigger('prev.owl');
-//     }
-//     e.preventDefault();
-// });
-
 
 function counter(event) {
    var element   = event.target;         
@@ -55,11 +41,6 @@ function counter(event) {
     var item      = event.item.index + 1;     // Position of the current item
   $('.counter .activeNum').html(item);
   $('.counter .totalNum').html(items);
-
-   if(item == 3) {
-        TweenMax.from('.item .info-graphic svg', 1, {transformOrigin:'50% 50%',drawSVG:0,strokeWidth:0,opacity:0,delay:.5});
-        TweenMax.from('.item .textDesc', 1, {transformOrigin:'50% 50%',strokeWidth:0,opacity:0,delay:.6});
-    }
 }
 
 

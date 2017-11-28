@@ -15,7 +15,7 @@
 		    		width:rem(16.5px);
 		    		height:rem(16.5px);
 		    		background-size: contain;
-		    		z-index:11;
+		    		z-index:100;
 		    		opacity:0;
 		    	}
     .card-interview {
@@ -134,7 +134,7 @@
 			    	display:inline-block;
 			    	font-size: rem(14px);
 			    	font-weight: 700;
-			    	padding:rem(35px) 0 rem(15px);
+			    	padding:rem(15px) 0 0;
 			    	div {
 			    		color: #c2c6ca;
 			    		margin: 0 rem(12px);
@@ -160,17 +160,18 @@
 		    	overflow-y: scroll;
 		    	top:50px;right:0;bottom:0;left:0;
 		    	background-color: #fff;
-		    	z-index:10;
+		    	z-index:99;
 		    	span.text-color-orange {
 		    		padding:rem(30px) 0 rem(10px);
 		    		display:block;
 		    	}
 
-		    	.heading-2 {
+		    	.p-heading {
 		    		color: $text-color-black;
 		    		text-align: left;
 		    		line-height: rem(27.5px);
 		    		padding: 0 0 rem(15px);
+		    		font-size: rem(21px);
 		    		.co2 {
 		    			font-size: rem(10px);
 		    		}
@@ -194,7 +195,9 @@
 			    }
 			    .btn {
 			    	display:block;
-			    	margin:0 aut;
+			    	margin:0 auto;
+			    	height:rem(18px);
+			    	line-height:rem(18px);
 			    	text-align: center;
 			    }
 
@@ -213,7 +216,7 @@
 			    .inner {
 			    	background: #fff;
 			    }
-	    .info- {
+		    .info- {
 	    	&graphic {
 	    		position:relative;
 	    		height: rem(130px);
@@ -229,12 +232,13 @@
 		    	text-align: center;
 		    	font-weight:700;
 		    	line-height:rem(26px);
-		    	padding: rem(10px) 0  rem(10px);
+		    	padding: rem(10px) 0  rem(5px);
 		    }
 	    	&sub {
 		    	font-size: rem(12px);
 		    	color: $text-color-gray;
-		    	width: rem(320px);
+		    	width: 100%;
+		    	font-weight: bold;
 		    }
 	    	&ref {
 	    		width:100%;
@@ -248,17 +252,17 @@
 
 		&.pop1 {
 			.interview-slider {
-		    	.owl-item:nth-child(2) {
+		    	.owl-item:nth-child(1) {
 		    		.item {
 			    		background: url('../img/interview/bg-interview-1-1.jpg') no-repeat 50% 50%/cover;
 			    	}	
 			    }
-		    	.owl-item:nth-child(3) {
+		    	.owl-item:nth-child(2) {
 		    		.item {
 			    		background: url('../img/interview/bg-interview-1-2.jpg') no-repeat 50% 50%/cover;
 			    	}	
 			    }
-		    .owl-item:nth-child(1) {
+		    .owl-item:nth-child(3) {
 		    	.item {
 				background:#f2f2f2;				
 	    		.info-pi {
@@ -291,17 +295,17 @@
 		}
 		&.pop2 {
 			.interview-slider {
-		    	.owl-item:nth-child(2) {
+		    	.owl-item:nth-child(1) {
 		    		.item {
 			    		background: url('../img/interview/bg-interview-2-1.jpg') no-repeat 50% 50%/cover;
 			    	}	
 			    }
-		    	.owl-item:nth-child(3) {
+		    	.owl-item:nth-child(2) {
 		    		.item {
 			    		background: url('../img/interview/bg-interview-2-2.jpg') no-repeat 50% 50%/cover;
 			    	}	
 			    }
-			    .owl-item:nth-child(1) {
+			    .owl-item:nth-child(3) {
 	    			.item {
 	    				background:#f2f2f2;	
 	    				.info-people {
@@ -374,12 +378,12 @@
 		}
 		&.pop3 {
 			.interview-slider {
-			    	.owl-item:nth-child(2) {
+			    	.owl-item:nth-child(1) {
 			    		.item {
 				    		background: url('../img/interview/bg-interview-3-1.jpg') no-repeat 50% 50%/cover;
 				    	}	
 				    }
-			    	.owl-item:nth-child(3) {
+			    	.owl-item:nth-child(2) {
 			    		.item {
 				    		background: url('../img/interview/bg-interview-3-2.jpg') no-repeat 50% 50%/cover;
 				    	}	
@@ -387,7 +391,7 @@
 				     .btn {
 				    	width:rem(350px);
 				    }
-				    .owl-item:nth-child(1) {
+				    .owl-item:nth-child(3) {
 			    		.item {
 			    			background:#f2f2f2;	
 						    .info-bar {
@@ -408,7 +412,7 @@
 					    				font-size: rem(12px);
 					    				font-weight:700;
 						    			.numTxt {
-											color: $text-color-white;
+											color: #000;
 											font-size: rem(12px);
 											font-weight: 700;
 											padding-right: rem(30px);
@@ -440,12 +444,12 @@
 			}
 		&.pop4 {
 			.interview-slider {
-		    	.owl-item:nth-child(2) {
+		    	.owl-item:nth-child(1) {
 		    		.item {
 			    		background: url('../img/interview/bg-interview-4-1.jpg') no-repeat 50% 50%/cover;
 		    		}
 		    	}	
-		    	.owl-item:nth-child(3) {
+		    	.owl-item:nth-child(2) {
 		    		.item {
 			    		background: url('../img/interview/bg-interview-4-2.jpg') no-repeat 50% 50%/cover;
 		    		}
@@ -453,7 +457,7 @@
 		        .btn {
 			    	width:rem(250px);
 			    }
-			    .owl-item:nth-child(1) {
+			    .owl-item:nth-child(3) {
 			    	.item {
 			    		background:#f2f2f2;	
 			    		#factory {

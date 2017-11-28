@@ -178,12 +178,11 @@
 	}
 	.forestResult {
 		width:100vw;
-		height: calc(100vw * 607 / 1600);
+		padding:rem(50px) 0;
 		background-color: rgb(255,255,255);
 		z-index:31;
 		background: url('../img/forest/bg-forest_result.jpg') 50% 50%/cover;
 		.sub-text {
-			margin-top:rem(50px);
 			font-size: rem(25px);
 			line-height: rem(50px);
 			text-align:center;

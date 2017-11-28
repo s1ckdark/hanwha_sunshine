@@ -66,6 +66,7 @@
     padding: rem(10px) 0;
     z-index: 19;
     margin:0 auto;
+    overflow:hidden;
     .link {
         display: block;
         width: 6px;
@@ -87,12 +88,12 @@
   .text-intro {
       background-color: $orange;
       font-weight: 400;
-      font-size: rem(11px);
+      font-size: rem(14px);
       line-height: rem(20px);
       color: $text-color-white;
-      padding:rem(60px) 0 rem(30px);
+      padding:rem(40px) 0 rem(30px);
         span.boldtxt {
-          font-size: rem(13px);
+          font-size: rem(18px);
           line-height: rem(23px);
           font-weight: 700;
         }

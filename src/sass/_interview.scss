@@ -23,22 +23,22 @@
 	    z-index:5;
 	    float:left;
 	    .wrapper {
-	    	margin:rem(100px) auto;
+	    	margin:rem(50px) auto;
 	    	.counter {
 				@extend %eng;
 	    		width: rem(400px);
 	    		color: $text-color-lgray;
 	    		text-align: center;
 	    		display:block;
-	    		margin:rem(50px) 0;
+	    		margin:rem(20px) 0;
 	    		.activeNum {
 	    			color: #fff;
 	    		}
 	    	}
 		    p {
 		    	color: #ccc;
-		    	font-size: rem(16px);
-		    	margin-bottom: rem(30px);
+		    	font-size: rem(14px);
+		    	margin-bottom: rem(25px);
 		    	.bold {
 		    		font-weight:500;
 		    		color: $text-color-white;
@@ -52,6 +52,7 @@
 		    		color: #fefefe;
 		    		margin: 0 rem(25px);
 		    		opacity: .3;
+		    		cursor: default;
 			    	&.active {
 			    		color: $text-color-orange;
 			    		opacity: 1;
@@ -60,19 +61,16 @@
 			    }
 		    }
 		    .section-header {
-		    	height: rem(200px);
-		    	padding: rem(20px) 0 0;
+		    	// height: rem(200px);
+		    	padding: rem(20px) 0 rem(50px);
 		    	h4.heading {
 		    		font-weight: 700;
-		    		font-size: rem(40px);
-		    		line-height: rem(52px);
+		    		font-size: rem(35px);
+		    		line-height: rem(40px);
 		    		.co2 {
-		    			font-size: rem(40px);
-						  b {
 						    font-weight: 400;
 						    font-size:rem(26px);
 						  }
-						}
 		    	}
 		    }
 		    .interview-slider {

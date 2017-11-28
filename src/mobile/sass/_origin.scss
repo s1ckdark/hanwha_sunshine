@@ -68,7 +68,7 @@
 				margin:0 auto;
 						.owl-dots {
 						position:absolute;
-						bottom:rem(20px);
+						bottom:rem(10px);
 						width:100%;
 						text-align: center;
 						.owl-dot {
@@ -148,15 +148,15 @@
 						}
 					}
 					.triangle {
-							width:75vw;
-							height:calc(75vw * 489 / 561);
+							width:70vw;
+							height:calc(70vw * 489 / 561);
 							margin:0 auto;
 
 						}
 						svg {
-							width:75vw;
+							width:70vw;
 							margin:0 auto;
-							height:calc(75vw * 489 / 561);
+							height:calc(70vw * 489 / 561);
 			
 						}
 					&.bg-orange {
@@ -200,15 +200,16 @@
 						font-size: rem(15px);
 						text-align: center;
 						.sub-title {
-							font-size: rem(17.5px);
+							font-size: rem(16px);
 							padding: rem(20px) 0 0;
 							text-align:center;
+							font-weight:bold;
 							.bold {
 								font-weight:700;
 							}
 						}
 						.text {
-							font-size: rem(14px);
+							font-size: rem(12px);
 							font-weight: 300;
 						}
 					}
@@ -217,9 +218,11 @@
 					.fixed-text {
 						position:absolute;
 						bottom:rem(40px);
+						left:0;right:0;
 						text-align: center;
 						color: $text-color-white;
 						z-index:10;
+						font-size:rem(10px);
 					}
 		}
 	}

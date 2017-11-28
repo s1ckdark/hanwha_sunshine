@@ -37,37 +37,37 @@ var controller = new ScrollMagic.Controller();
   });
 
     // scroll auto play
-  // var $videos = $('.video-play');
-  // $videos.each(function(){
-  //   var $this = $(this);
-  //   var $videos = $this.find('video');
-  //   new ScrollMagic.Scene(
-  //     {
-  //         triggerElement: this,
-  //         duration: $this.height()
-  //     })
-  //     .on('enter leave', function(event){
-  //       var $video = $this;
-  //       var video = $video.find('video')[0];
-  //       var timer;
-  //       var isPlaying = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2;
-  //       if (event.type === 'enter') {
-  //         timer = setTimeout(function(){ // enter -> leave 이벤트 연속 발생시 play() 방지
-  //           if (!isPlaying) {
-  //             $video.find('.play').click(); // play
-  //           }
-  //         }, 600);
-  //       } else {
-  //         if (timer) {
-  //           clearTimeout(timer);
-  //         }
-  //         if (isPlaying) {
-  //           video.pause(); // pause
-  //         }
-  //       }
-  //     })
-  //     .addTo(controller);
-  // });
+  var $videos = $('.video-play');
+  $videos.each(function(){
+    var $this = $(this);
+    var $videos = $this.find('video');
+    new ScrollMagic.Scene(
+      {
+          triggerElement: this,
+          duration: $this.height()
+      })
+      .on('enter leave', function(event){
+        var $video = $this;
+        var video = $video.find('video')[0];
+        var timer;
+        var isPlaying = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2;
+        if (event.type === 'enter') {
+          timer = setTimeout(function(){ // enter -> leave 이벤트 연속 발생시 play() 방지
+            if (!isPlaying) {
+              $video.find('.play').click(); // play
+            }
+          }, 600);
+        } else {
+          if (timer) {
+            clearTimeout(timer);
+          }
+          if (isPlaying) {
+            video.pause(); // pause
+          }
+        }
+      })
+      .addTo(controller);
+  });
 
 
 
@@ -236,35 +236,35 @@ function playTween(index){
     })
     .setPin($interview[0])
     .setTween(timeline)
-    .on("progress", function(e){
-          var current = Math.floor(e.progress * 100);
-          console.log(current);
-          if(current >0 && current <9) {
-            $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
-          } else if(current >= 9 && current < 18) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
-          } else if( current >= 18 && current < 28) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
-          } else if(current >= 28 && current < 36) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
-          } else if( current >= 36 && current < 45) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
-          } else if(current >= 45 && current < 56) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
-          } else if(current >= 56 && current < 65) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
-          } else if( current >= 65 && current < 74) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
-          } else if(current >= 74 && current < 85) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
-          } else if(current >= 85 && current < 90) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
-          } else if( current >= 90 && current < 95) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
-          } else if(current >= 95 && current < 100) {
-              $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
-          } 
-      })
+    // .on("progress", function(e){
+    //       var current = Math.floor(e.progress * 100);
+    //       console.log(current);
+    //       if(current >0 && current <9) {
+    //         $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+    //       } else if(current >= 9 && current < 18) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+    //       } else if( current >= 18 && current < 28) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+    //       } else if(current >= 28 && current < 36) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+    //       } else if( current >= 36 && current < 45) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+    //       } else if(current >= 45 && current < 56) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+    //       } else if(current >= 56 && current < 65) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+    //       } else if( current >= 65 && current < 74) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+    //       } else if(current >= 74 && current < 85) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+    //       } else if(current >= 85 && current < 90) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 0);
+    //       } else if( current >= 90 && current < 95) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 1);
+    //       } else if(current >= 95 && current < 100) {
+    //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
+    //       } 
+    //   })
     .addTo(controller);
     // console.log($slide.height());
 
@@ -323,7 +323,7 @@ new ScrollMagic.Scene(
       triggerHook: .5,
     })
     // .addIndicators()
-    .on('enter', function(){
+  .on('enter', function(){
       $('.map_point .pin').each(function(i){
         var $this = $(this);
         var tl = new TimelineMax({delay:1});
@@ -331,7 +331,7 @@ new ScrollMagic.Scene(
             // .to(pinSelf.next('.desc').find('.numText'), .2, {autoAlpha:1})
             // .to(pinSelf.next('.desc').find('.text'), .2, {autoAlpha:1})
          .fromTo($this.next('.desc').find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-64, onComplete:function(){
-          TweenMax.to($this.next('.desc'), .2, {autoAlpha:0,delay:0});
+          TweenMax.to($this.next('.desc'), .2, {autoAlpha:0,delay:2});
         }}, i*1.1);
       })
     })

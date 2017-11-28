@@ -105,12 +105,11 @@
             background: #2a6388;
           }
         }
-        .section-header {}
 
         .sub-header {
           .heading-2 {
             font-size: rem(24px);
-            padding: rem(80px) 0 0;
+            padding: rem(30px) 0 0;
             text-align: center;
             .bold {
               font-weight: 700;
@@ -120,7 +119,7 @@
             font-size: rem(18px);
             line-height: rem(33px);
             text-align: center;
-            margin: rem(10px) 0 rem(30px);
+            margin: rem(10px) 0 rem(20px);
           }
           .info-ref {
             text-align: center;
@@ -175,6 +174,12 @@
           background: #154f74;
         }
       }
+    .section-header {
+      .heading-1 {
+              font-size: rem(40px);
+                padding: rem(50px) 0 rem(20px);
+          }
+    }
 }
     .graphics {
       margin: rem(70px) 0 0;
@@ -204,7 +209,7 @@
         margin: 0 rem(175px);
       }
       .descText {
-        font-size: rem(45px);
+        font-size: rem(32px);
         text-align: center;
         letter-spacing: rem(-2px);
         font-weight: 700;
@@ -316,13 +321,13 @@
         }
         .indicator {
           position: relative;
-          margin: rem(220px) 0 0;
+          margin: rem(160px) 0 0;
           text-align: center;
         }
       }
         .owl-dots {
         	position:absolute;
-        	bottom:rem(30px);
+        	bottom:rem(15px);
         	left:0;
         	right:0;
         	.owl-dot {
