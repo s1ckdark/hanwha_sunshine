@@ -57,9 +57,6 @@ module.exports = {
     "textTween":true,
     "handle":true,
     "Back":true,
-    "lazyload": true,
-    "slideTween":true,
-    "Quad":true,
-    "Swiper":true
+    "Quad":true
   }
 };

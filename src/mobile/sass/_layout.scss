@@ -10,6 +10,9 @@ body {
 .viewport {
   position: relative;
   overflow-x: hidden;
+  &.noscroll {
+    position:fixed;
+  }
 }
 
 .wrapper {
@@ -28,3 +31,4 @@ body {
   height: calc(100vh - #{$header-height});
   min-height: 500px;
 }
+

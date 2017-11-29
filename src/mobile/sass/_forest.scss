@@ -58,13 +58,13 @@
 				&:before {
 					background-color: $orange;
 					width: 1px;
-					height: rem(36px);
+					height: rem(22px);
 					content:'';
 					display: block;
 					position:absolute;
 					left:50%;
 					margin-left: rem(22px);
-					bottom: rem(-36px);
+					bottom: rem(-22px);
 					z-index:1; 
 				}
 				.numText {
@@ -79,7 +79,7 @@
 						font-style:normal;
 					}
 				}
-				.text {
+				.p-text {
 					width: rem(150px);
 					height: rem(30px);
 					color:$text-color-gray;
@@ -89,6 +89,7 @@
 					padding: rem(10px) 0;
 					margin: rem(5px) rem(5px) rem(5px) 0;
 					font-size:rem(11px);
+					text-align: center;
 					span {
 						position:relative;
 						font-size: rem(10px);
@@ -98,7 +99,7 @@
 							position:absolute;
 							font-weight:400;
 							font-size:rem(5px);
-							top:rem(-3px);
+							top:rem(0px);
 						}
 					}
 				}		

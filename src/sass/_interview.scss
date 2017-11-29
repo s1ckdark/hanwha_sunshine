@@ -284,6 +284,7 @@
 		    				margin-left:rem(100px);
 		    				font-size: rem(28px);
 		    				font-weight:700;
+		    				position: inherit;
 			    			.numTxt {
 								color: $text-color-white;
 								font-size: rem(28px);
@@ -333,6 +334,8 @@
 			    	height: rem(180px);
 		    	 	.textDesc {
 			    		text-align:center;
+			    		position: relative;
+			    		padding: 15% 0;
 			    	}
 				    .circle-1 {
 				    	width: rem(124px);

@@ -24,7 +24,7 @@ function fnSendSns(sns, url, txt) {
       height = 500;
       openPopup();
       break;
-    case 'kakaotalk':
+    /* case 'kakaotalk':
       Kakao.Link && Kakao.Link.sendTalkLink({
         label: _title,
         webLink: {
@@ -39,7 +39,40 @@ function fnSendSns(sns, url, txt) {
         fail: function () {
           alert('지원하지 않는 플랫폼입니다.');
         }
-      });
+      }); */
+
+
+
+
+
+
+case 'kakaotalk' :
+                    o = {};
+
+                    Kakao.Link && Kakao.Link.sendTalkLink({
+                        label: "한화 해피 선샤인… 사랑 빛 쏟아지다",
+                        image:{
+                            src: "http://innovationlab.co.kr/innovation/hanwha_sunshine/img/og-image.jpg",
+                            width:1280, height:670
+                        },
+                        webButton: {
+                            text: "바로가기",
+                            url: "http://innovationlab.co.kr/project/hanwha_sunshine/"
+                        },
+                        /*webLink: { text: _txt, url: _url},*/
+                        fail: function () {
+                            alert('지원하지 않는 플랫폼입니다.');
+                        }
+                    });
+
+
+
+
+
+
+
+
+
       break;
     case 'kakaostory':
       Kakao.Story.share({ url: _url, text: _title });

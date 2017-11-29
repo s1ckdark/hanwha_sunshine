@@ -5,6 +5,8 @@
 #interview {
 	overflow:hidden;
   	position: relative;
+  	visibility:hidden;
+  	opacity:0;
 	@extend %full-screen;
     background: #e5e5e5;
     .closebtn {
@@ -57,7 +59,7 @@
 
 		    .wrapper {
 		    	padding:0 1rem;
-			    p.text {
+			    p.p-text {
 			    	color: $text-color-gray;
 			    	font-size: rem(13px);
 			    	margin-bottom: rem(30px);
@@ -177,7 +179,7 @@
 		    		}
 		    	}
 			    .desc {
-			    	.text {
+			    	.p-text {
 			    		padding-bottom: rem(20px);
 			    		color:$text-color-gray;
 			    		text-align: left;
@@ -233,12 +235,21 @@
 		    	font-weight:700;
 		    	line-height:rem(26px);
 		    	padding: rem(10px) 0  rem(5px);
+	    		.co2 {
+	    			font-size: rem(14px);
+	    			b {
+		    		font-size:rem(8px);
+		    		}
+		    	}
 		    }
 	    	&sub {
 		    	font-size: rem(12px);
 		    	color: $text-color-gray;
 		    	width: 100%;
 		    	font-weight: bold;
+		    	.co2 {
+		    		font-size:rem(5px);
+		    	}
 		    }
 	    	&ref {
 	    		width:100%;
@@ -408,14 +419,14 @@
 					    			}
 				    				.textDesc {
 					    				color: $text-color-orange;
-					    				margin-left:25%;
+					    				margin-left:30vw;
 					    				font-size: rem(12px);
 					    				font-weight:700;
 						    			.numTxt {
 											color: #000;
 											font-size: rem(12px);
 											font-weight: 700;
-											padding-right: rem(30px);
+											padding-right: rem(10px);
 						    			}
 					    			}
 					    		}
@@ -434,6 +445,7 @@
 										.numTxt {
 						    				font-size:rem(12px);
 						    				color: $text-color-muted;
+						    				padding-right: rem(10px);
 						    			}
 					    			}
 					    		}

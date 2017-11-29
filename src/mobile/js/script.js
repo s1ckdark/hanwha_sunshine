@@ -13,52 +13,32 @@ $(function(){
     var $this = $(this), popdata = $this.data('pop'), $pd = $(popdata);
     TweenMax.to('.closebtn', 0, {autoAlpha:1});
     TweenMax.to($pd,.5,{scale:1,ease:Expo.easeInOut,className:'+=active',onComplete:function(){
-         $('#viewport').bind("mousewheel", function() {
-    return false;
-});
-    }});    
-  })
+         TweenMax.to('#viewport', 0, {className:'+=noscroll'});
+}});
+    })
 
-$('.item-pop').on('mousewheel', function(e) {
-    console.log(event);
-        // var event = e.originalEvent;
-
-            // var d = event.wheelDelta || -event.detail;
-            // this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
-            // e.preventDefault();
-});
-
-
-
-  // $('.popbtn').click(function(){
-  //   console.log("click");
-  //   var data = $(this).data('pop');
-  //   var $target = $(data);
-  //   TweenMax.to($target[0],.5,{scale:1,ease:Expo.easeInOut});
-  // })
 
     $('.closebtn').click(function(){
        TweenMax.to('.closebtn', 0, {autoAlpha:0});
     TweenMax.to($('.item-pop.active'),.5,{scale:0, ease:Expo.easeInOut});
+     TweenMax.to('#viewport', 0, {className:'-=noscroll'});
+     scrollToInterview();
   })
 
-    // var toolbox = $('.item-pop');
-//     height = toolbox.height(),
-//     scrollHeight = toolbox.get(0).scrollHeight;
+  function scrollToInterview () {
+    var $id = $('#interview');
+    var newpos;
 
-// toolbox.off("mousewheel").on("mousewheel", function (event) {
-//   var blockScrolling = this.scrollTop === scrollHeight - height && event.deltaY < 0 || this.scrollTop === 0 && event.deltaY > 0;
-//   return !blockScrolling;
-// });
+    if ($id.length > 0) {
+      newpos = $id.offset().top - $('#roof').outerHeight(); // header가 내용을 가리지 않게 위치 조정
 
-// $.fn.scrollGuard = function() {
-//     return this
-//         .on('mousewheel', function (e) {
-//             var event = e.originalEvent;
-//             var d = event.wheelDelta || -event.detail;
-//             this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
-//             e.preventDefault();
-//             console.log("mouse");
-//           });
-// };    
+      $('html, body').stop().animate({scrollTop: newpos}, 500);
+
+      // if supported by the browser we can even update the URL.
+      // if (window.history && window.history.pushState) {
+      //   history.pushState('', document.title, id);
+      // }
+    }
+}
+
 });

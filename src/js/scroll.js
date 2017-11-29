@@ -98,26 +98,6 @@ var controller = new ScrollMagic.Controller();
 
     })
     .addTo(controller);
-
-// var iconTween = new TimelineMax({paused:true});
-// iconTween.from('.stroke', 1, {stroke:'1px', transformOrigin:"50% 50%"});
-//  new ScrollMagic.Scene(
-//     {
-//       triggerElement: $('.icon')[0]
-//     })
-//      .on('enter leave', function(event){  
-//       if (event.type === 'enter') {
-//         iconTween.play();
-//         } else {
-//         iconTween.pause();
-//       }
-
-//     })
-//     .addTo(controller);
-
-
-
-
   
 // Section Nav 링크 스크롤링
 function scrollToSection () {
@@ -268,53 +248,12 @@ function playTween(index){
     .addTo(controller);
     // console.log($slide.height());
 
-  // nav
-  // $(label).find('.nav a').on('click', function(e){
-  //   e.preventDefault();
 
-  //   var $this = $(this);
-  //   var forward = $this.hasClass('next');
-  //   var index = $slide.filter('.active').index();
-  //   var height = $interview.parent('.scrollmagic-pin-spacer').outerHeight();
-  //   var progress = [.03, .28, .56, .85]; // 슬라이더 나타나는 트윈이 일정하지 않아서 수동으로 작업
-  //   var newpos;
-
-  //   index = forward ? index + 1 : index - 1;
-  //   if (0 <= index && index < length) {
-  //     newpos = $interview.parent('.scrollmagic-pin-spacer').offset().top - $('#roof').outerHeight() + (height * progress[index]); // header가 내용을 가리지 않게 위치 조정
-  //     $('html, body').stop().animate({scrollTop: newpos}, 500);
-  //   }
-  // });
 }
-    // var $is = $('.interview-slider').find('.owl-item');
-
-    //  $is.each(function(index, elem) {
-    //   console.log(index);
-    //         new ScrollMagic.Scene({
-    //           triggerElement: elem,
-    //           duration:$('interview-slider').height() / 3,
-    //           offset:$('interview-slider').height() / 3 * index
-    //       })
-    //       .addTo(controller)
-    //       .addIndicators({name: "period marker"});
-    //   });
 
 interviewTween();
 // background parallax scrolling
-
-new ScrollMagic.Scene(
-    {
-      triggerElement: ".parallax",
-      triggerHook: "onEnter", 
-      duration: "200%"
-    })
-    .setTween(".parallax > .bg_parallax", {y: "80%", ease: Linear.easeNone})
-    // .addIndicators()
-    .addTo(controller);
-//
-// origin
-//
-
+    
 
 var pinBouceTween = TweenMax.to('.map_point .pin', .5, {scale:1.2, yoyo:true, repeat:-1});
 new ScrollMagic.Scene(
@@ -324,15 +263,17 @@ new ScrollMagic.Scene(
     })
     // .addIndicators()
   .on('enter', function(){
-      $('.map_point .pin').each(function(i){
-        var $this = $(this);
-        var tl = new TimelineMax({delay:1});
-        tl.fromTo($this.next('.desc'), .2,{autoAlpha:0}, {zIndex: 50,autoAlpha:1, top:-120, height:90, left:-142.5},i*1)
+       $('.map_point .pin').each(function(i){
+        var $this = $('.map_point .desc');
+        var tl = new TimelineMax({delay:1, repeatDelay:6,repeat:-1});
+        // for(var j=0;$this.length;j++){
+        tl.fromTo($this.eq(i), .2,{autoAlpha:0}, {zIndex: 50,autoAlpha:1, top:-120, height:90, left:-142.5,ease:Circ.easeIn},i*1)
             // .to(pinSelf.next('.desc').find('.numText'), .2, {autoAlpha:1})
             // .to(pinSelf.next('.desc').find('.text'), .2, {autoAlpha:1})
-         .fromTo($this.next('.desc').find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-64, onComplete:function(){
-          TweenMax.to($this.next('.desc'), .2, {autoAlpha:0,delay:2});
+         .fromTo($this.eq(i).find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-64, onComplete:function(){
+          TweenMax.to($this.eq(i), .2, {autoAlpha:0,delay:2});
         }}, i*1.1);
+       // }
       })
     })
     .reverse(false)

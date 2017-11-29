@@ -56,6 +56,7 @@
           position: relative;
           width: 80vw;
           height: calc(80vw * 304 / 633);
+          margin:0 auto;
           svg {
             position: absolute;
             width:60vw;
@@ -140,10 +141,7 @@
 			padding:0;
 		.heading-1 {
 					.co2 {
-						font-size: rem(26px);
-	    			b {
-	    				font-size: rem(15px);
-	    			}
+						font-size: rem(15px);
 	    		}
 		}
 	}
