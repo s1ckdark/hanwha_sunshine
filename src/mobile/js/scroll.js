@@ -286,12 +286,11 @@ function drawSpaceIcon(){
 
 function frameAnime(target, duration, frame){
   var anim = {frame:1}, $target = $(target), videoName = $('.hero-intro')[0];
-  console.log(videoName);
-  console.log(target);
   var videoTween = TweenMax.to(anim, duration , {repeat:-1,frame:"+="+frame, roundProps:"frame", onUpdate:updateHandler });
   function updateHandler() {
-    var af= '0'+anim.frame;
-  $target.css({"background-image":"./img/video/img"+af+".jpg","background-position":"50% 50%"}); 
+    var af= ("00"+anim.frame).slice(-3);
+    console.log(af);
+  $target.css({"background-image":"url('./img/video/img"+af+".jpg')"}); 
   }
   var  videoArea = {}
   // return cached value
@@ -319,4 +318,4 @@ function frameAnime(target, duration, frame){
     .setTween(videoTween)
     .addTo(controller);
 }
-    frameAnime('#hero_loop', 15,30);
+    frameAnime('.hero-intro', 15,30);

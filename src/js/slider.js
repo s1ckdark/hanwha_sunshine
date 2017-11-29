@@ -26,7 +26,8 @@ interviewSlider.owlCarousel({
     nav: false,
     dots: false,
     items:1,
-    autoplay: true,
+    rewind:false,
+    // autoplay: true,
     autoplaySpeed:300,
     startPosition:0,
     onInitialized  : counter, //When the plugin has initialized.
@@ -42,7 +43,6 @@ function counter(event) {
   $('.counter .activeNum').html(item);
   $('.counter .totalNum').html(items);
 }
-
 
   var $tweenSlider = $('.tweenSlider .owl-carousel').owlCarousel({
     loop: true,
