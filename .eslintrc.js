@@ -57,6 +57,7 @@ module.exports = {
     "textTween":true,
     "handle":true,
     "Back":true,
-    "Quad":true
+    "Quad":true,
+    "counter":true
   }
 };

@@ -244,7 +244,7 @@ function playTween(index){
     //       } else if(current >= 95 && current < 100) {
     //           $('.active.slide').find('.interview-slider').trigger('to.owl.carousel', 2);
     //       } 
-    //   })
+      // })
     .addTo(controller);
     // console.log($slide.height());
 

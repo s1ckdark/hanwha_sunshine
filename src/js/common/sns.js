@@ -52,7 +52,7 @@ case 'kakaotalk' :
                     Kakao.Link && Kakao.Link.sendTalkLink({
                         label: "한화 해피 선샤인… 사랑 빛 쏟아지다",
                         image:{
-                            src: "http://innovationlab.co.kr/innovation/hanwha_sunshine/img/og-image.jpg",
+                            src: "http://innovationlab.co.kr/project/hanwha_sunshine/img/og-image1.jpg",
                             width:1280, height:670
                         },
                         webButton: {
