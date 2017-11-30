@@ -12,11 +12,13 @@
 		padding:rem(20px) 0 rem(30px);
 		// background: url('../img/origin/bg-origin.jpg') no-repeat 50% 50%/cover;
 		.tween-slider {
+			width:90vw;
 			.item {
 				width:90vw;
 				height:calc(90vw * 415 / 575);
 				background-size:cover;
 				background-position: 50% 50%;
+				background-repeat:no-repeat;
 				&.img1 {
 					border-radius: 10px;
 					background-image:url('../img/origin/tweenImg-1.jpg');
@@ -56,7 +58,6 @@
 	.energy {
 		overflow: hidden;
 	  	position: relative;
-		@extend %full-screen;
 		.color-slider-section {
 			position: relative;
 		}
@@ -208,7 +209,7 @@
 								font-weight:700;
 							}
 						}
-						.text {
+						.p-text {
 							font-size: rem(12px);
 							font-weight: 300;
 						}

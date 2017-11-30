@@ -23,7 +23,7 @@ var controller = new ScrollMagic.Controller();
     'controls':true,
     'controlsList':'nodownload',
     'preload':'auto',
-    'loop':false,
+    'loop':true,
     'poster': ''
   });
 

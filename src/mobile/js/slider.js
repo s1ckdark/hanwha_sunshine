@@ -68,7 +68,6 @@ $(function(){
     dots:true,
     lazyLoad: true,
     items:1,
-    autoplay:true,
-      margin: 20
+    autoplay:true
     });  
 });
