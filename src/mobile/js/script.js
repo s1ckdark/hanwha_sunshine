@@ -40,5 +40,13 @@ $(function(){
       // }
     }
 }
+// var roofH = $('#roof').height();
+// var sliderH = $('.color-slider .item .wrapper').height();
+// var windowH = $(window).height(); 
+// var fullH = windowH - roofH;
+// var sh = - (sliderH / 2);
+
+// $('.color-slider .item').css({'height':fullH});
+// $('.color-slider .item .wrapper').css({'margin-top':sh});
 
 });

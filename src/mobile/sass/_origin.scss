@@ -81,7 +81,11 @@
 						}
 					}
 				.item {
+					position:relative;
+					min-height:500px;
 					.wrapper {
+						// position: absolute;
+						// top:50%;
 						.p-heading-1 {
 							padding:rem(10px) 0 rem(0px);
 							font-size:rem(20px);
@@ -208,7 +212,7 @@
 					.desc {
 						font-size: rem(15px);
 						text-align: center;
-						height:180px;
+						height:160px;
 						.sub-title {
 							font-size: rem(16px);
 							padding: rem(20px) 0 0;
