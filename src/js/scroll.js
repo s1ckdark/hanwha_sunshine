@@ -73,7 +73,7 @@ var controller = new ScrollMagic.Controller();
 
 //twinkle arrow, hero tween on hero
   var arrowTween = new TimelineMax({paused:true});
-  arrowTween.staggerTo($twinklebtn, 1, {opacity:0.3,ease:SteppedEase.config(1),y:'+20',repeat:-1,delay:-1},0.5);
+  arrowTween.staggerTo($twinklebtn, 1, {opacity:0.3,ease:SteppedEase.config(1),y:'+10',repeat:-1,delay:-1},0.5);
 
   var $hero = $('.hero-indicator span').children();
   var heroAni = new TimelineMax({paused:true, repeat:-1,repeatDelay:5});
@@ -255,51 +255,23 @@ interviewTween();
 // background parallax scrolling
     
 
-var pinBouceTween = TweenMax.to('.map_point .pin', .5, {scale:1.2, yoyo:true, repeat:-1});
+var pinBouceTween = TweenMax.to('.map_point .pin', .5, {scale:1.2, yoyo:true, repeat:-1,zIndex:11});
+  var mapTween = new TimelineMax({repeat:-1,repeatDelay:1});
+    $('.map_point .desc').each(function(i){
+      var $this = $(this);
+      mapTween.add(TweenMax.to($this, .5, {zIndex: 11,autoAlpha:1, top:-120}));
+      mapTween.add(TweenMax.to($this, .2, {autoAlpha:0,delay:1}));
+    })
+
+
 new ScrollMagic.Scene(
     {
       triggerElement: '.forestLocation',
       triggerHook: .5,
     })
-    // .addIndicators()
-  .on('enter', function(){
-       $('.map_point .pin').each(function(i){
-        var $this = $('.map_point .desc');
-        var tl = new TimelineMax({delay:1, repeatDelay:6,repeat:-1});
-        // for(var j=0;$this.length;j++){
-        tl.fromTo($this.eq(i), .2,{autoAlpha:0}, {zIndex: 50,autoAlpha:1, top:-120, height:90, left:-142.5,ease:Circ.easeIn},i*1)
-            // .to(pinSelf.next('.desc').find('.numText'), .2, {autoAlpha:1})
-            // .to(pinSelf.next('.desc').find('.text'), .2, {autoAlpha:1})
-         .fromTo($this.eq(i).find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-64, onComplete:function(){
-          TweenMax.to($this.eq(i), .2, {autoAlpha:0,delay:2});
-        }}, i*1.1);
-       // }
-      })
-    })
     .reverse(false)
-    // .setTween(pinBouceTween)
+    .setTween(mapTween)
     .addTo(controller);
-
-   $('.map_point .pin').each(function(index, element){
-
-        var pinSelf = $(this);
-
-        var pinDescTimeline = new TimelineMax({paused:true})
-            .to(pinSelf,.1, {scale:2})
-            .to(pinSelf.next('.desc'), .6, {zIndex: 50,autoAlpha:1, top:-120, height:90, left:-142.5})
-            // .to(pinSelf.next('.desc').find('.numText'), .2, {autoAlpha:1})
-            // .to(pinSelf.next('.desc').find('.text'), .2, {autoAlpha:1})
-            .to(pinSelf.next('.desc').find('.tree'), .2, {autoAlpha:1,top:-64});
-
-        pinSelf.hover(
-            function() {
-                pinDescTimeline.restart();
-            },
-            function() {
-                pinDescTimeline.reverse(0.2);
-            }
-        );
-    });
 
 TweenMax.set(['.chart-inner #pie','.chart-inner #textDesc'],{opacity:0,y:-10});
 TweenMax.set('.mix-chart', {xPercent:-65,opacity:0});

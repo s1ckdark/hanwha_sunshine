@@ -23,7 +23,11 @@
 	    z-index:5;
 	    float:left;
 	    .wrapper {
-	    	margin:rem(50px) auto;
+	    	position:absolute;
+	    	top:50%;
+	    	left:50%;
+	      	margin:rem(-330px) 0 0 rem(-580px);
+	    	height:rem(660px);
 	    	.counter {
 				@extend %eng;
 	    		width: rem(400px);

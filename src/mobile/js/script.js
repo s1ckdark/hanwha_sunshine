@@ -12,7 +12,7 @@ $(function(){
     console.log("click");
     var $this = $(this), popdata = $this.data('pop'), $pd = $(popdata);
     TweenMax.to('.closebtn', 0, {autoAlpha:1});
-    TweenMax.to($pd,.5,{scale:1,ease:Expo.easeInOut,className:'+=active',onComplete:function(){
+    TweenMax.to($pd,.5,{scale:1,ease:Expo.easeInOut,display:'block',className:'+=active',onComplete:function(){
          TweenMax.to('#viewport', 0, {className:'+=noscroll'});
 }});
     })

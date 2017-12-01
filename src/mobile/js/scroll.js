@@ -195,26 +195,20 @@ tweenText('.heading-2','.5');
 
 
 var pinBouceTween = TweenMax.to('.map_point .pin', .5, {scale:1.2, yoyo:true, repeat:-1,zIndex:11});
+  var mapTween = new TimelineMax({repeat:-1,repeatDelay:1});
+    $('.map_point .desc').each(function(i){
+      var $this = $(this);
+      mapTween.add(TweenMax.to($this, .5, {zIndex: 11,autoAlpha:1, top:-80}));
+      mapTween.add(TweenMax.to($this, .2, {autoAlpha:0,delay:1}));
+    })
+
 new ScrollMagic.Scene(
     {
       triggerElement: '.forestLocation',
       triggerHook: .5,
     })
-    // .addIndicators()
-    .on('enter', function(){
-      $('.map_point .desc').each(function(i){
-        var $this = $(this);
-        var tl = new TimelineMax({delay:1});
-        tl.to($this, .2, {zIndex: 11,autoAlpha:1, top:-80},i*1)
-         .fromTo($this.find('.tree'), .2,{autoAlpha:0}, {autoAlpha:1,top:-50,scale:.6}, i*1.1);
-
-         $this.click(function(){
-          TweenMax.fromTo($this, .2, {zIndex: '10'},{zIndex: '+=6'});
-         })
-      })
-    })
     .reverse(false)
-    // .setTween(pinBouceTween)
+    .setTween(mapTween)
     .addTo(controller);
 
 TweenMax.set(['.chart-inner #pie','.chart-inner #textDesc'],{opacity:0,y:-10});
@@ -288,9 +282,9 @@ function frameAnime(target, duration, frame){
   var anim = {frame:1}, $target = $(target), videoName = $('.hero-intro')[0];
   var videoTween = TweenMax.to(anim, duration , {repeat:-1,frame:"+="+frame, roundProps:"frame", onUpdate:updateHandler });
   function updateHandler() {
-    var af= ("00"+anim.frame).slice(-3);
-    console.log(af);
-  $target.css({"background-image":"url('./img/video/img"+af+".jpg')"}); 
+    // var af= ("00"+anim.frame).slice(-3);
+    var af= anim.frame;
+  $target.css({"background-image":"url('./img/video/img"+af+".png')"}); 
   }
   var  videoArea = {}
   // return cached value
@@ -318,4 +312,4 @@ function frameAnime(target, duration, frame){
     .setTween(videoTween)
     .addTo(controller);
 }
-    frameAnime('.hero-intro', 2,30);
+    // frameAnime('.hero-intro', 5,151);

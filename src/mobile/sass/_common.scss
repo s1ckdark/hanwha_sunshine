@@ -155,4 +155,11 @@ address{font-style:normal}
 }
 .copyright p {
   letter-spacing: 0;
+    .bold {
+    font-weight:600;
+  }
+  .p-text {
+     font-weight:400;
+  letter-spacing:1px;
+  }
 }

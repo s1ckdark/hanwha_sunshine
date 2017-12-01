@@ -68,14 +68,17 @@
           display: block;
           width: 12px;
           height: 8px;
-          margin: rem(10px) auto;
-          background: url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAQAAABn7dZ6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhCwsRBim4ESI6AAAATElEQVQI103LQRHAMAgF0Z/BTBSESsZK3eBge2CggRP7BiE2hq41NhIPSVxkBIkLJ2HICCA54qbJqN6bKjtqaJr8Q9FktNDM0dLbxwdjBXEgc8MxSAAAAABJRU5ErkJggg==') 50% 50% no-repeat;
+          margin: rem(15px) auto 0;
+          background: url('data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAQAAABn7dZ6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhDAELBClGC1pqAAAATElEQVQI103LQRHAMAgF0Z/BTBSESsZK3eBge2CggRP7BiE2hq41NhIPSVxkBIkLJ2HICCA54qbJqN6bKjtqaJr8Q9FktNDM0dLbxwdjBXEgc8MxSAAAAABJRU5ErkJggg==') no-repeat 50% 50%/contain;
         }
       }
     }
     .hero-sub {
       padding: rem(130px) 0 rem(70px);
       background-color: $orange;
+      .vertical-bar {
+        text-align:center;
+      }
       .text-intro {
         font-weight: 400;
         font-size: rem(18px);

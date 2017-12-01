@@ -81,17 +81,25 @@
 						}
 					}
 				.item {
+					.wrapper {
+						.p-heading-1 {
+							padding:rem(10px) 0 rem(0px);
+							font-size:rem(20px);
+							text-align:center;
+							letter-spacing:-1px;
+							line-height:rem(28px);
+						}
+					}
 					.sunshine {
 						position:absolute;
-						right:30vw;
-						top:0;
-						svg {
-							width:20vw;
-						}
+						right:15vw;
+						top:10vh;
+						background:url('data:img/png;base64,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') no-repeat 50% 50%/contain;
+						width:20vw;
+						height:20vw;
 					}
 					// opacity:0;
 					z-index:5;
-					@extend %full-screen;
 					svg {
 						position: absolute;
 					}
@@ -200,6 +208,7 @@
 					.desc {
 						font-size: rem(15px);
 						text-align: center;
+						height:180px;
 						.sub-title {
 							font-size: rem(16px);
 							padding: rem(20px) 0 0;
@@ -217,9 +226,7 @@
 				}
 			}
 					.fixed-text {
-						position:absolute;
-						bottom:rem(40px);
-						left:0;right:0;
+						padding:rem(10px) 0 0;
 						text-align: center;
 						color: $text-color-white;
 						z-index:10;
