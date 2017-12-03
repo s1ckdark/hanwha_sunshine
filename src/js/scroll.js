@@ -174,7 +174,7 @@ function interviewTween(e) {
   var label;
   var tweens = [];
   var tween;
-
+  var $interviewSlider = $('.interview-slider');
   for (var j = 0; j < length; j++) {
     tween = new SplitText($slide.eq(j).find('.heading'));
     tween = new TimelineMax({paused: true}).staggerFrom(tween.chars, .2, {opacity: 0, y: 10}, .1);
@@ -191,6 +191,7 @@ function playTween(index){
     if (i > 0) {// 두번째 슬라이드부터 이동하기
       timeline.to({}, 1, {}); // delay
       timeline.to($slide.eq(i), 1, {zIndex:10, delay: 0, ease: Linear.easeNone});
+          $(label).find('.interview-slider').trigger('to.owl.carousel', 0); 
     }
     label = '.interview' + (i+1); // ex) slide1
     // timeline.add(label);
@@ -200,6 +201,7 @@ function playTween(index){
       timeline.to($slide.eq(i-1), 0, {className: '-=active'}, label); 
       timeline.to($label.eq(i-1), 0, {className: '-=active'}, label); 
     }
+
     timeline.to($slide.eq(i), 0, {className: '+=active'}, label); // 현재 슬라이드 보이기
     timeline.to($label.eq(i), 0, {className: '+=active'}, label); // 현재 슬라이드 보이기
     if (i + 1 === length) {// 마지막 슬라이드

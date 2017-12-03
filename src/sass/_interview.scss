@@ -120,17 +120,12 @@
 		&.interview1 {
 			background-image: url('../img/interview/bg-interview-1.jpg');
 			.interview-slider {
-		    	.owl-item:nth-child(1) {
-		    		.item {
+		    		.item1 {
 			    		background: url('../img/interview/bg-interview-1-1.png') no-repeat 50% 50%/cover;
 			    	}	
-			    }
-		    	.owl-item:nth-child(2) {
-		    		.item {
+		    		.item2 {
 			    		background: url('../img/interview/bg-interview-1-2.png') no-repeat 50% 50%/cover;
 			    	}	
-			    }
-		    }
 		    .btn {
 		    	width:rem(320px);
 		    }
@@ -188,19 +183,16 @@
 		    	}
 		    }
 		}
+	}
 		&.interview2 {
 			background-image: url('../img/interview/bg-interview-2.jpg');
 			.interview-slider {
-		    	.owl-item:nth-child(1) {
-		    		.item {
+		    		.item1 {
 			    		background: url('../img/interview/bg-interview-2-1.png') no-repeat 50% 50%/cover;
 			    	}	
-			    }
-		    	.owl-item:nth-child(2) {
-		    		.item {
+		    		.item2 {
 			    		background: url('../img/interview/bg-interview-2-2.png') no-repeat 50% 50%/cover;
 			    	}	
-			    }
 			    .btn {
 			    	width:rem(200px);
 			    }
@@ -259,16 +251,12 @@
 		&.interview3 {
 			background-image: url('../img/interview/bg-interview-3.jpg');
 			.interview-slider {
-		    	.owl-item:nth-child(1) {
-		    		.item {
+		    		.item1 {
 			    		background: url('../img/interview/bg-interview-3-1.png') no-repeat 50% 50%/cover;
 			    	}	
-			    }
-		    	.owl-item:nth-child(2) {
-		    		.item {
+		    		.item2 {
 			    		background: url('../img/interview/bg-interview-3-2.png') no-repeat 50% 50%/cover;
 			    	}	
-		    	}
 			     .btn {
 			    	width:rem(350px);
 			    }
@@ -320,16 +308,12 @@
 		&.interview4 {
 			background-image: url('../img/interview/bg-interview-4.jpg');
 			.interview-slider {
-		    	.owl-item:nth-child(1) {
-		    		.item {
+		    		.item1 {
 			    		background: url('../img/interview/bg-interview-4-1.png') no-repeat 50% 50%/cover;
 		    		}
-		    	}	
-		    	.owl-item:nth-child(2) {
-		    		.item {
+		    		.item2 {
 			    		background: url('../img/interview/bg-interview-4-2.png') no-repeat 50% 50%/cover;
 		    		}
-		    	}
 		        .btn {
 			    	width:rem(250px);
 			    }

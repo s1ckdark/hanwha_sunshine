@@ -20,26 +20,31 @@ $(function(){
     autoplaySpeed:300
     });  
 
-var interviewSlider = $('.interview-slider');
-interviewSlider.owlCarousel({
-    loop:false,
+var $interviewSlider = $('.interview-slider');
+$interviewSlider.owlCarousel({
+    loop:true,
     nav: false,
     dots: false,
     items:1,
     rewind:false,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed:300,
     startPosition:0,
     onInitialized  : counter, //When the plugin has initialized.
     onTranslated : counter, //When the translation of the stage has finished.
     animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
+    animateIn: 'fadeIn'
 });
 
 function counter(event) {
    var element   = event.target;         
     var items     = event.item.count;     // Number of items
-    var item      = event.item.index + 1;     // Position of the current item
+    var item      = event.item.index;     // Position of the current item
+     var tempFix = item - (event.relatedTarget.clones().length / 2);
+
+        if(tempFix >= 0) {
+        item = tempFix + 1;
+    }
   $('.counter .activeNum').html(item);
   $('.counter .totalNum').html(items);
 }

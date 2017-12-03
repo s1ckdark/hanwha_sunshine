@@ -58,6 +58,7 @@ module.exports = {
     "handle":true,
     "Back":true,
     "Quad":true,
-    "counter":true
+    "counter":true,
+    "$interviewSlider":true
   }
 };
