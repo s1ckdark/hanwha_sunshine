@@ -4,119 +4,70 @@ $(function(){
 });
 
 //공유 PC, Mobile 공통사용
-function fnSendSns(sns, url, txt) {
-  var popup_url, width, height, param, a_store, g_store, a_proto, g_proto;
-  var _url = url || $('meta[property="og:url"]').attr('content'); //공유 URL
-  var _title = txt || $('title').text(); //공유 제목
-  var _description = $('meta[name="description"]').attr('content'); //공유 제목
-  var _img = $('meta[property="og:image"]').attr('content'); //공유 이미지
+function fnSendSns(sns, url, title, description, img) {
+  var param, a_store, g_store, a_proto, g_proto;
+
+  url         = url         || $('meta[property="og:url"]').attr('content');
+  title       = title       || $('head title').text();
+  description = description || $('meta[property="og:description"]').attr('content');
+  img         = img         || $('meta[property="og:image"]').attr('content');
 
   switch(sns) {
     case 'facebook':
-      popup_url = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(_url);
-      width = 555;
-      height = 608;
-      openPopup();
+      openPopup('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), 555, 608);
       break;
     case 'twitter':
-      popup_url = 'https://twitter.com/home?status=' + encodeURIComponent(_url);
-      width = 555;
-      height = 500;
-      openPopup();
+      openPopup('https://twitter.com/home?status=' + encodeURIComponent(url), 555, 500);
       break;
-    /* case 'kakaotalk':
+    case 'kakaotalk':
       Kakao.Link && Kakao.Link.sendTalkLink({
-        label: _title,
+        label: title,
         webLink: {
-          text: _description,
-          url: location.href
+          text: description,
+          url: url
         },
         image: {
-          src: _img,
-          width: 1280,
-          height: 670
+          src: img,
+          width: 1200,
+          height: 628
         },
         fail: function () {
           alert('지원하지 않는 플랫폼입니다.');
         }
-      }); */
-
-
-
-
-
-
-case 'kakaotalk' :
-                    o = {};
-
-                    Kakao.Link && Kakao.Link.sendTalkLink({
-                        label: "한화 해피 선샤인… 사랑 빛 쏟아지다",
-                        image:{
-                            src: "http://innovationlab.co.kr/project/hanwha_sunshine/img/og-image1.jpg",
-                            width:1280, height:670
-                        },
-                        webButton: {
-                            text: "바로가기",
-                            url: "http://innovationlab.co.kr/project/hanwha_sunshine/"
-                        },
-                        /*webLink: { text: _txt, url: _url},*/
-                        fail: function () {
-                            alert('지원하지 않는 플랫폼입니다.');
-                        }
-                    });
-
-
-
-
-
-
-
-
-
+      });
       break;
     case 'kakaostory':
-      Kakao.Story.share({ url: _url, text: _title });
+      Kakao.Story.share({ url: url, text: title });
       break;
     case 'band':
       if (isMobile) {
-        param = 'create/post?text=' + encodeURIComponent(_title) + encodeURIComponent('\r\n') + encodeURIComponent(_url);
+        param = 'create/post?text=' + encodeURIComponent(title) + encodeURIComponent('\r\n') + encodeURIComponent(url);
         a_store = 'itms-apps://itunes.apple.com/app/id542613198?mt=8';
-        g_store = 'market://details?id=com.nhn.android.band';
         a_proto = 'bandapp://';
+        g_store = 'market://details?id=com.nhn.android.band';
         g_proto = 'scheme=bandapp;package=com.nhn.android.band';
         openApp();
       } else {
-        popup_url = 'http://band.us/plugin/share?body=' + encodeURIComponent(_title) + '&route=' + encodeURIComponent(_url);
-        width = 410;
-        height = 540;
-        openPopup();
+        openPopup('http://band.us/plugin/share?body=' + encodeURIComponent(title) + '&route=' + encodeURIComponent(url), 410, 540);
       }
       break;
     case 'naverblog':
-      popup_url = 'http://share.naver.com/web/shareView.nhn?url=' + encodeURIComponent(_url) + '&title=' + encodeURIComponent(_title);
-      width = 557;
-      height = 558;
-      openPopup();
+      openPopup('http://share.naver.com/web/shareView.nhn?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), 557, 558);
       break;
     case 'googleplus':
-      popup_url = 'https://plus.google.com/share?url=' + encodeURIComponent(_url);
-      width = 600;
-      height = 600;
-      openPopup();
+      // url = url.replace('innovationlab.co.kr', 'ilab.joins.com'); // 구글플러스에서 innovationlab.co.kr 링크는 잘못된 링크로 인식함.
+      openPopup('https://plus.google.com/share?url=' + encodeURIComponent(url), 600, 600);
       break;
     case 'pinterest':
-      popup_url = 'https://www.pinterest.com/pin/create/button/?url=' + encodeURIComponent(_url) + '&media=' + encodeURIComponent(_img) + '&description=' + encodeURIComponent(_title);
-      width = 750;
-      height = 650;
-      openPopup();
+      openPopup('https://www.pinterest.com/pin/create/button/?url=' + encodeURIComponent(url) + '&media=' + encodeURIComponent(img) + '&description=' + encodeURIComponent(title), 750, 650);
       break;
     default:
       alert('지원하지 않는 SNS입니다.');
       return false;
   }
 
-  function openPopup() {
-    window.open(popup_url, sns + '_sns', 'width=' + width + ',height=' + height + ',menubar=no,toolbar=no,resizable=no');
+  function openPopup(popupUrl, width, height) {
+    window.open(popupUrl, sns + '_sns', 'width=' + width + ',height=' + height + ',menubar=no,toolbar=no,resizable=no');
   }
 
   function openApp() {

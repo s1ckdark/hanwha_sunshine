@@ -21,7 +21,7 @@ $(function(){
     });  
 
 var $interviewSlider = $('.interview-slider');
-$interviewSlider.owlCarousel({
+$interviewSlider.owlCarousel({          
     loop:true,
     nav: false,
     dots: false,
@@ -45,6 +45,7 @@ function counter(event) {
         if(tempFix >= 0) {
         item = tempFix + 1;
     }
+         
   $('.counter .activeNum').html(item);
   $('.counter .totalNum').html(items);
 }

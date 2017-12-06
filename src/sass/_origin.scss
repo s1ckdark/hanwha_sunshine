@@ -104,6 +104,12 @@
           &.bg-blue {
             background: #2a6388;
           }
+          .wrapper {
+            position:absolute;
+            top:50%;
+            margin:rem(-350px) 0 0 rem(-540px);
+            left:50%;
+          }
         }
 
         .sub-header {
@@ -320,8 +326,11 @@
           z-index: 11;
         }
         .indicator {
-          position: relative;
-          margin: rem(160px) 0 0;
+          height:200px;
+          position: absolute;
+          top:50%;
+          left:50%;
+          margin: rem(250px) 0 0 rem(-540px);
           text-align: center;
         }
       }

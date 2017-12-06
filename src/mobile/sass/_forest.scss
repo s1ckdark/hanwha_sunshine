@@ -200,11 +200,13 @@
 		background-color: rgb(255,255,255);
 		z-index:31;
 		background: url('../img/forest/bg-forest_result.jpg') 50% 50%/cover;
+		.heading-1 {
+			padding:rem(30px) 0 rem(15px);
+		}
 		.text {
 			font-size: rem(14px);
 			line-height: rem(23px);
 			&.bold {
-				padding-top: rem(40px);
 				font-size: rem(17.5px);
 				line-height: rem(25px);
 			}

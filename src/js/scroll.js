@@ -155,7 +155,7 @@ function tweenText(e, hook){
 }
 
 upTween('p.text','.6');
-upTween('p.text-intro','.6');
+// upTween('p.text-intro','.6');
 tweenText('.heading-1','.6');
 tweenText('.heading-2','.6');
 tweenText('.heading','.6');
@@ -248,7 +248,6 @@ function playTween(index){
     //       } 
       // })
     .addTo(controller);
-    // console.log($slide.height());
 
 
 }
@@ -256,6 +255,16 @@ function playTween(index){
 interviewTween();
 // background parallax scrolling
     
+
+    new ScrollMagic.Scene(
+{  
+  triggerElement: ".hero-sub",          
+  triggerHook: "onEnter",            
+  duration: "200%"           
+})   
+.setTween(".hero-intro", {y: "80%",zIndex:-1,ease: Linear.easeNone})    
+   
+.addTo(controller);  
 
 var pinBouceTween = TweenMax.to('.map_point .pin', .5, {scale:1.2, yoyo:true, repeat:-1,zIndex:11});
   var mapTween = new TimelineMax({repeat:-1,repeatDelay:1});
